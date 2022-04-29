@@ -10,15 +10,20 @@ namespace UnikPedel.Domain.Entities
     public class Lejemål
     {
         [Key]
-        public int Id { get; set; }
-        [Required]
+        public Guid Id { get; set; }
+        public  string VejNavn {get;set;}
+        public  int   BygningsNummer {get; set;}
+        public string AndenAdresse {get;set;}
+        public string PostNummer {get;set;}
+        public string By {get;set;}
+        public  string Region {get;set;}
+        public int LandNummer {get;set;}
+        public  bool IsBookable {get;set;}
 
-        public string Navn { get; set; }
+
         public Ejendom Ejendom { get; set; }
-        public IEnumerable<EjendomsAnsvarlig> EjendomsAnsvarlig { get; set; }
 
-        public IEnumerable<Lejlighed> Lejligheder { get; set; }
-        public IEnumerable<Lejer> Lejer { get; set; }
+        public Lejer Lejer { get; set; }
 
         // public IEnumerable<Rekvisition> Rekvisitioner { get; set; }
 

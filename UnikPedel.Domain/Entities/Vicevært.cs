@@ -10,7 +10,7 @@ namespace UnikPedel.Domain.Entities
     public class Vicevært
     {
         [Key]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         [Required]
 
         public string Navn { get; set; }
@@ -18,7 +18,7 @@ namespace UnikPedel.Domain.Entities
         public int Telefon { get; set; }
         public string Email { get; set; }
 
-        public IEnumerable<EjendomsAnsvarlig> AfdelingAnsvarlig { get; set; }
+        public IEnumerable<EjendomsAnsvarlig> EjendomsAnsvarlig { get; set; }
         public IEnumerable<Rekvisition> Rekvisitioner { get; set; }
     }
 }

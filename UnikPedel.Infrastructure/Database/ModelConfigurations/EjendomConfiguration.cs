@@ -16,7 +16,9 @@ namespace UnikPedel.Infrastructure.Database.ModelConfigurations
             entity.HasKey(x => x.Id);
             entity.Property(b => b.Id).HasColumnName("Id");
 
-            entity.HasMany(a => a.Afdelinger).WithOne(b => b.Ejendom);
+            entity.HasMany(a => a.Lejemål).WithOne(b => b.Ejendom);
+            entity.HasMany(a => a.EjendomsAnsvarlig).WithOne(b => b.Ejendom);
+            enity.HasMany (a => a.Rekvisition).WithOne(b => b.Ejendom);
         }
     }
 }

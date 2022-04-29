@@ -10,13 +10,13 @@ namespace UnikPedel.Domain.Entities
     public class EjendomsAnsvarlig
     {
         [Key]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         [Required]
         
-        public int ViceværtId { get; set; }
+        public Guid ViceværtId { get; set; }
         public Vicevært Vicevært { get; set; }
 
-        public int AfdelingId { get; set; }
-        public Lejemål Afdeling { get; set; }
+        public Guid EjendomId { get; set; }
+        public Ejendom Ejendom { get; set; }
     }
 }

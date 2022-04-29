@@ -11,8 +11,17 @@ namespace UnikPedel.Domain.Entities
     {
         [Key]
         public int Id { get; set; }
-        [Required]
+        public  int VejNummer{get;set;}
+        public string BygningsNummer {get;set;}
+        public string PostNummer{get;set;}
+        public string By {get;set;}
+        public string Region {get;set;}
+        public int  LandNummer {get;set;}
+        
+        public IEnumerable<Lejemål> Lejemål { get; set; }
+        public IEnumerable<EjendomsAnsvarlig> EjendomsAnsvarlig { get; set; }
+        public IEnumerable<Booking> Bookings { get; set; }
 
-        public IEnumerable<Lejemål> Afdelinger { get; set; }
+    
     }
 }

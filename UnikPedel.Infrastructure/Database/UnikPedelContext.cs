@@ -15,14 +15,14 @@ namespace UnikPedel.Infrastructure.Database
         {
         }
 
-        public DbSet<Domain.Entities.Lejemål> afdelinger { get; set; }
-        public DbSet<Domain.Entities.EjendomsAnsvarlig> afdelingAnsvarlig { get; set; }
-        public DbSet<Domain.Entities.Lejer> beboer { get; set; }
-        public DbSet<Domain.Entities.Booking> booking { get; set; }
-        public DbSet<Domain.Entities.Ejendom> ejendom { get; set; }
-        public DbSet<Domain.Entities.Lejlighed> lejlighed { get; set; }
-        public DbSet<Domain.Entities.Rekvisition> rekvisition { get; set; }
-        public DbSet<Domain.Entities.Vicevært> vicevært { get; set; }
+        public DbSet<Domain.Entities.Lejemål> Lejemål { get; set; }
+        public DbSet<Domain.Entities.EjendomsAnsvarlig> EjendomsAnsvarlig { get; set; }
+        public DbSet<Domain.Entities.Lejer> Lejer { get; set; }
+        public DbSet<Domain.Entities.Booking> Booking { get; set; }
+        public DbSet<Domain.Entities.Ejendom> Ejendom { get; set; }
+       
+        public DbSet<Domain.Entities.Rekvisition> Rekvisition { get; set; }
+        public DbSet<Domain.Entities.Vicevært> Vicevært { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

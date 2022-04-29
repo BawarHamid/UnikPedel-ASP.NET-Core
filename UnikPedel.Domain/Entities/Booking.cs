@@ -10,14 +10,15 @@ namespace UnikPedel.Domain.Entities
     public class Booking
     {
         [Key]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         [Required]
-
         public DateTime StartTid { get; set; }
         public DateTime SlutTid { get; set; }
-        //public double Pris { get; set; }
-        public Lejer Beboer { get; set; }
-        public Lejlighed GæsteLejlighed { get; set; }
+
+       
+        public Lejer Lejer { get; set; }
+        public Ejendom Ejendom {get;set;}
+        public Vicevært Vicevært {get;set;}
 
         [Timestamp]
         public byte[] Version { get; set; }

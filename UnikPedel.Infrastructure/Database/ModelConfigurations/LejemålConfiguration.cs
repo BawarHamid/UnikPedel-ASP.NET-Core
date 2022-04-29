@@ -8,21 +8,20 @@ using System.Threading.Tasks;
 
 namespace UnikPedel.Infrastructure.Database.ModelConfigurations
 {
-    public class AfdelingConfiguration : IEntityTypeConfiguration<Domain.Entities.Lejemål>
+    public class LejemålConfiguration : IEntityTypeConfiguration<Domain.Entities.Lejemål>
     {
         public void Configure(EntityTypeBuilder<Domain.Entities.Lejemål> entity)
         {
-            entity.ToTable("Afdeling");
+            entity.ToTable("Lejemål");
             entity.HasKey(b => b.Id);
             entity.Property(b => b.Id).HasColumnName("Id");
 
-            entity.Property(a => a.Navn)
-            .HasColumnName("Navn")
+            entity.Property(a => a.VejNavn)
+            .HasColumnName("VejNavn")
             .IsRequired();
 
-            entity.HasOne(e => e.Ejendom).WithMany(a => a.Afdelinger);
-            entity.HasMany(a => a.AfdelingAnsvarlig).WithOne(b => b.Afdeling);
-            entity.HasMany(c => c.Beboer).WithOne(d => d.Afdeling);
+            entity.HasOne(e => e.Ejendom).WithMany(a => a.Lejemål);
+            entity.HasOne(c => c.Lejer).WithOne(d => d.Lejemål);
         }
     }
 }

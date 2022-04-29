@@ -19,8 +19,8 @@ namespace UnikPedel.Infrastructure.Database.ModelConfigurations
             entity.Property(c => c.StartTid).HasColumnName("StartTid").IsRequired();
             entity.Property(b => b.SlutTid).HasColumnName("SlutTid").IsRequired();
 
-            entity.HasOne(a => a.Beboer).WithMany(d => d.Bookinger);
-            entity.HasOne(b => b.GæsteLejlighed).WithMany(d => d.Bookinger);
+            entity.HasOne(a => a.Lejer).WithMany(d => d.Bookings);
+            
         }
     }
 }

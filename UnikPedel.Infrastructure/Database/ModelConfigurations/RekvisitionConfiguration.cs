@@ -17,12 +17,13 @@ namespace UnikPedel.Infrastructure.Database.ModelConfigurations
             entity.Property(a => a.Id).HasColumnName("Id");
 
             entity.Property(a => a.Status).HasColumnName("Status").IsRequired();
-            entity.Property(a => a.Beskrivelse).HasColumnName("Tekst").IsRequired();
+            entity.Property(a => a.Beskrivelse).HasColumnName("Beskrivelse").IsRequired();
             entity.Property(a => a.Type).HasColumnName("Type").IsRequired();
             entity.Property(a => a.AntalTimer).HasColumnName("AntalTimer").IsRequired();
 
-            entity.HasOne(d => d.Beboer).WithMany(c => c.Rekvisitioner);
+            entity.HasOne(d => d.Lejer).WithMany(c => c.Rekvisitioner);
             entity.HasOne(d => d.Vicevært).WithMany(c => c.Rekvisitioner);
+            entity.HasOne(a => a.Ejendom).WithMany(c => c.Rekvisitioner);
         }
     }
 }

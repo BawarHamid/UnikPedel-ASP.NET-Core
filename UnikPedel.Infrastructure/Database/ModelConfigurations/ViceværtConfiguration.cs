@@ -20,7 +20,7 @@ namespace UnikPedel.Infrastructure.Database.ModelConfigurations
             entity.Property(a => a.EfterNavn).HasColumnName("efterNavn").IsRequired();
             entity.Property(a => a.Email).HasColumnName("Email").IsRequired();
 
-            entity.HasMany(c => c.AfdelingAnsvarlig).WithOne(d => d.Vicevært);
+            entity.HasMany(c => c.EjendomsAnsvarlig).WithOne(d => d.Vicevært);
             entity.HasMany(c => c.Rekvisitioner).WithOne(d => d.Vicevært);
         }
     }
