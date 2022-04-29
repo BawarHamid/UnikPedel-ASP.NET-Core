@@ -1,0 +1,81 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BusinessLogic", "BusinessLogic", "{AD975520-F52C-4C29-9BC6-EF7E7E40BA07}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiInterface", "ApiInterface", "{A033427A-C17A-4680-8138-0AEDE5B70F09}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UserInterface", "UserInterface", "{0F73C939-440F-4D9D-AD63-8754E27BE9E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnikPedel.ApiInterface", "UnikPedel.ApiInterface\UnikPedel.ApiInterface.csproj", "{0B36EC00-3251-4F99-B431-45DE18982AAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnikPedel.Domain", "UnikPedel.Domain\UnikPedel.Domain.csproj", "{F335E514-9636-4B86-9227-220E41C0F0E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnikPedel.Application", "UnikPedel.Application\UnikPedel.Application.csproj", "{D614B82F-9526-4FB2-A05D-5F14F8128A36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnikPedel.Infrastructure", "UnikPedel.Infrastructure\UnikPedel.Infrastructure.csproj", "{866FBAAF-CCC5-4893-B431-9099AE795317}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnikPedel.Web", "UnikPedel.Web\UnikPedel.Web.csproj", "{C8E55E83-E817-464E-A730-2F0D9EB049C3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{B5A9E3E4-6287-46F8-AB45-6C1A3CCFB9DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnikPedel.Domain.Test", "UnikPedel.Domain.Test\UnikPedel.Domain.Test.csproj", "{A427A6C0-005A-403D-997F-9B2AFB4EB715}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SharedContract", "SharedContract", "{E44E62A0-13C9-4C27-A529-0A544B822744}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnikPedel.Contract", "UnikPedel.Contract\UnikPedel.Contract.csproj", "{6BEFABA0-905A-45EF-8BD8-B2EC161B25D0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0B36EC00-3251-4F99-B431-45DE18982AAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B36EC00-3251-4F99-B431-45DE18982AAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B36EC00-3251-4F99-B431-45DE18982AAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B36EC00-3251-4F99-B431-45DE18982AAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F335E514-9636-4B86-9227-220E41C0F0E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F335E514-9636-4B86-9227-220E41C0F0E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F335E514-9636-4B86-9227-220E41C0F0E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F335E514-9636-4B86-9227-220E41C0F0E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D614B82F-9526-4FB2-A05D-5F14F8128A36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D614B82F-9526-4FB2-A05D-5F14F8128A36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D614B82F-9526-4FB2-A05D-5F14F8128A36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D614B82F-9526-4FB2-A05D-5F14F8128A36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{866FBAAF-CCC5-4893-B431-9099AE795317}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{866FBAAF-CCC5-4893-B431-9099AE795317}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{866FBAAF-CCC5-4893-B431-9099AE795317}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{866FBAAF-CCC5-4893-B431-9099AE795317}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8E55E83-E817-464E-A730-2F0D9EB049C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8E55E83-E817-464E-A730-2F0D9EB049C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8E55E83-E817-464E-A730-2F0D9EB049C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8E55E83-E817-464E-A730-2F0D9EB049C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A427A6C0-005A-403D-997F-9B2AFB4EB715}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A427A6C0-005A-403D-997F-9B2AFB4EB715}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A427A6C0-005A-403D-997F-9B2AFB4EB715}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A427A6C0-005A-403D-997F-9B2AFB4EB715}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BEFABA0-905A-45EF-8BD8-B2EC161B25D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BEFABA0-905A-45EF-8BD8-B2EC161B25D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BEFABA0-905A-45EF-8BD8-B2EC161B25D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BEFABA0-905A-45EF-8BD8-B2EC161B25D0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0B36EC00-3251-4F99-B431-45DE18982AAE} = {A033427A-C17A-4680-8138-0AEDE5B70F09}
+		{F335E514-9636-4B86-9227-220E41C0F0E5} = {AD975520-F52C-4C29-9BC6-EF7E7E40BA07}
+		{D614B82F-9526-4FB2-A05D-5F14F8128A36} = {AD975520-F52C-4C29-9BC6-EF7E7E40BA07}
+		{866FBAAF-CCC5-4893-B431-9099AE795317} = {AD975520-F52C-4C29-9BC6-EF7E7E40BA07}
+		{C8E55E83-E817-464E-A730-2F0D9EB049C3} = {0F73C939-440F-4D9D-AD63-8754E27BE9E8}
+		{B5A9E3E4-6287-46F8-AB45-6C1A3CCFB9DA} = {AD975520-F52C-4C29-9BC6-EF7E7E40BA07}
+		{A427A6C0-005A-403D-997F-9B2AFB4EB715} = {B5A9E3E4-6287-46F8-AB45-6C1A3CCFB9DA}
+		{6BEFABA0-905A-45EF-8BD8-B2EC161B25D0} = {E44E62A0-13C9-4C27-A529-0A544B822744}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FF0746C7-79A4-4423-A0E9-EA28526B1E01}
+	EndGlobalSection
+EndGlobal
