@@ -17,23 +17,31 @@ namespace UnikPedel.Infrastructure.Database.ModelConfigurations
             entity.Property(b => b.LejemålId).HasColumnName("Id");
 
             entity.Property(a => a.ForNavn)
-            .HasColumnName("Navn")
+            .HasColumnName("ForNavn")
             .IsRequired();
+            entity.Property(a => a.MellemNavn)
+           .HasColumnName("MellemNavn")
+           .IsRequired();
             entity.Property(a => a.EfterNavn)
             .HasColumnName("EfterNavn")
             .IsRequired();
-
             entity.Property(a => a.Email)
             .HasColumnName("Email")
             .IsRequired();
-
             entity.Property(a => a.Telefon)
             .HasColumnName("Telefon")
             .IsRequired();
 
+            entity.Property(a => a.IndDato)
+           .HasColumnName("IndDato")
+           .IsRequired();
+            entity.Property(a => a.UdDato)
+           .HasColumnName("UdDato");
+
+            entity.HasOne(c => c.Lejemål).WithOne(d => d.Lejer);
+            //entity.WithMany(c => c.Lejemål).WithOne(d => d.Lejer);
             entity.HasMany(c => c.Rekvisitioner).WithOne(d => d.Lejer);
             entity.HasMany(c => c.Bookings).WithOne(d => d.Lejer);
-            entity.HasOne(c => c.Lejemål).WithOne(d => d.Lejer);
         }
     }
 }

@@ -18,13 +18,12 @@ namespace UnikPedel.Domain.Entities
         public string EfterNavn { get; set; }
         public string Email { get; set; }
         public int Telefon { get; set; }
-        public DateTime MoveInDate { get; init; }
-        public DateTime? MoveOutDate { get; init; }
+        public DateTime IndDato { get; init; }
+        public DateTime? UdDato { get; init; }
+
 
         public IEnumerable<Rekvisition> Rekvisitioner { get; set; }
-
         public IEnumerable<Booking> Bookings { get; set; }
-
         public Lejemål Lejemål { get; set; }
 
         [Timestamp]
