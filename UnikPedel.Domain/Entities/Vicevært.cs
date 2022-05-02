@@ -23,12 +23,12 @@ namespace UnikPedel.Domain.Entities
         public IEnumerable<Rekvisition> Rekvisitioner { get; set; }
         public IEnumerable<Ejendom> Ejemdom { get; set; }
 
-        //public Vicevært(string fornavn, string efternavn, int telefon, string email)
-        //{
-        //    ForNavn = fornavn;
-        //    EfterNavn = efternavn;
-        //    Telefon = telefon;
-        //    Email = email;
-        //}
+        public Vicevært(string fornavn, string efternavn, int telefon, string email)
+        {
+            ForNavn = fornavn;
+            EfterNavn = efternavn;
+            Telefon = telefon;
+            Email = email;
+        }
     }
 }
