@@ -15,14 +15,14 @@ namespace UnikPedel.Infrastructure.Database.ModelConfigurations
             entity.ToTable("EjendomsAnsvarlig");
             entity.HasKey(x => x.Id);
             entity.Property(b => b.Id).HasColumnName("Id");
-
-            entity.HasOne(a => a.Vicevært).WithMany(b => b.EjendomsAnsvarlig).
-                HasForeignKey(i => i.ViceværtId)
-                 .OnDelete(DeleteBehavior.Cascade);
-
-            entity.HasOne(b => b.Ejendom).WithMany(d => d.EjendomsAnsvarlig).
-                HasForeignKey(i => i.EjendomId)
+            
+            entity.HasMany(b => b.Ejendom).WithOne(d => d.EjendomsAnsvarlig).
+                HasForeignKey(i => i.Id)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            entity.HasMany(a => a.Vicevært).WithOne(b => b.EjendomsAnsvarlig).
+                HasForeignKey(i => i.Id)
+                 .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

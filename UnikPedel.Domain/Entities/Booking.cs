@@ -12,12 +12,13 @@ namespace UnikPedel.Domain.Entities
         [Key]
         public Guid Id { get; set; }
         [Required]
+
         public DateTime StartTid { get; set; }
         public DateTime SlutTid { get; set; }
 
        
         public Lejer Lejer { get; set; }
-        public Ejendom Ejendom {get;set;}
+        public Lejemål Lejemål {get;set;}
         public Vicevært Vicevært {get;set;}
 
         [Timestamp]

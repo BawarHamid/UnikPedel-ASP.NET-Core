@@ -14,9 +14,9 @@ namespace UnikPedel.Domain.Entities
         [Required]
 
         public string Type { get; set; }
+        public string Beskrivelse { get; set; }
         public double AntalTimer { get; set; }
         public string Status { get; set; }
-        public string Beskrivelse { get; set; }
 
         public Vicevært Vicevært { get; set; }
         public Lejer Lejer { get; set; }
