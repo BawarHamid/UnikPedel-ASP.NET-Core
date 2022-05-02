@@ -19,8 +19,8 @@ namespace UnikPedel.Application.Implementation
 
         async Task IViceværtCommand.CreateViceværtAsyc(ViceværtCommandDto viceværtDto)
         {
-           // var vicevært = new UnikPedel.Domain.Entities.Vicevært(viceværtDto.ForNavn, viceværtDto.EfterNavn, viceværtDto.Telefon, viceværtDto.Email);
-           // await _repository.AddViceværtAsync(vicevært);
+            var vicevært = new UnikPedel.Domain.Entities.Vicevært(viceværtDto.ForNavn, viceværtDto.EfterNavn, viceværtDto.Telefon, viceværtDto.Email);
+            await _repository.AddViceværtAsync(vicevært);
         }
 
         async Task IViceværtCommand.DeleteViceværtAsync(ViceværtCommandDto viceværtDto)

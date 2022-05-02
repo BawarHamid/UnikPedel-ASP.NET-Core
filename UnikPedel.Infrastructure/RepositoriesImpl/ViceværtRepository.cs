@@ -38,7 +38,7 @@ namespace UnikPedel.Infrastructure.RepositoriesImpl
 
         async Task IViceværtRepository.SaveViceværtAsync(Domain.Entities.Vicevært vicevært)
         {
-            //_db.Vicevært.Update(vicevært);
+            //_db.Vicevært.Update(vicevært); mangler
             await _db.SaveChangesAsync();
         }
     }
