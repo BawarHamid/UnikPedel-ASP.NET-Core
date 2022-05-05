@@ -24,5 +24,31 @@ namespace UnikPedel.Domain.Entities
 
         [Timestamp]
         public byte[] Version { get; set; }
+
+
+        public Rekvisition(string type, double antalTimer, string status, string beskrivelse, Vicevært vicevært, Lejer lejer, Ejendom ejendom)
+        {
+            Type = type;
+            AntalTimer = antalTimer;
+            Status = status;
+            Beskrivelse = beskrivelse;
+            Vicevært = vicevært;
+            Lejer = lejer;
+            Ejendom = ejendom;
+
+        }
+
+        public void Update(string type, double antalTimer, string status, string beskrivelse, Vicevært vicevært, Lejer lejer, Ejendom ejendom)
+        {
+            Type = type;
+            AntalTimer = antalTimer;
+            Status = status;
+            Beskrivelse = beskrivelse;
+            Vicevært = vicevært;
+            Lejer = lejer;
+            Ejendom = ejendom;
+
+        }
     }
+
 }

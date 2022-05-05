@@ -11,19 +11,26 @@ namespace UnikPedel.Domain.Entities
     {
         [Key]
         public Guid Id { get; set; }
-        [Required]
-        //public string ForNavn { get; set; }
-        //public string EfterNavn { get; set; }
-        //public int Telefon { get; set; }
-        //public string Email { get; set; }
-
+     
         public Guid ViceværtId { get; set; }
         public IEnumerable<Vicevært> Vicevært { get; set; }
-        //public Vicevært Vicevært { get; set; }
-
+     
         public Guid EjendomId { get; set; }
-        //public Ejendom Ejendom { get; set; }
         public IEnumerable<Ejendom> Ejendom { get; set; }
+
+        public EjendomsAnsvarlig( IEnumerable<Vicevært> Vicevært, IEnumerable<Ejendom> Ejendom)
+        {
+            
+            this.Ejendom = Ejendom;
+            this.Vicevært = Vicevært;
+        }
+
+        public void Update( IEnumerable<Vicevært> Vicevært, IEnumerable<Ejendom> Ejendom)
+        {
+            
+            this.Ejendom = Ejendom;
+            this.Vicevært = Vicevært;
+        }
 
     }
 }
