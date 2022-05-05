@@ -11,14 +11,13 @@ namespace UnikPedel.Domain.Entities
     {
         [Key]
         public Guid Id { get; set; }
-        [Required]
 
-        public  int VejNavn{get;set;}
+        public  string VejNavn{get;set;}
         public int BygningsNummer {get;set;}
         public string PostNummer{get;set;}
         public string By {get;set;}
         public string Region {get;set;}
-        public string  LandKode {get;set;}
+        public int  LandKode {get;set;}
         
         public IEnumerable<Lejemål> Lejemål { get; set; }
         public EjendomsAnsvarlig EjendomsAnsvarlig { get; set; }

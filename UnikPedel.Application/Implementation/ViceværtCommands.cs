@@ -31,7 +31,7 @@ namespace UnikPedel.Application.Implementation
         async Task IViceværtCommand.EditViceværtAsync(ViceværtCommandDto viceværtDto)
         {
             var vicevært = await _repository.GetViceværtAsync(viceværtDto.Id);
-            //vicevært.Update(viceværtDto.ForNavn, viceværtDto.EfterNavn, viceværtDto.Telefon, viceværtDto.Email); //UpdateMetode mangler.
+            vicevært.Update(viceværtDto.ForNavn, viceværtDto.EfterNavn, viceværtDto.Telefon, viceværtDto.Email); 
             await _repository.SaveViceværtAsync(vicevært);
         }
     }

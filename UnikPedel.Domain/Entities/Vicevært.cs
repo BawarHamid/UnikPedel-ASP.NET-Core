@@ -30,5 +30,13 @@ namespace UnikPedel.Domain.Entities
             Telefon = telefon;
             Email = email;
         }
+
+        public void Update(string fornavn, string efternavn, int telefon, string email)
+        {
+            ForNavn = fornavn;
+            EfterNavn = efternavn;
+            Telefon = telefon;
+            Email = email;
+        }
     }
 }
