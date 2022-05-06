@@ -23,7 +23,7 @@ namespace UnikPedel.Domain.Entities
 
         public Guid EjendomId {get;set;}
         public Ejendom Ejendom { get; set; }
-        public Lejer Lejer { get; set; }
+        public IEnumerable<Lejer> Lejer { get; set; }
         public IEnumerable<Booking> Bookings { get; set; }
         // public IEnumerable<Rekvisition> Rekvisitioner { get; set; }
     }
