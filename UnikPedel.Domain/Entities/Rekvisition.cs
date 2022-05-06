@@ -11,7 +11,7 @@ namespace UnikPedel.Domain.Entities
     {
         [Key]
         public Guid Id { get; set; }
-        [Required]
+        
 
         public string Type { get; set; }
         public string Beskrivelse { get; set; }

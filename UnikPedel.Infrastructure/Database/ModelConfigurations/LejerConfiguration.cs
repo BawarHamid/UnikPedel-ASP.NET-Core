@@ -38,7 +38,7 @@ namespace UnikPedel.Infrastructure.Database.ModelConfigurations
             entity.Property(a => a.UdDato)
            .HasColumnName("UdDato");
 
-            entity.HasOne(c => c.Lejemål).WithOne(d => d.Lejer);
+            entity.HasOne(c => c.Lejemål).WithMany(d => d.Lejer);
             //entity.WithMany(c => c.Lejemål).WithOne(d => d.Lejer);
             entity.HasMany(c => c.Rekvisitioner).WithOne(d => d.Lejer);
             entity.HasMany(c => c.Bookings).WithOne(d => d.Lejer);

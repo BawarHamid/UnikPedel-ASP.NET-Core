@@ -40,7 +40,7 @@ namespace UnikPedel.Infrastructure.Database.ModelConfigurations
            .HasColumnName("LandKode")
            .IsRequired();
 
-            entity.HasOne(c => c.Lejer).WithOne(d => d.Lejemål);
+            entity.HasMany(c => c.Lejer).WithOne(d => d.Lejemål);
             //entity.HasOne(c => c.Lejer).WithMany(d => d.Lejemål);
             entity.HasOne(e => e.Ejendom).WithMany(a => a.Lejemål);
             entity.HasMany(c => c.Bookings).WithOne(d => d.Lejemål);
