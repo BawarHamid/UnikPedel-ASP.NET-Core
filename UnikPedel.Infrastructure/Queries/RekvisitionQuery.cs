@@ -23,8 +23,9 @@ namespace UnikPedel.Infrastructure.Querries
 
             return new RekvisitionQueryDto
             {
+                
                 Type = result.Type,
-                AntalTimer = result.AntalTimer, 
+                TimeCreated = result.TimeCreated, 
                 Beskrivelse = result.Beskrivelse,
                 Status = result.Status, 
                 Vicevært=result.Vicevært,
@@ -40,7 +41,7 @@ namespace UnikPedel.Infrastructure.Querries
             dbRekvisition.ForEach(a => result.Add(new RekvisitionQueryDto
             {
                 Type = a.Type,
-                AntalTimer = a.AntalTimer,
+                TimeCreated=a.TimeCreated,
                 Beskrivelse = a.Beskrivelse,
                 Status = a.Status,
                 Vicevært =a.Vicevært,

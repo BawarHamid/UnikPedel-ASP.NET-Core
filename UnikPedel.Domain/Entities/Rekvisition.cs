@@ -15,7 +15,7 @@ namespace UnikPedel.Domain.Entities
 
         public string Type { get; set; }
         public string Beskrivelse { get; set; }
-        public double AntalTimer { get; set; }
+        public DateTime TimeCreated { get; set; }
         public string Status { get; set; }
 
         public Vicevært Vicevært { get; set; }
@@ -26,10 +26,10 @@ namespace UnikPedel.Domain.Entities
         public byte[] Version { get; set; }
 
 
-        public Rekvisition(string type, double antalTimer, string status, string beskrivelse, Vicevært vicevært, Lejer lejer, Ejendom ejendom)
+        public Rekvisition(string type, string status, string beskrivelse, Vicevært vicevært, Lejer lejer, Ejendom ejendom)
         {
             Type = type;
-            AntalTimer = antalTimer;
+            TimeCreated = DateTime.Now;
             Status = status;
             Beskrivelse = beskrivelse;
             Vicevært = vicevært;
@@ -38,10 +38,9 @@ namespace UnikPedel.Domain.Entities
 
         }
 
-        public void Update(string type, double antalTimer, string status, string beskrivelse, Vicevært vicevært, Lejer lejer, Ejendom ejendom)
+        public void Update(string type,  string status, string beskrivelse, Vicevært vicevært, Lejer lejer, Ejendom ejendom)
         {
             Type = type;
-            AntalTimer = antalTimer;
             Status = status;
             Beskrivelse = beskrivelse;
             Vicevært = vicevært;
