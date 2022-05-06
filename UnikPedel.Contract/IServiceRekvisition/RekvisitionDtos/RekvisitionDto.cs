@@ -13,7 +13,7 @@ namespace UnikPedel.Contract.IServiceRekvisition.RekvisitionDtos
         public Guid Id { get; set; }
 
         public string Type { get; set; }
-        public double AntalTimer { get; set; }
+        public DateTime TimeCreated { get; set; }
         public string Status { get; set; }
         public string Beskrivelse { get; set; }
 
