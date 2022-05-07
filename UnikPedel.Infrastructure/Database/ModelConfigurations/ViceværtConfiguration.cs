@@ -22,6 +22,7 @@ namespace UnikPedel.Infrastructure.Database.ModelConfigurations
             entity.HasOne(c => c.EjendomsAnsvarlig).WithMany(d => d.Vicevært);
             entity.HasMany(c => c.Rekvisitioner).WithOne(d => d.Vicevært);
             entity.HasMany(c => c.Ejemdom).WithMany(d => d.Vicevært);
+            entity.HasMany(c => c.TidRegistrering).WithOne(d => d.Vicevært);
         }
     }
 }

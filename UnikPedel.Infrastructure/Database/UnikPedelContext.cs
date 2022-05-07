@@ -23,6 +23,7 @@ namespace UnikPedel.Infrastructure.Database
        
         public DbSet<Domain.Entities.Rekvisition> Rekvisition { get; set; }
         public DbSet<Domain.Entities.Vicevært> Vicevært { get; set; }
+        public DbSet<Domain.Entities.TidRegistering> TidRegistrering { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

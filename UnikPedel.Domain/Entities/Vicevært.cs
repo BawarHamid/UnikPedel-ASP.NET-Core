@@ -22,7 +22,7 @@ namespace UnikPedel.Domain.Entities
         public EjendomsAnsvarlig EjendomsAnsvarlig { get; set; }
         public IEnumerable<Rekvisition> Rekvisitioner { get; set; }
         public IEnumerable<Ejendom> Ejemdom { get; set; }
-
+        public IEnumerable<TidRegistering> TidRegistrering { get; set; }
         public Vicevært(string fornavn, string efternavn, int telefon, string email)
         {
             ForNavn = fornavn;

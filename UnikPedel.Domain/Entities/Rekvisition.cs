@@ -22,6 +22,8 @@ namespace UnikPedel.Domain.Entities
         public Lejer Lejer { get; set; }
         public Ejendom Ejendom {get;set; }
 
+        public IEnumerable<TidRegistering> TidRegistering { get; set; }
+
         [Timestamp]
         public byte[] Version { get; set; }
 
