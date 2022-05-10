@@ -22,6 +22,6 @@ namespace UnikPedel.Domain.Entities
         public Vicevært Vicevært {get;set;}
 
         [Timestamp]
-        public byte[] Version { get; set; }
+        public byte[] Version { get; set; } 
     }
 }

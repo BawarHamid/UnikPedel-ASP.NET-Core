@@ -1,0 +1,45 @@
+﻿@page
+@model UnikPedel.Web.Pages.Gæstelejligheder.Booking.OpretModel
+@{
+}
+
+<div class="container-fluid">
+    <br />
+<h2>Opret ny booking</h2>
+<br />
+    <div class="border container" style="padding: 30px">
+          <form class="row g-3">
+            <div class="col-md-6">
+                 <label for="inputEmail4" class="form-label">Navn</label>
+                 <input type="email" class="form-control" id="inputEmail4">
+            </div>                  
+           <div class="col-md-4">
+                    <label for="inputState" class="form-label">Vælg lejemål</label>
+                    <select id="inputState" class="form-select">
+                    <option value="1">A1</option>
+                    <option value="2">A2</option>
+                    <option value="3">B3</option>
+                    </select>
+           </div>
+            <div class="col-md-4">
+                <label>Start dato</label>
+                <input class="form-control" type="date" />
+            </div>
+            <div class="col-md-4">
+                <label>Slut dato</label>
+                <input class="form-control" type="date" />
+            </div>
+           <div class="col-md-4">
+                    <label for="inputState" class="form-label">Vælg lokale</label>
+                    <select id="inputState" class="form-select">
+                    <option value="1">Lokale 1</option>
+                    <option value="2">Lokale 2</option>
+                    <option value="3">Lokale 3</option>
+                    </select>
+           </div>            
+                 <div class="col-12">
+                 <button type="submit" class="btn btn-primary">Opret booking</button>
+         </div>
+        </form>
+        </div>
+</div>
