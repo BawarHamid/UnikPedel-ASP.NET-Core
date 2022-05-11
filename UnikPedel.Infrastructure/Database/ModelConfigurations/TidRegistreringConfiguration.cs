@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
+
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,8 +19,8 @@ namespace UnikPedel.Infrastructure.Database.ModelConfigurations
             entity.Property(b => b.Id).HasColumnName("Id");
             entity.Property(c => c.AntalTimer).HasColumnName("AntalTimer").IsRequired();
             entity.Property(b => b.RegisterDato).HasColumnName("RegisterDato").IsRequired();
-            entity.HasOne(a => a.Vicevært).WithMany(d => d.TidRegistrering);
-            entity.HasOne(a => a.Rekvisition).WithMany(d => d.TidRegistering);
+            entity.HasOne(a => a.Vicevært).WithMany(d => d.TidRegistrering).OnDelete(DeleteBehavior.ClientCascade);
+            entity.HasOne(a => a.Rekvisition).WithMany(d => d.TidRegistering).OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

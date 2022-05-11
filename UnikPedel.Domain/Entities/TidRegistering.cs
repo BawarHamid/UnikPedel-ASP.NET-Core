@@ -13,9 +13,14 @@ namespace UnikPedel.Domain.Entities
 
         public double AntalTimer { get; set; }
 
-        public Vicevært Vicevært { get; set; }
-        public Rekvisition Rekvisition { get; set; }
+        public Vicevært? Vicevært { get; set; }
+        public Rekvisition? Rekvisition { get; set; }
 
+        //Constructor for Ef
+        private TidRegistering()
+        {
+
+        }
         public TidRegistering(double AntalTimer,Vicevært Vicevært,Rekvisition Rekvisition)
         {
             this.RegisterDato = DateTime.Now;
