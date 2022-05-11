@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnikPedel.Domain.Entities;
 
+
 namespace UnikPedel.Application.TidRegistreringContract.TidRegistreringDto
 {
    public class TidRegistreringCommandDto

@@ -10,13 +10,19 @@ namespace UnikPedel.Domain.Entities
     public class EjendomsAnsvarlig
     {
         [Key]
-        public Guid Id { get; set; }
+        public Guid Id { get; private set; }
      
-        public Guid ViceværtId { get; set; }
+        public Guid ViceværtId { get; private set; }
         public IEnumerable<Vicevært> Vicevært { get; set; }
      
-        public Guid EjendomId { get; set; }
-        public IEnumerable<Ejendom> Ejendom { get; set; }
+       public Guid EjendomId { get; private set; }
+        public IEnumerable<Ejendom> Ejendom { get;  set; }
+
+        // Constractor for EF
+        private EjendomsAnsvarlig()
+        {
+
+        }
 
         public EjendomsAnsvarlig( IEnumerable<Vicevært> Vicevært, IEnumerable<Ejendom> Ejendom)
         {
@@ -27,10 +33,12 @@ namespace UnikPedel.Domain.Entities
 
         public void Update( IEnumerable<Vicevært> Vicevært, IEnumerable<Ejendom> Ejendom)
         {
-            
+
             this.Ejendom = Ejendom;
             this.Vicevært = Vicevært;
         }
+
+     
 
     }
 }

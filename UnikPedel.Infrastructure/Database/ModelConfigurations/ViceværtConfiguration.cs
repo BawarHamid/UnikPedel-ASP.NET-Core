@@ -19,10 +19,10 @@ namespace UnikPedel.Infrastructure.Database.ModelConfigurations
             entity.Property(a => a.EfterNavn).HasColumnName("EfterNavn").IsRequired();
             entity.Property(a => a.Email).HasColumnName("Email").IsRequired();
 
-            entity.HasOne(c => c.EjendomsAnsvarlig).WithMany(d => d.Vicevært);
-            entity.HasMany(c => c.Rekvisitioner).WithOne(d => d.Vicevært);
+            entity.HasOne(c => c.EjendomsAnsvarlig).WithMany(d => d.Vicevært).OnDelete(DeleteBehavior.Cascade);
+            entity.HasMany(c => c.Rekvisitioner).WithOne(d => d.Vicevært).OnDelete(DeleteBehavior.Cascade);
             entity.HasMany(c => c.Ejemdom).WithMany(d => d.Vicevært);
-            entity.HasMany(c => c.TidRegistrering).WithOne(d => d.Vicevært);
+            entity.HasMany(c => c.TidRegistrering).WithOne(d => d.Vicevært).OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

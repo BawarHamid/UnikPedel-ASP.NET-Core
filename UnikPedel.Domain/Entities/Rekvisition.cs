@@ -27,7 +27,11 @@ namespace UnikPedel.Domain.Entities
         [Timestamp]
         public byte[] Version { get; set; }
 
+        // constructor for EF
+        private Rekvisition()
+        {
 
+        }
         public Rekvisition(string type, string status, string beskrivelse, Vicevært vicevært, Lejer lejer, Ejendom ejendom)
         {
             Type = type;
