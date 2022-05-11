@@ -11,7 +11,7 @@ namespace UnikPedel.Contract.IServiceRekvisition
     {
         Task CreateRekvisitionAsync(RekvisitionDto rekvisition);
         Task EditRekvisitionAsync(RekvisitionDto rekvisition);
-        Task DeleteRekvisitionAsync(RekvisitionDto rekvisition);
+        Task DeleteRekvisitionAsync(Guid Id);
         Task<RekvisitionDto?> GetRekvisitionAsync(Guid Id);
         Task<IEnumerable<RekvisitionDto>> GetRekvisitionAsync();
     }

@@ -22,7 +22,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\UnikPedel.Contract\UnikPedel.Contract.csproj" />
-    <ProjectReference Include="..\UnikPedel.Infrastructure\UnikPedel.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

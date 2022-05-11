@@ -32,6 +32,7 @@ namespace UnikPedel.Domain.Entities
         {
 
         }
+
         public Rekvisition(string type, string status, string beskrivelse, Vicevært vicevært, Lejer lejer, Ejendom ejendom)
         {
             Type = type;
@@ -52,8 +53,6 @@ namespace UnikPedel.Domain.Entities
             Vicevært = vicevært;
             Lejer = lejer;
             Ejendom = ejendom;
-
         }
     }
-
 }

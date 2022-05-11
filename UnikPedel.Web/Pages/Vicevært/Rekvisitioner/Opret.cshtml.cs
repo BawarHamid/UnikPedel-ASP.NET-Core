@@ -9,7 +9,5 @@ namespace UnikPedel.Web.Pages.Vicevært.Rekvisitioner
         public void OnGet()
         {
         }
-
-
     }
 }
