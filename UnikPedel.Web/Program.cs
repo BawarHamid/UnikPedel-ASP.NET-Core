@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using UnikPedel.Contract.IServiceRekvisition;
 using UnikPedel.Infrastructure.Database;
+using UnikPedel.Web.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,11 +9,18 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 
 
-builder.Services.AddDbContext<UnikPedelContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("BookingContext"), x =>
+builder.Services.AddHttpClient<IServiceRekvisition, RekvisitionServiceProxy>
+    (client =>
     {
-        x.MigrationsAssembly("UnikPedel.Infrastructure");
-    }));
+        client.BaseAddress =
+            new Uri("https://localhost:7071");
+    });
+
+//builder.Services.AddDbContext<UnikPedelContext>(options =>
+//    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), x =>
+//    {
+//        x.MigrationsAssembly("UnikPedel.Infrastructure");
+//    }));
 
 var app = builder.Build();
 

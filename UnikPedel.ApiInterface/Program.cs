@@ -3,11 +3,13 @@ using UnikPedel.ApiInterface.Mapper;
 using UnikPedel.Application.Contract.ViceværtInterface;
 using UnikPedel.Application.Implementation;
 using UnikPedel.Application.Infrastructure;
+using UnikPedel.Contract.IServiceRekvisition;
 using UnikPedel.Domain.DomainServices;
 using UnikPedel.Infrastructure.Database;
 using UnikPedel.Infrastructure.DominServiceImpl;
 using UnikPedel.Infrastructure.Queries;
 using UnikPedel.Infrastructure.RepositoriesImpl;
+using UnikPedel.Web.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,7 +19,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
 builder.Services.AddDbContext<UnikPedelContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("BookingContext"), x =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Conn"), x =>
     {
         x.MigrationsAssembly("UnikPedel.Infrastructure");
     }));
@@ -28,6 +30,7 @@ builder.Services.AddScoped<IViceværtQuery, ViceværtQuery>();
 builder.Services.AddScoped<IViceværtCommand, ViceværtCommands>();
 builder.Services.AddScoped<IViceværtRepository, ViceværtRepository>();
 builder.Services.AddScoped<IViceværtDomainService, ViceværtDomainService>();
+builder.Services.AddScoped<IServiceRekvisition, RekvisitionServiceProxy>();
 
 
 var app = builder.Build();

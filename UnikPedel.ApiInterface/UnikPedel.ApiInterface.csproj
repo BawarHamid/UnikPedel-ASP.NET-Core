@@ -26,6 +26,7 @@
     <ProjectReference Include="..\UnikPedel.Application\UnikPedel.Application.csproj" />
     <ProjectReference Include="..\UnikPedel.Contract\UnikPedel.Contract.csproj" />
     <ProjectReference Include="..\UnikPedel.Infrastructure\UnikPedel.Infrastructure.csproj" />
+    <ProjectReference Include="..\UnikPedel.Web\UnikPedel.Web.csproj" />
   </ItemGroup>
 
 </Project>
