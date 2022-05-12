@@ -34,7 +34,7 @@ namespace UnikPedel.Infrastructure.Queries
             };
         }
 
-        async Task<IEnumerable<ViceværtQueryDto>> IViceværtQuery.GetAllViceværter()
+        async Task<IEnumerable<ViceværtQueryDto>> IViceværtQuery.GetAllViceværterAsync()
         {
             var result = new List<ViceværtQueryDto>();
             var dbViceværter = await _db.Vicevært.ToListAsync();
