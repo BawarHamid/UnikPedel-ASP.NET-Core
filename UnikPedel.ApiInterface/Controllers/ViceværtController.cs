@@ -26,7 +26,7 @@ namespace UnikPedel.ApiInterface.Controllers
         public async Task<IEnumerable<ViceværtDto>> GetViceværterAsync()
         {
             var result = new List<ViceværtDto>();
-            var viceværter = await _viceværtQuery.GetAllViceværter();
+            var viceværter = await _viceværtQuery.GetAllViceværterAsync();
             viceværter.ToList()
                 .ForEach(vicev => result.Add(new ViceværtDto
                 {
@@ -39,13 +39,14 @@ namespace UnikPedel.ApiInterface.Controllers
             return result;
         }
 
+
         // GET api/<ViceværtController>/5 henter en vicevært udfra Id
         [HttpGet("{id}")]
         public async Task<ViceværtDto?> GetViceværtAsync(Guid Id)
         {
             var vicevært = await _viceværtQuery.GetViceværtAsync(Id);
             if (vicevært is null) return null;
-            return new ViceværtDto 
+            return new ViceværtDto
             {
                 Id = vicevært.Id,
                 ForNavn = vicevært.ForNavn,

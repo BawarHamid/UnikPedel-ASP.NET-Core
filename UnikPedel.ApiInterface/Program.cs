@@ -1,4 +1,13 @@
+using Microsoft.EntityFrameworkCore;
 using UnikPedel.ApiInterface.Mapper;
+using UnikPedel.Application.Contract.ViceværtInterface;
+using UnikPedel.Application.Implementation;
+using UnikPedel.Application.Infrastructure;
+using UnikPedel.Domain.DomainServices;
+using UnikPedel.Infrastructure.Database;
+using UnikPedel.Infrastructure.DominServiceImpl;
+using UnikPedel.Infrastructure.Queries;
+using UnikPedel.Infrastructure.RepositoriesImpl;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,9 +15,21 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+builder.Services.AddDbContext<UnikPedelContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("BookingContext"), x =>
+    {
+        x.MigrationsAssembly("UnikPedel.Infrastructure");
+    }));
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddAutoMapper(typeof(MapperProfiles).Assembly);
+builder.Services.AddScoped<IViceværtQuery, ViceværtQuery>();
+builder.Services.AddScoped<IViceværtCommand, ViceværtCommands>();
+builder.Services.AddScoped<IViceværtRepository, ViceværtRepository>();
+builder.Services.AddScoped<IViceværtDomainService, ViceværtDomainService>();
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

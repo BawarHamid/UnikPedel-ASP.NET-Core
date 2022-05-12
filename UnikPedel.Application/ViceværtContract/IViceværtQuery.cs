@@ -10,6 +10,6 @@ namespace UnikPedel.Application.Contract.ViceværtInterface
     public interface IViceværtQuery
     {   
         Task<ViceværtQueryDto?> GetViceværtAsync(Guid Id);
-        Task<IEnumerable<ViceværtQueryDto>> GetAllViceværter();
+        Task<IEnumerable<ViceværtQueryDto>> GetAllViceværterAsync();
     }
 }
