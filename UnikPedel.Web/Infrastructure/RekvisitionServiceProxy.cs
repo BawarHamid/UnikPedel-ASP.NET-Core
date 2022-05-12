@@ -22,7 +22,7 @@ namespace UnikPedel.Web.Infrastructure
                 JsonSerializer.Serialize(rekvisition),
                 Encoding.UTF8,
                 MediaTypeNames.Application.Json);
-            await _client.PostAsync("/api", rekvisitionDtoJson);
+            await _client.PostAsync("/api/Rekvisition", rekvisitionDtoJson);
         }
 
         async Task IServiceRekvisition.DeleteRekvisitionAsync(Guid Id)
