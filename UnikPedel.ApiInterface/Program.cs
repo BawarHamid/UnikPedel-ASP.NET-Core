@@ -19,7 +19,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
 builder.Services.AddDbContext<UnikPedelContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("Conn"), x =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), x =>
     {
         x.MigrationsAssembly("UnikPedel.Infrastructure");
     }));
@@ -30,7 +30,7 @@ builder.Services.AddScoped<IViceværtQuery, ViceværtQuery>();
 builder.Services.AddScoped<IViceværtCommand, ViceværtCommands>();
 builder.Services.AddScoped<IViceværtRepository, ViceværtRepository>();
 builder.Services.AddScoped<IViceværtDomainService, ViceværtDomainService>();
-builder.Services.AddScoped<IServiceRekvisition, RekvisitionServiceProxy>();
+//builder.Services.AddScoped<IServiceRekvisition, RekvisitionServiceProxy>();
 
 
 var app = builder.Build();
