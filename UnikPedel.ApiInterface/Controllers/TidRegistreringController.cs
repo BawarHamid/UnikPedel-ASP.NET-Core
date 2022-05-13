@@ -27,6 +27,21 @@ namespace UnikPedel.ApiInterface.Controllers
             _mapper = mapper;
         }
 
+        [HttpGet]
+        public async Task<IEnumerable<TidRegistreringDto>> GetTidRegistreringAsync()
+        {
+            var tidListe = await _tidRegQuery.GetTidRegistreringAsync();
+            return _mapper.Map<IEnumerable<TidRegistreringDto>>(tidListe);
+
+        }
+
+
+        [HttpDelete("{id}")]
+        public async Task DeleteTidRegistreringAsync(Guid id)
+        {
+            await _tidRegCommand.DeleteRegistreringAsync(new TidRegistreringCommandDto { Id = id });
+        }
+
         [HttpPost]
         public async Task CreateTidRegistreringAsync([FromBody] TidRegistreringDto tidRegistrering)
         {
@@ -36,11 +51,7 @@ namespace UnikPedel.ApiInterface.Controllers
             _mapper.Map<TidRegistreringCommandDto>(tidRegistrering);
             
         }
-        [HttpDelete("{id}")]
-        public async Task DeleteTidRegistreringAsync(Guid id)
-        {
-            await _tidRegCommand.DeleteRegistreringAsync(new TidRegistreringCommandDto { Id =id});
-        }
+       
 
         [HttpPut("{id}")]
         public async Task EditTidRegistreringAsync(TidRegistreringDto tidRegistrering)
@@ -65,20 +76,6 @@ namespace UnikPedel.ApiInterface.Controllers
             };
         }
 
-        [HttpGet]
-        public async Task<IEnumerable<TidRegistreringDto>> GetTidRegistreringAsync()
-        {
-            var result = new List<TidRegistreringDto>();
-            var registreringListe = await _tidRegQuery.GetTidRegistreringAsync();
-            registreringListe.ToList().ForEach(registrering => result.Add(new TidRegistreringDto
-            {
-                //Id = registrering.Id,
-                //AntalTimer = registrering.AntalTimer,
-                //RegisterDato = registrering.RegisterDato,
-                //Vicevært = registrering.Vicevært,
-                //Rekvisition = registrering.Rekvisition
-            }));
-            return result;
-        }
+       
     }
 }
