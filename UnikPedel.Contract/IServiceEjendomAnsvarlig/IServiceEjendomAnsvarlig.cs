@@ -11,7 +11,7 @@ namespace UnikPedel.Contract.IServiceEjendomAnsvarlig
     {
         Task CreateEjendomAnsvarligAsync(EjendomAnsvarligDto ejendomAnsvarlig);
         Task EditEjendomAnsvarligAsync(EjendomAnsvarligDto ejendomAnsvarlig);
-        Task DeleteEjendomAnsvarligAsync(EjendomAnsvarligDto ejendomAnsvarlig);
+        Task DeleteEjendomAnsvarligAsync(Guid Id);
         Task<EjendomAnsvarligDto?> GetEjendomAnsvarligAsync(Guid Id);
         Task<IEnumerable<EjendomAnsvarligDto>> GetEjendomAnsvarligAsync();
     }
