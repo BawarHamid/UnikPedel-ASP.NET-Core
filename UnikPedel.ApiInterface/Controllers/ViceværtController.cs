@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using UnikPedel.Application.Contract.Dtos;
 using UnikPedel.Application.Contract.ViceværtInterface;
 using UnikPedel.Contract.IServiceVicevært;
@@ -14,29 +15,35 @@ namespace UnikPedel.ApiInterface.Controllers
     {
         private readonly IViceværtCommand _viceværtCommand;
         private readonly IViceværtQuery _viceværtQuery;
+        private readonly IMapper _mapper;
 
-        public ViceværtController(IViceværtCommand viceværtCommand, IViceværtQuery viceværtQuery)
+        public ViceværtController(IViceværtCommand viceværtCommand, IViceværtQuery viceværtQuery, IMapper mapper)
         {
             _viceværtCommand = viceværtCommand;
             _viceværtQuery = viceværtQuery;
+            _mapper = mapper;
         }
 
         // GET: api/<ViceværtController> henter en list med alle viceværter.
         [HttpGet]
         public async Task<IEnumerable<ViceværtDto>> GetViceværterAsync()
         {
-            var result = new List<ViceværtDto>();
-            var viceværter = await _viceværtQuery.GetAllViceværterAsync();
-            viceværter.ToList()
-                .ForEach(vicev => result.Add(new ViceværtDto
-                {
-                    Id = vicev.Id,
-                    ForNavn = vicev.ForNavn,
-                    EfterNavn = vicev.EfterNavn,
-                    Telefon = vicev.Telefon,
-                    Email = vicev.Email
-                }));
-            return result;
+
+            var vicevært = await _viceværtQuery.GetAllViceværterAsync();
+            return _mapper.Map<IEnumerable<ViceværtDto>>(vicevært);
+
+            //var result = new List<ViceværtDto>();
+            //var viceværter = await _viceværtQuery.GetAllViceværterAsync();
+            //viceværter.ToList()
+            //    .ForEach(vicev => result.Add(new ViceværtDto
+            //    {
+            //        Id = vicev.Id,
+            //        ForNavn = vicev.ForNavn,
+            //        EfterNavn = vicev.EfterNavn,
+            //        Telefon = vicev.Telefon,
+            //        Email = vicev.Email
+            //    }));
+            //return result;
         }
 
 
@@ -44,16 +51,21 @@ namespace UnikPedel.ApiInterface.Controllers
         [HttpGet("{id}")]
         public async Task<ViceværtDto?> GetViceværtAsync(Guid Id)
         {
+
             var vicevært = await _viceværtQuery.GetViceværtAsync(Id);
-            if (vicevært is null) return null;
-            return new ViceværtDto
-            {
-                Id = vicevært.Id,
-                ForNavn = vicevært.ForNavn,
-                EfterNavn = vicevært.EfterNavn,
-                Telefon = vicevært.Telefon,
-                Email = vicevært.Email
-            };
+            return _mapper.Map<ViceværtDto>(vicevært);
+
+
+            //var vicevært = await _viceværtQuery.GetViceværtAsync(Id);
+            //if (vicevært is null) return null;
+            //return new ViceværtDto
+            //{
+            //    Id = vicevært.Id,
+            //    ForNavn = vicevært.ForNavn,
+            //    EfterNavn = vicevært.EfterNavn,
+            //    Telefon = vicevært.Telefon,
+            //    Email = vicevært.Email
+            //};
         }
 
         // POST api/<ViceværtController> opretter en vicevært.

@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using System;
 using UnikPedel.ApiInterface.Mapper;
 using UnikPedel.Application.Contract.ViceværtInterface;
 using UnikPedel.Application.Implementation;
@@ -30,6 +31,8 @@ builder.Services.AddScoped<IViceværtQuery, ViceværtQuery>();
 builder.Services.AddScoped<IViceværtCommand, ViceværtCommands>();
 builder.Services.AddScoped<IViceværtRepository, ViceværtRepository>();
 builder.Services.AddScoped<IViceværtDomainService, ViceværtDomainService>();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 //builder.Services.AddScoped<IServiceRekvisition, RekvisitionServiceProxy>();
 
 
