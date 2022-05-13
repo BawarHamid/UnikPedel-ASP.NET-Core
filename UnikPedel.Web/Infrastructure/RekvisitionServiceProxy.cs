@@ -44,7 +44,7 @@ namespace UnikPedel.Web.Infrastructure
             return await _client.GetFromJsonAsync<RekvisitionDto?>($"/api/Rekvisition/{Id}");
         }
 
-        async Task<IEnumerable<RekvisitionDto>> IServiceRekvisition.GetRekvisitionAsync()
+        async Task<IEnumerable<RekvisitionDto>> IServiceRekvisition.GetRekvisitionerAsync()
         {
             return await _client.GetFromJsonAsync<IEnumerable<RekvisitionDto>>($"api/Rekvisition");
         }
