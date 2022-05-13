@@ -1,8 +1,9 @@
 ﻿using AutoMapper;
 using UnikPedel.Application.Contract.Dtos;
+using UnikPedel.Contract.IServiceRekvisition.RekvisitionDtos;
 using UnikPedel.Contract.IServiceTidRegistrering.TidRegistreringDtos;
 using UnikPedel.Contract.ViceværtDtos;
-
+using UnikPedel.Domain.Entities;
 
 namespace UnikPedel.ApiInterface.Mapper
 {
@@ -10,8 +11,9 @@ namespace UnikPedel.ApiInterface.Mapper
     {
         public MapperProfiles()
         {
-            CreateMap<ViceværtCommandDto,ViceværtDto>();
-            CreateMap<Application.TidRegistreringContract.TidRegistreringDto.TidRegistreringCommandDto, TidRegistreringDto>();
+            CreateMap<Vicevært,ViceværtDto>();
+            CreateMap<TidRegistering, TidRegistreringDto>();
+            CreateMap<Rekvisition, RekvisitionDto>();
         }
     }
 }
