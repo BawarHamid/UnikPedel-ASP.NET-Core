@@ -8,13 +8,13 @@ namespace UnikPedel.Web.Pages.Vicevært
 {
     public class IndexModel : PageModel
     {
-        private readonly UnikPedelContext _unikPedelContext;
-        public IEnumerable<Rekvisition> Rekvisitioner { get; set; }
+        //private readonly UnikPedelContext _unikPedelContext;
+        ////public IEnumerable<Rekvisition> Rekvisitioner { get; set; }
 
-        public IndexModel(UnikPedelContext unikPedelContext)
-        {
-            _unikPedelContext = unikPedelContext;
-        }
+        //public IndexModel(UnikPedelContext unikPedelContext)
+        //{
+        //    _unikPedelContext = unikPedelContext;
+        //}
         public void OnGet()
         {
             //Rekvisitioner = await _unikPedelContext.Rekvisition.ToListAsync();

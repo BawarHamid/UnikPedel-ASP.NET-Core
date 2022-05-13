@@ -13,6 +13,6 @@ namespace UnikPedel.Contract.IServiceRekvisition
         Task EditRekvisitionAsync(RekvisitionDto rekvisition);
         Task DeleteRekvisitionAsync(Guid Id);
         Task<RekvisitionDto?> GetRekvisitionAsync(Guid Id);
-        Task<IEnumerable<RekvisitionDto>> GetRekvisitionAsync();
+        Task<IEnumerable<RekvisitionDto>> GetRekvisitionerAsync();
     }
 }
