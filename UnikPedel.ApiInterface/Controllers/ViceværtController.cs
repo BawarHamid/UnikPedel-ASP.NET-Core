@@ -31,19 +31,6 @@ namespace UnikPedel.ApiInterface.Controllers
 
             var vicevært = await _viceværtQuery.GetAllViceværterAsync();
             return _mapper.Map<IEnumerable<ViceværtDto>>(vicevært);
-
-            //var result = new List<ViceværtDto>();
-            //var viceværter = await _viceværtQuery.GetAllViceværterAsync();
-            //viceværter.ToList()
-            //    .ForEach(vicev => result.Add(new ViceværtDto
-            //    {
-            //        Id = vicev.Id,
-            //        ForNavn = vicev.ForNavn,
-            //        EfterNavn = vicev.EfterNavn,
-            //        Telefon = vicev.Telefon,
-            //        Email = vicev.Email
-            //    }));
-            //return result;
         }
 
 
@@ -54,32 +41,23 @@ namespace UnikPedel.ApiInterface.Controllers
 
             var vicevært = await _viceværtQuery.GetViceværtAsync(Id);
             return _mapper.Map<ViceværtDto>(vicevært);
-
-
-            //var vicevært = await _viceværtQuery.GetViceværtAsync(Id);
-            //if (vicevært is null) return null;
-            //return new ViceværtDto
-            //{
-            //    Id = vicevært.Id,
-            //    ForNavn = vicevært.ForNavn,
-            //    EfterNavn = vicevært.EfterNavn,
-            //    Telefon = vicevært.Telefon,
-            //    Email = vicevært.Email
-            //};
         }
 
         // POST api/<ViceværtController> opretter en vicevært.
         [HttpPost]
-        public async Task CreateViceværtAsync(ViceværtDto value)
+        public async Task CreateViceværtAsync([FromBody]ViceværtDto value)
         {
-            await _viceværtCommand.CreateViceværtAsyc(new ViceværtCommandDto
-            {
-                Id = value.Id,
-                ForNavn = value.ForNavn,
-                EfterNavn = value.EfterNavn,
-                Telefon = value.Telefon,
-                Email = value.Email
-            });
+            //await _viceværtCommand.CreateViceværtAsyc(new ViceværtCommandDto
+            //{
+            //    Id = value.Id,
+            //    ForNavn = value.ForNavn,
+            //    EfterNavn = value.EfterNavn,
+            //    Telefon = value.Telefon,
+            //    Email = value.Email
+            //});
+
+            await _viceværtCommand.CreateViceværtAsyc(new ViceværtCommandDto());
+            _mapper.Map<ViceværtDto>(value);
         }
 
         // PUT api/<ViceværtController>/5 når man laver update på en vicevært.
