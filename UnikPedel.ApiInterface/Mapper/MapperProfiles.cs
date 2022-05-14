@@ -17,7 +17,6 @@ namespace UnikPedel.ApiInterface.Mapper
             CreateMap<TidRegistering, TidRegistreringDto>();
             CreateMap<Rekvisition, RekvisitionDto>();
 
-
         }
     }
 }
