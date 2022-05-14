@@ -1,4 +1,3 @@
-using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using System;
 using UnikPedel.ApiInterface.Mapper;
@@ -30,15 +29,6 @@ builder.Services.AddDbContext<UnikPedelContext>(options =>
     {
         x.MigrationsAssembly("UnikPedel.Infrastructure");
     }));
-
-var mappingConfig = new MapperConfiguration(mc =>
-{
-    mc.AddProfile(new MapperProfiles());
-});
-
-IMapper mapper = mappingConfig.CreateMapper();
-builder.Services.AddSingleton(mapper);
-builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
