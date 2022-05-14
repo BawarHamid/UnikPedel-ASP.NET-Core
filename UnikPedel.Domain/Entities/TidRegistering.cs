@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace UnikPedel.Domain.Entities
 {
-   public class TidRegistering
+   public class TidRegistering : BaseEntity
     {
-        public Guid Id { get; set; }
+        //public Guid Id { get; set; }
         public DateTime RegisterDato { get; set; }
 
         public double AntalTimer { get; set; }

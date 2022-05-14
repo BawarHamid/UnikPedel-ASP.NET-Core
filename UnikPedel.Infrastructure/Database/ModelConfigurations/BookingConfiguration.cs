@@ -17,8 +17,15 @@ namespace UnikPedel.Infrastructure.Database.ModelConfigurations
             entity.Property(b => b.Id).HasColumnName("Id");
             entity.Property(c => c.StartTid).HasColumnName("StartTid").IsRequired();
             entity.Property(b => b.SlutTid).HasColumnName("SlutTid").IsRequired();
-            entity.HasOne(a => a.Lejer).WithMany(d => d.Bookings);
-            entity.HasOne(a => a.Lejemål).WithMany(d => d.Bookings);
+            entity.HasOne(a => a.Lejer)
+                .WithMany(d => d.Bookings)
+                .HasForeignKey(x => x.LejerId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            entity.HasOne(a => a.Lejemål)
+                .WithMany(d => d.Bookings)
+                .HasForeignKey(x => x.LejemålId)
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

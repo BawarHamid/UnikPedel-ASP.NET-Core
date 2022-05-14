@@ -26,7 +26,6 @@ namespace UnikPedel.ApiInterface.Controllers
         {
             await _ejendomAnsvarligCommand.CreateAsync(new EjendomsAnsvarligCommandDto
             {
-                Id=ejendomAnsvarlig.Id,
                 ViceværtId=ejendomAnsvarlig.ViceværtId,
                 EjendomId = ejendomAnsvarlig.EjendomId
             });
@@ -34,9 +33,9 @@ namespace UnikPedel.ApiInterface.Controllers
 
         // DELETE api/<EjendomAnsvarligController>/ sletter en bestemet EejendomAnsvarlig udfra Id
         [HttpDelete("{id}")]
-        public async Task DeleteEjendomAnsvarligAsync(Guid Id)
+        public async Task DeleteEjendomAnsvarligAsync(int Id)
         {
-            await _ejendomAnsvarligCommand.DeleteAsync(new EjendomsAnsvarligCommandDto { Id = Id });
+            //await _ejendomAnsvarligCommand.DeleteAsync(new EjendomsAnsvarligCommandDto { Id = Id });
         }
 
         //PUT api/<EjendomAnsvarligController>/ når man laver update på en EjendomAnsvarlig.
@@ -45,11 +44,10 @@ namespace UnikPedel.ApiInterface.Controllers
         {
             await _ejendomAnsvarligCommand.EditAsync(new EjendomsAnsvarligCommandDto
             {
-                Id = ejendomAnsvarlig.Id,
                 ViceværtId = ejendomAnsvarlig.ViceværtId,
-                Vicevært= ejendomAnsvarlig.Vicevært,
+                //Vicevært= ejendomAnsvarlig.Vicevært,
                 EjendomId = ejendomAnsvarlig.EjendomId,
-                Ejendom = ejendomAnsvarlig.Ejendom
+                //Ejendom = ejendomAnsvarlig.Ejendom
             });
             
         }
@@ -63,11 +61,10 @@ namespace UnikPedel.ApiInterface.Controllers
             if (ejendomsAnsvarlig is null) return null;
             return new EjendomAnsvarligDto
             {
-                Id = ejendomsAnsvarlig.Id,
                 ViceværtId = ejendomsAnsvarlig.ViceværtId,
-                Vicevært = ejendomsAnsvarlig.Vicevært,
+                //Vicevært = ejendomsAnsvarlig.Vicevært,
                 EjendomId=ejendomsAnsvarlig.EjendomId,
-                Ejendom = ejendomsAnsvarlig.Ejendom
+                //Ejendom = ejendomsAnsvarlig.Ejendom
             };
            
         }
@@ -82,11 +79,10 @@ namespace UnikPedel.ApiInterface.Controllers
             ejendomAnsvarlig.ToList()
                 .ForEach(ejendoms => result.Add(new EjendomAnsvarligDto
                 {
-                    Id = ejendoms.Id,
                     ViceværtId = ejendoms.ViceværtId,
-                    Vicevært = ejendoms.Vicevært,
+                    //Vicevært = ejendoms.Vicevært,
                     EjendomId = ejendoms.EjendomId,
-                    Ejendom = ejendoms.Ejendom
+                    //Ejendom = ejendoms.Ejendom
 
                 }));
             return result;

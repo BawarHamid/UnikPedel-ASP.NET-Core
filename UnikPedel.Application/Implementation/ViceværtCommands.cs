@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,27 +13,31 @@ namespace UnikPedel.Application.Implementation
     public class ViceværtCommands : IViceværtCommand
     {
         private readonly IViceværtRepository _repository;
-        public ViceværtCommands(IViceværtRepository repository)
+        private readonly IMapper _mapper;
+        public ViceværtCommands(IViceværtRepository repository, IMapper mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
-        async Task IViceværtCommand.CreateViceværtAsyc(ViceværtCommandDto viceværtDto)
+        async Task<ViceværtCommandDto> IViceværtCommand.CreateViceværtAsyc(ViceværtCreateCommandDto viceværtDto)
         {
             var vicevært = new UnikPedel.Domain.Entities.Vicevært(viceværtDto.ForNavn, viceværtDto.EfterNavn, viceværtDto.Telefon, viceværtDto.Email);
             await _repository.AddViceværtAsync(vicevært);
+            var vicedto = _mapper.Map<ViceværtCommandDto>(vicevært);
+            return vicedto;
         }
 
         async Task IViceværtCommand.DeleteViceværtAsync(ViceværtCommandDto viceværtDto)
         {
-            await _repository.DeleteViceværtAsync(viceværtDto.Id);
+            //await _repository.DeleteViceværtAsync(viceværtDto.Id);
         }
 
         async Task IViceværtCommand.EditViceværtAsync(ViceværtCommandDto viceværtDto)
         {
-            var vicevært = await _repository.GetViceværtAsync(viceværtDto.Id);
-            vicevært.Update(viceværtDto.ForNavn, viceværtDto.EfterNavn, viceværtDto.Telefon, viceværtDto.Email); 
-            await _repository.SaveViceværtAsync(vicevært);
+            //var vicevært = await _repository.GetViceværtAsync(viceværtDto.Id);
+            //vicevært.Update(viceværtDto.ForNavn, viceværtDto.EfterNavn, viceværtDto.Telefon, viceværtDto.Email); 
+            //await _repository.SaveViceværtAsync(vicevært);
         }
     }
 }

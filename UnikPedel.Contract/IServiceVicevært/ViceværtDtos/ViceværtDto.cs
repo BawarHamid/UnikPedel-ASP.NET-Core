@@ -14,4 +14,13 @@ namespace UnikPedel.Contract.ViceværtDtos
         public int Telefon { get; set; }
         public string Email { get; set; }
     }
+
+    public class ViceværtCreateDto
+    {
+        public string ForNavn { get; set; }
+        public string EfterNavn { get; set; }
+        public int Telefon { get; set; }
+        public string Email { get; set; }
+
+    }
 }

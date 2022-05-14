@@ -20,10 +20,20 @@ namespace UnikPedel.Infrastructure.Database.ModelConfigurations
             entity.Property(a => a.TimeCreated).HasColumnName("TimeCreated").IsRequired();
             entity.Property(a => a.Status).HasColumnName("Status").IsRequired();
 
-            entity.HasOne(d => d.Lejer).WithMany(c => c.Rekvisitioner);
-            entity.HasOne(d => d.Vicevært).WithMany(c => c.Rekvisitioner);
-            entity.HasOne(a => a.Ejendom).WithMany(c => c.Rekvisitioner);
-            entity.HasMany(c => c.TidRegistering).WithOne(d => d.Rekvisition).OnDelete(DeleteBehavior.NoAction);
+            entity.HasOne(x => x.Vicevært)
+                .WithMany(x => x.Rekvisitioner)
+                .HasForeignKey(x => x.ViceværtId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            entity.HasOne(x => x.Lejer)
+                .WithMany(x => x.Rekvisitioner)
+                .HasForeignKey(x => x.LejerId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            entity.HasOne(x => x.Ejendom)
+                .WithMany(x => x.Rekvisitioner)
+                .HasForeignKey(x => x.EjendomId)
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

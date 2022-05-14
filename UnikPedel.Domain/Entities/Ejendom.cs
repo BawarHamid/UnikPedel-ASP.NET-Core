@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace UnikPedel.Domain.Entities
 {
-    public class Ejendom
+    public class Ejendom : BaseEntity
     {
-        [Key]
-        public Guid Id { get; set; }
+        //[Key]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //public Guid Id { get; set; }
 
         public  string VejNavn{get;set;}
         public int BygningsNummer {get;set;}
@@ -20,8 +22,8 @@ namespace UnikPedel.Domain.Entities
         public int  LandKode {get;set;}
         
         public IEnumerable<Lejemål> Lejemål { get; set; }
-        public EjendomsAnsvarlig EjendomsAnsvarlig { get; set; }
-        //public IEnumerable<EjendomsAnsvarlig> EjendomsAnsvarlig { get; set; }
+        //public EjendomsAnsvarlig EjendomsAnsvarlig { get; set; }
+        public IEnumerable<EjendomsAnsvarlig> EjendomsAnsvarlig { get; set; }
         public IEnumerable<Rekvisition> Rekvisitioner { get; set; }
         public IEnumerable<Vicevært> Vicevært { get; set; }
     }

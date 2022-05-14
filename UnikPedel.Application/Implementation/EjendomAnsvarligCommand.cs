@@ -24,16 +24,16 @@ namespace UnikPedel.Application.Implementation
 
         public async  Task DeleteAsync(EjendomsAnsvarligCommandDto ejendomsAnsvarlignDto)
         {
-            await _repository.DeleteAsync(ejendomsAnsvarlignDto.Id);
+            //await _repository.DeleteAsync(ejendomsAnsvarlignDto.Id);
         }
 
         public async Task EditAsync(EjendomsAnsvarligCommandDto ejendomsAnsvarlignDto)
         {
-            var rekvisition = await _repository.GetAsync(ejendomsAnsvarlignDto.Id);
+            //var rekvisition = await _repository.GetAsync(ejendomsAnsvarlignDto.Id);
 
-            rekvisition.Update(ejendomsAnsvarlignDto.Vicevært, ejendomsAnsvarlignDto.Ejendom); ;
+            //rekvisition.Update(ejendomsAnsvarlignDto.Vicevært, ejendomsAnsvarlignDto.Ejendom); ;
 
-            await _repository.SaveAsync(rekvisition);
+            //await _repository.SaveAsync(rekvisition);
         }
     }
 }
