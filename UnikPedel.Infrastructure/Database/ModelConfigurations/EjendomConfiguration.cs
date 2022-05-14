@@ -33,12 +33,6 @@ namespace UnikPedel.Infrastructure.Database.ModelConfigurations
             entity.Property(a => a.LandKode)
            .HasColumnName("LandKode")
            .IsRequired();
-
-            entity.HasMany(a => a.Lejemål).WithOne(b => b.Ejendom);
-            //entity.HasMany(a => a.EjendomsAnsvarlig).WithOne(b => b.Ejendom);
-            entity.HasOne(a => a.EjendomsAnsvarlig).WithMany(b => b.Ejendom);
-            entity.HasMany(a => a.Rekvisitioner).WithOne(b => b.Ejendom);
-            entity.HasMany(a => a.Vicevært).WithMany(b => b.Ejemdom);
         }
     }
 }

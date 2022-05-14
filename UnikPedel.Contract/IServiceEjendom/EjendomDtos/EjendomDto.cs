@@ -9,7 +9,7 @@ namespace UnikPedel.Contract.IServiceEjendom.EjendomDtos
 {
     public class EjendomDto
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string VejNavn { get; set; }
         public int BygningsNummer { get; set; }
         public string PostNummer { get; set; }

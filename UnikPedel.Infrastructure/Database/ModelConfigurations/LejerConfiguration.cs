@@ -13,8 +13,8 @@ namespace UnikPedel.Infrastructure.Database.ModelConfigurations
         public void Configure(EntityTypeBuilder<Domain.Entities.Lejer> entity)
         {
             entity.ToTable("Lejer");
-            entity.HasKey(b => b.LejemålId);
-            entity.Property(b => b.LejemålId).HasColumnName("Id");
+            entity.HasKey(b => b.Id);
+            //entity.Property(b => b.LejemålId).HasColumnName("Id");
 
             entity.Property(a => a.ForNavn)
             .HasColumnName("ForNavn")
@@ -38,10 +38,10 @@ namespace UnikPedel.Infrastructure.Database.ModelConfigurations
             entity.Property(a => a.UdDato)
            .HasColumnName("UdDato");
 
-            entity.HasOne(c => c.Lejemål).WithMany(d => d.Lejer);
-            //entity.WithMany(c => c.Lejemål).WithOne(d => d.Lejer);
-            entity.HasMany(c => c.Rekvisitioner).WithOne(d => d.Lejer);
-            entity.HasMany(c => c.Bookings).WithOne(d => d.Lejer);
+            entity.HasOne(c => c.Lejemål)
+                .WithOne(d => d.Lejer)
+                .HasForeignKey<Domain.Entities.Lejer>(x => x.LejemålId)
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

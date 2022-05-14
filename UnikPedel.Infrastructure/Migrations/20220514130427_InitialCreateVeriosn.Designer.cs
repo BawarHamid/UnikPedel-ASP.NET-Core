@@ -12,8 +12,8 @@ using UnikPedel.Infrastructure.Database;
 namespace UnikPedel.Infrastructure.Migrations
 {
     [DbContext(typeof(UnikPedelContext))]
-    [Migration("20220511124744_TidReg2")]
-    partial class TidReg2
+    [Migration("20220514130427_InitialCreateVeriosn")]
+    partial class InitialCreateVeriosn
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,11 +26,11 @@ namespace UnikPedel.Infrastructure.Migrations
 
             modelBuilder.Entity("EjendomVicevært", b =>
                 {
-                    b.Property<Guid>("EjemdomId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("EjemdomId")
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("ViceværtId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("ViceværtId")
+                        .HasColumnType("int");
 
                     b.HasKey("EjemdomId", "ViceværtId");
 
@@ -41,16 +41,18 @@ namespace UnikPedel.Infrastructure.Migrations
 
             modelBuilder.Entity("UnikPedel.Domain.Entities.Booking", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
+                        .HasColumnType("int")
                         .HasColumnName("Id");
 
-                    b.Property<Guid>("LejemålId")
-                        .HasColumnType("uniqueidentifier");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<Guid>("LejerLejemålId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("LejemålId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("LejerId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("SlutTid")
                         .HasColumnType("datetime2")
@@ -66,25 +68,23 @@ namespace UnikPedel.Infrastructure.Migrations
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("rowversion");
 
-                    b.Property<Guid>("ViceværtId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
 
                     b.HasIndex("LejemålId");
 
-                    b.HasIndex("LejerLejemålId");
-
-                    b.HasIndex("ViceværtId");
+                    b.HasIndex("LejerId");
 
                     b.ToTable("Booking", (string)null);
                 });
 
             modelBuilder.Entity("UnikPedel.Domain.Entities.Ejendom", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .HasColumnType("uniqueidentifier")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
                         .HasColumnName("Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("By")
                         .IsRequired()
@@ -121,28 +121,27 @@ namespace UnikPedel.Infrastructure.Migrations
 
             modelBuilder.Entity("UnikPedel.Domain.Entities.EjendomsAnsvarlig", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("Id");
+                    b.Property<int>("ViceværtId")
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("EjendomId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("EjendomId")
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("ViceværtId")
-                        .HasColumnType("uniqueidentifier");
+                    b.HasKey("ViceværtId", "EjendomId");
 
-                    b.HasKey("Id");
+                    b.HasIndex("EjendomId");
 
                     b.ToTable("EjendomsAnsvarlig", (string)null);
                 });
 
             modelBuilder.Entity("UnikPedel.Domain.Entities.Lejemål", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
+                        .HasColumnType("int")
                         .HasColumnName("Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("AndenAdresse")
                         .IsRequired()
@@ -158,8 +157,8 @@ namespace UnikPedel.Infrastructure.Migrations
                         .HasColumnType("int")
                         .HasColumnName("BygningsNummer");
 
-                    b.Property<Guid>("EjendomId")
-                        .HasColumnType("uniqueidentifier")
+                    b.Property<int>("EjendomId")
+                        .HasColumnType("int")
                         .HasColumnName("EjendomId");
 
                     b.Property<bool>("IsBookable")
@@ -180,6 +179,9 @@ namespace UnikPedel.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("Region");
 
+                    b.Property<int?>("RekvisitionId")
+                        .HasColumnType("int");
+
                     b.Property<string>("VejNavn")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
@@ -189,15 +191,18 @@ namespace UnikPedel.Infrastructure.Migrations
 
                     b.HasIndex("EjendomId");
 
+                    b.HasIndex("RekvisitionId");
+
                     b.ToTable("Lejemål", (string)null);
                 });
 
             modelBuilder.Entity("UnikPedel.Domain.Entities.Lejer", b =>
                 {
-                    b.Property<Guid>("LejemålId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("Id");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("EfterNavn")
                         .IsRequired()
@@ -218,8 +223,8 @@ namespace UnikPedel.Infrastructure.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("IndDato");
 
-                    b.Property<Guid>("LejemålId1")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("LejemålId")
+                        .HasColumnType("int");
 
                     b.Property<string>("MellemNavn")
                         .IsRequired()
@@ -240,30 +245,33 @@ namespace UnikPedel.Infrastructure.Migrations
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("rowversion");
 
-                    b.HasKey("LejemålId");
+                    b.HasKey("Id");
 
-                    b.HasIndex("LejemålId1");
+                    b.HasIndex("LejemålId")
+                        .IsUnique();
 
                     b.ToTable("Lejer", (string)null);
                 });
 
             modelBuilder.Entity("UnikPedel.Domain.Entities.Rekvisition", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
+                        .HasColumnType("int")
                         .HasColumnName("Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Beskrivelse")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("Beskrivelse");
 
-                    b.Property<Guid>("EjendomId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("EjendomId")
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("LejerLejemålId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("LejerId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Status")
                         .IsRequired()
@@ -285,14 +293,14 @@ namespace UnikPedel.Infrastructure.Migrations
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("rowversion");
 
-                    b.Property<Guid>("ViceværtId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("ViceværtId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("EjendomId");
 
-                    b.HasIndex("LejerLejemålId");
+                    b.HasIndex("LejerId");
 
                     b.HasIndex("ViceværtId");
 
@@ -301,10 +309,12 @@ namespace UnikPedel.Infrastructure.Migrations
 
             modelBuilder.Entity("UnikPedel.Domain.Entities.TidRegistering", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
+                        .HasColumnType("int")
                         .HasColumnName("Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<double>("AntalTimer")
                         .HasColumnType("float")
@@ -314,11 +324,11 @@ namespace UnikPedel.Infrastructure.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("RegisterDato");
 
-                    b.Property<Guid?>("RekvisitionId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int?>("RekvisitionId")
+                        .HasColumnType("int");
 
-                    b.Property<Guid?>("ViceværtId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int?>("ViceværtId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -331,9 +341,12 @@ namespace UnikPedel.Infrastructure.Migrations
 
             modelBuilder.Entity("UnikPedel.Domain.Entities.Vicevært", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .HasColumnType("uniqueidentifier")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
                         .HasColumnName("Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("EfterNavn")
                         .IsRequired()
@@ -378,37 +391,37 @@ namespace UnikPedel.Infrastructure.Migrations
                     b.HasOne("UnikPedel.Domain.Entities.Lejemål", "Lejemål")
                         .WithMany("Bookings")
                         .HasForeignKey("LejemålId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("UnikPedel.Domain.Entities.Lejer", "Lejer")
                         .WithMany("Bookings")
-                        .HasForeignKey("LejerLejemålId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("UnikPedel.Domain.Entities.Vicevært", "Vicevært")
-                        .WithMany()
-                        .HasForeignKey("ViceværtId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("LejerId")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Lejemål");
 
                     b.Navigation("Lejer");
-
-                    b.Navigation("Vicevært");
                 });
 
-            modelBuilder.Entity("UnikPedel.Domain.Entities.Ejendom", b =>
+            modelBuilder.Entity("UnikPedel.Domain.Entities.EjendomsAnsvarlig", b =>
                 {
-                    b.HasOne("UnikPedel.Domain.Entities.EjendomsAnsvarlig", "EjendomsAnsvarlig")
-                        .WithMany("Ejendom")
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Cascade)
+                    b.HasOne("UnikPedel.Domain.Entities.Ejendom", "Ejendom")
+                        .WithMany("EjendomsAnsvarlig")
+                        .HasForeignKey("EjendomId")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.Navigation("EjendomsAnsvarlig");
+                    b.HasOne("UnikPedel.Domain.Entities.Vicevært", "Vicevært")
+                        .WithMany("EjendomsAnsvarlig")
+                        .HasForeignKey("ViceværtId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Ejendom");
+
+                    b.Navigation("Vicevært");
                 });
 
             modelBuilder.Entity("UnikPedel.Domain.Entities.Lejemål", b =>
@@ -416,8 +429,12 @@ namespace UnikPedel.Infrastructure.Migrations
                     b.HasOne("UnikPedel.Domain.Entities.Ejendom", "Ejendom")
                         .WithMany("Lejemål")
                         .HasForeignKey("EjendomId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
+
+                    b.HasOne("UnikPedel.Domain.Entities.Rekvisition", null)
+                        .WithMany("Lejemål")
+                        .HasForeignKey("RekvisitionId");
 
                     b.Navigation("Ejendom");
                 });
@@ -425,9 +442,9 @@ namespace UnikPedel.Infrastructure.Migrations
             modelBuilder.Entity("UnikPedel.Domain.Entities.Lejer", b =>
                 {
                     b.HasOne("UnikPedel.Domain.Entities.Lejemål", "Lejemål")
-                        .WithMany("Lejer")
-                        .HasForeignKey("LejemålId1")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .WithOne("Lejer")
+                        .HasForeignKey("UnikPedel.Domain.Entities.Lejer", "LejemålId")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Lejemål");
@@ -438,19 +455,19 @@ namespace UnikPedel.Infrastructure.Migrations
                     b.HasOne("UnikPedel.Domain.Entities.Ejendom", "Ejendom")
                         .WithMany("Rekvisitioner")
                         .HasForeignKey("EjendomId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("UnikPedel.Domain.Entities.Lejer", "Lejer")
                         .WithMany("Rekvisitioner")
-                        .HasForeignKey("LejerLejemålId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("LejerId")
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("UnikPedel.Domain.Entities.Vicevært", "Vicevært")
                         .WithMany("Rekvisitioner")
                         .HasForeignKey("ViceværtId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Ejendom");
@@ -470,43 +487,28 @@ namespace UnikPedel.Infrastructure.Migrations
                     b.HasOne("UnikPedel.Domain.Entities.Vicevært", "Vicevært")
                         .WithMany("TidRegistrering")
                         .HasForeignKey("ViceværtId")
-                        .OnDelete(DeleteBehavior.NoAction);
+                        .OnDelete(DeleteBehavior.ClientCascade);
 
                     b.Navigation("Rekvisition");
 
                     b.Navigation("Vicevært");
                 });
 
-            modelBuilder.Entity("UnikPedel.Domain.Entities.Vicevært", b =>
-                {
-                    b.HasOne("UnikPedel.Domain.Entities.EjendomsAnsvarlig", "EjendomsAnsvarlig")
-                        .WithMany("Vicevært")
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("EjendomsAnsvarlig");
-                });
-
             modelBuilder.Entity("UnikPedel.Domain.Entities.Ejendom", b =>
                 {
+                    b.Navigation("EjendomsAnsvarlig");
+
                     b.Navigation("Lejemål");
 
                     b.Navigation("Rekvisitioner");
-                });
-
-            modelBuilder.Entity("UnikPedel.Domain.Entities.EjendomsAnsvarlig", b =>
-                {
-                    b.Navigation("Ejendom");
-
-                    b.Navigation("Vicevært");
                 });
 
             modelBuilder.Entity("UnikPedel.Domain.Entities.Lejemål", b =>
                 {
                     b.Navigation("Bookings");
 
-                    b.Navigation("Lejer");
+                    b.Navigation("Lejer")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("UnikPedel.Domain.Entities.Lejer", b =>
@@ -518,11 +520,15 @@ namespace UnikPedel.Infrastructure.Migrations
 
             modelBuilder.Entity("UnikPedel.Domain.Entities.Rekvisition", b =>
                 {
+                    b.Navigation("Lejemål");
+
                     b.Navigation("TidRegistering");
                 });
 
             modelBuilder.Entity("UnikPedel.Domain.Entities.Vicevært", b =>
                 {
+                    b.Navigation("EjendomsAnsvarlig");
+
                     b.Navigation("Rekvisitioner");
 
                     b.Navigation("TidRegistrering");

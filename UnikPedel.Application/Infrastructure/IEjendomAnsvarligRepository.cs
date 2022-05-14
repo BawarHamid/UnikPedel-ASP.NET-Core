@@ -9,8 +9,8 @@ namespace UnikPedel.Application.Infrastructure
     public interface IEjendomAnsvarligRepository
     {
         Task AddAsync(Domain.Entities.EjendomsAnsvarlig ejendomsAnsvarlig);
-        Task<Domain.Entities.EjendomsAnsvarlig> GetAsync(Guid id);
+        Task<Domain.Entities.EjendomsAnsvarlig> GetAsync(int id);
         Task SaveAsync(Domain.Entities.EjendomsAnsvarlig ejendomAnsvarlig);
-        Task DeleteAsync(Guid id);
+        Task DeleteAsync(int id);
     }
 }

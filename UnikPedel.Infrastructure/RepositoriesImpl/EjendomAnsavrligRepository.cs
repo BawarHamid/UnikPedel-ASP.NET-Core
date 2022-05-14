@@ -23,7 +23,7 @@ namespace UnikPedel.Infrastructure.RepositoriesImpl
             await _db.SaveChangesAsync();
         }
 
-        public async  Task DeleteAsync(Guid id)
+        public async  Task DeleteAsync(int id)
         {
             var ejendomAnsvarlig = _db.EjendomsAnsvarlig.Find(id);
             if (ejendomAnsvarlig is null) return;
@@ -32,7 +32,7 @@ namespace UnikPedel.Infrastructure.RepositoriesImpl
             await _db.SaveChangesAsync();
         }
 
-        public  async Task<EjendomsAnsvarlig> GetAsync(Guid id)
+        public  async Task<EjendomsAnsvarlig> GetAsync(int id)
         {
             return await _db.EjendomsAnsvarlig.FindAsync(id) ?? throw new Exception("EjendomAnsvarlig not found");
         }

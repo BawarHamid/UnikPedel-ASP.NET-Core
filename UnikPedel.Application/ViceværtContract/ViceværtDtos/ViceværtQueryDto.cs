@@ -8,7 +8,7 @@ namespace UnikPedel.Application.Contract.Dtos
 {
     public class ViceværtQueryDto
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string ForNavn { get; set; }
         public string EfterNavn { get; set; }
         public int Telefon { get; set; }

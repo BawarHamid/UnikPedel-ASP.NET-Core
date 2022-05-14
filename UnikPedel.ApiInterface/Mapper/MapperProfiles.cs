@@ -12,8 +12,12 @@ namespace UnikPedel.ApiInterface.Mapper
         public MapperProfiles()
         {
             CreateMap<Vicevært,ViceværtDto>();
+            CreateMap<ViceværtCommandDto, Vicevært>();
+            CreateMap<Vicevært, ViceværtCommandDto>();
             CreateMap<TidRegistering, TidRegistreringDto>();
             CreateMap<Rekvisition, RekvisitionDto>();
+
+
         }
     }
 }

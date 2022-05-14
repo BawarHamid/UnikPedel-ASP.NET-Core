@@ -9,7 +9,7 @@ namespace UnikPedel.Application.Contract.ViceværtInterface
 {
     public interface IViceværtCommand
     {
-        Task CreateViceværtAsyc(ViceværtCommandDto viceværtDto);
+        Task<ViceværtCommandDto> CreateViceværtAsyc(ViceværtCreateCommandDto viceværtDto);
         Task EditViceværtAsync(ViceværtCommandDto viceværtDto);
         Task DeleteViceværtAsync(ViceværtCommandDto viceværtDto);
     }

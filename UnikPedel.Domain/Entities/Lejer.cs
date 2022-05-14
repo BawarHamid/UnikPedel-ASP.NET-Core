@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace UnikPedel.Domain.Entities
 {
-    public class Lejer
+    public class Lejer : BaseEntity
     {
-        [Key]
-        public Guid LejemålId { get; set; }
+    //    [Key]
+    //    public Guid LejemålId { get; set; }
+    //    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Required]
 
         public string ForNavn { get; set; }
@@ -24,6 +26,7 @@ namespace UnikPedel.Domain.Entities
 
         public IEnumerable<Rekvisition> Rekvisitioner { get; set; }
         public IEnumerable<Booking> Bookings { get; set; }
+        public int LejemålId { get; set; }
         public Lejemål Lejemål { get; set; }
 
         [Timestamp]

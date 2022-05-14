@@ -27,7 +27,6 @@ namespace UnikPedel.Infrastructure.Queries
 
             return new EjendomsAnsvarligQueryDto
             {
-                Id = dbEjendomAnsvarlig.Id,
                 ViceværtId = dbEjendomAnsvarlig.ViceværtId,
                 Vicevært = dbEjendomAnsvarlig.Vicevært,
                 EjendomId = dbEjendomAnsvarlig.EjendomId,
@@ -43,7 +42,6 @@ namespace UnikPedel.Infrastructure.Queries
             var dbEjendomAnsvarlig = await _unikPedelContext.EjendomsAnsvarlig.ToListAsync();
             dbEjendomAnsvarlig.ForEach(a => result.Add(new EjendomsAnsvarligQueryDto
             {
-                Id = a.Id,
                 ViceværtId = a.ViceværtId,
                 Vicevært = a.Vicevært,
                 EjendomId = a.EjendomId,
