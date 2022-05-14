@@ -65,15 +65,16 @@ namespace UnikPedel.ApiInterface.Controllers
         {
             var registrering = await _tidRegQuery.GetTidRegistreringAsync(Id);
             if (registrering == null) return null;
-            return new TidRegistreringDto
-            {
-                //Id = registrering.Id,
-                //AntalTimer = registrering.AntalTimer,
-                //RegisterDato = registrering.RegisterDato,
-                //Vicevært = registrering.Vicevært,
-                //Rekvisition = registrering.Rekvisition
+            return _mapper.Map<TidRegistreringDto?>(registrering);
+            //    new TidRegistreringDto
+            //{
+            //    //Id = registrering.Id,
+            //    //AntalTimer = registrering.AntalTimer,
+            //    //RegisterDato = registrering.RegisterDato,
+            //    //Vicevært = registrering.Vicevært,
+            //    //Rekvisition = registrering.Rekvisition
 
-            };
+            //};
         }
 
        
