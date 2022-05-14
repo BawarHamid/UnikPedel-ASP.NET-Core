@@ -12,8 +12,8 @@ using UnikPedel.Infrastructure.Database;
 namespace UnikPedel.Infrastructure.Migrations
 {
     [DbContext(typeof(UnikPedelContext))]
-    [Migration("20220514130427_InitialCreateVeriosn")]
-    partial class InitialCreateVeriosn
+    [Migration("20220514144813_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

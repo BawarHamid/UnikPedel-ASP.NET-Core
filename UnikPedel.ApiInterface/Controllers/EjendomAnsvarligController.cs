@@ -30,7 +30,7 @@ namespace UnikPedel.ApiInterface.Controllers
                 EjendomId = ejendomAnsvarlig.EjendomId
             });
         }
-
+        
         // DELETE api/<EjendomAnsvarligController>/ sletter en bestemet EejendomAnsvarlig udfra Id
         [HttpDelete("{id}")]
         public async Task DeleteEjendomAnsvarligAsync(int Id)
