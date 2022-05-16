@@ -18,7 +18,7 @@ namespace UnikPedel.ApiInterface.Controllers
 
 
         // GET api/<EjendomController> henter en bestemt Ejendom udfra Id
-        [HttpGet("{id}")]
+        [HttpGet("{Id}")]
         public async Task<EjendomDto?> GetEjendomAsync(Guid Id)
         {
             var ejendom = await _ejendomQuery.GetEjendom(Id);

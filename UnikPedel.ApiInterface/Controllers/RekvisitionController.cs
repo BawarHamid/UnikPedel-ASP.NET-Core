@@ -39,7 +39,7 @@ namespace UnikPedel.ApiInterface.Controllers
 
 
         // PUT api/<RekvisitionController>/5 når man laver update på en rekvisition.
-        [HttpPut("{id}")]
+        [HttpPut("{Id}")]
             public async Task EditRekvisitionAsync(RekvisitionDto rekvisition)
             {
                await _rekvisitionCommand.EditAsync(new RekvisitionCommandDto
@@ -58,7 +58,7 @@ namespace UnikPedel.ApiInterface.Controllers
 
 
         // DELETE api/<RekvisitionController>/5 sletter en rekvisition udfra Id
-        [HttpDelete("{id}")]
+        [HttpDelete("{Id}")]
             public async Task DeleteRekvisitionAsync(Guid Id)
             {
                await _rekvisitionCommand.DeleteAsync(new RekvisitionCommandDto { Id = Id });
@@ -68,7 +68,7 @@ namespace UnikPedel.ApiInterface.Controllers
 
 
         // GET api/<RekvisitionController>/5 henter en rekvisition udfra Id
-        [HttpGet("{id}")]
+        [HttpGet("{Id}")]
             public async Task<RekvisitionDto?> GetRekvisitionAsync(Guid Id)
             {
                 var rekvisition = await _rekvisitionQuery.GetRekvisitionAsync(Id);
