@@ -11,6 +11,6 @@ namespace UnikPedel.Application.Infrastructure
         Task AddViceværtAsync(Domain.Entities.Vicevært vicevært);
         Task DeleteViceværtAsync(Guid Id);
         Task SaveViceværtAsync(Domain.Entities.Vicevært vicevært);
-        Task<Domain.Entities.Vicevært> GetViceværtAsync(Guid Id);
+        Task<Domain.Entities.Vicevært> GetViceværtAsync(int Id);
     }
 }

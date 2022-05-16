@@ -53,6 +53,12 @@ namespace UnikPedel.Domain.Entities
 
         }
 
+        public Rekvisition(string beskrivelse, string type)
+        {
+            Beskrivelse = beskrivelse;
+            Type = type;
+        }
+
         public void Update(string type,  string status, string beskrivelse, Vicevært vicevært, Lejer lejer, Ejendom ejendom)
         {
             Type = type;

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace UnikPedel.Contract.ViceværtDtos
 {
-    public class ViceværtDto
+   public class ViceværtDto
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string ForNavn { get; set; }
         public string EfterNavn { get; set; }
         public int Telefon { get; set; }
@@ -21,6 +21,5 @@ namespace UnikPedel.Contract.ViceværtDtos
         public string EfterNavn { get; set; }
         public int Telefon { get; set; }
         public string Email { get; set; }
-
     }
 }

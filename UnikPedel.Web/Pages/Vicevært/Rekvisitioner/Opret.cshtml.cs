@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using UnikPedel.Contract.IServiceEjendom.EjendomDtos;
 using UnikPedel.Contract.IServiceRekvisition;
 using UnikPedel.Contract.IServiceRekvisition.RekvisitionDtos;
+using UnikPedel.Contract.ViceværtDtos;
 
 namespace UnikPedel.Web.Pages.Vicevært.Rekvisitioner
 {
@@ -29,14 +31,21 @@ namespace UnikPedel.Web.Pages.Vicevært.Rekvisitioner
 
         public class RekvisitionCreateModel
         {
+            public Guid Id { get; set; }
+
             public string Type { get; set; }
-            public string Beskrivelse { get; set; }
-            public DateTime TimeCreated { get; set; } = DateTime.Now + TimeSpan.FromMinutes(30);
+            public DateTime TimeCreated { get; set; }
             public string Status { get; set; }
+            public string Beskrivelse { get; set; }
+
+            public ViceværtDto Vicevært { get; set; }
+
+            //public Lejer Lejer { get; set; }
+            public EjendomDto Ejendom { get; set; }
 
             public RekvisitionDto GetAsRekvisitionDto()
             {
-                return new RekvisitionDto { Type = Type, Beskrivelse = Beskrivelse, TimeCreated = TimeCreated, Status = Status };
+                return new RekvisitionDto { Beskrivelse = Beskrivelse, Type = Type };
             }
         }
     }

@@ -31,7 +31,7 @@ namespace UnikPedel.Infrastructure.RepositoriesImpl
             await _db.SaveChangesAsync();
         }
 
-        async Task<Domain.Entities.Vicevært> IViceværtRepository.GetViceværtAsync(Guid Id)
+        async Task<Domain.Entities.Vicevært> IViceværtRepository.GetViceværtAsync(int Id)
         {
             return await _db.Vicevært.FindAsync(Id) ?? throw new Exception("Vicevært findes ikke");
         }

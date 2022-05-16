@@ -28,20 +28,30 @@ namespace UnikPedel.ApiInterface.Controllers
         [HttpGet]
         public async Task<IEnumerable<ViceværtQueryDto>> GetViceværterAsync()
         {
-
             var vicevært = await _viceværtQuery.GetAllViceværterAsync();
+            if (vicevært is null) return null;
             return vicevært;
             //return _mapper.Map<IEnumerable<ViceværtDto>>(vicevært);
         }
 
 
         // GET api/<ViceværtController>/5 henter en vicevært udfra Id
-        [HttpGet("{id}")]
-        public async Task<ViceværtDto?> GetViceværtAsync(Guid Id)
+        [HttpGet("{Id}")]
+        public async Task<ViceværtDto?> GetViceværtAsync(int Id)
         {
 
             var vicevært = await _viceværtQuery.GetViceværtAsync(Id);
-            return _mapper.Map<ViceværtDto>(vicevært);
+            if (vicevært is null) return null;
+
+            return new ViceværtDto
+            {
+                Id = vicevært.Id,
+                ForNavn = vicevært.ForNavn,
+                EfterNavn = vicevært.EfterNavn,
+                Telefon = vicevært.Telefon,
+                Email = vicevært.Email
+            };
+            //return _mapper.Map<ViceværtDto>(vicevært);
         }
 
         // POST api/<ViceværtController> opretter en vicevært.

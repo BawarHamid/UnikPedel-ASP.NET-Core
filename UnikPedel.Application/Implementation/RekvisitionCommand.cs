@@ -17,7 +17,8 @@ namespace UnikPedel.Application.RekvisitionImpimentation
         }
         public async Task CreateAsync(RekvisitionCommandDto rekvisitionDto)
         {
-            var rekvisition = new Domain.Entities.Rekvisition(rekvisitionDto.Type, rekvisitionDto.Status, rekvisitionDto.Beskrivelse, rekvisitionDto.Vicevært, rekvisitionDto.Lejer, rekvisitionDto.Ejendom);
+            //var rekvisition = new Rekvisition(rekvisitionDto.Type, rekvisitionDto.Status, rekvisitionDto.Beskrivelse, rekvisitionDto.Vicevært, rekvisitionDto.Lejer, rekvisitionDto.Ejendom);
+            var rekvisition = new Rekvisition(rekvisitionDto.Beskrivelse, rekvisitionDto.Type);
             await _repository.AddAsync(rekvisition);
         }   
 

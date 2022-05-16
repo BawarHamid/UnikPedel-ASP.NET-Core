@@ -19,7 +19,7 @@ namespace UnikPedel.Infrastructure.Queries
             _db = db;
         }
 
-        async Task<ViceværtQueryDto?> IViceværtQuery.GetViceværtAsync(Guid Id)
+        async Task<ViceværtQueryDto?> IViceværtQuery.GetViceværtAsync(int Id)
         {
             var result = await _db.Vicevært.FindAsync(Id);
             if (result is null) return new ViceværtQueryDto();

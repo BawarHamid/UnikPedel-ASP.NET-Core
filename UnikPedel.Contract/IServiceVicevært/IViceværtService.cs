@@ -13,7 +13,7 @@ namespace UnikPedel.Contract.IServiceVicevært
         Task<ViceværtCommandDto> CreateViceværtAsync(ViceværtCreateCommandDto vicevært);
         Task EditViceværtAsync(ViceværtDto vicevært);
         Task DeleteViceværtAsync(Guid Id);
-        Task <ViceværtDto?> GetViceværtAsync(Guid Id);
+        Task <ViceværtDto?> GetViceværtAsync(int Id);
         Task<IEnumerable<ViceværtQueryDto>> GetViceværterAsync();
     }
 }
