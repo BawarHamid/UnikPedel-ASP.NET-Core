@@ -51,7 +51,7 @@ namespace UnikPedel.ApiInterface.Controllers
                 Telefon = vicevært.Telefon,
                 Email = vicevært.Email
             };
-            //return _mapper.Map<ViceværtDto>(vicevært);
+            //return _mapper.Map<ViceværtDto>(vicevært); med mapper virker ikke.
         }
 
         // POST api/<ViceværtController> opretter en vicevært.
@@ -72,7 +72,7 @@ namespace UnikPedel.ApiInterface.Controllers
         }
 
         // PUT api/<ViceværtController>/5 når man laver update på en vicevært.
-        [HttpPut("{id}")]
+        [HttpPut("{Id}")]
         public async Task EditViceværtAsync(ViceværtDto value)
         {
             await _viceværtCommand.EditViceværtAsync(new ViceværtCommandDto
@@ -86,7 +86,7 @@ namespace UnikPedel.ApiInterface.Controllers
         }
 
         // DELETE api/<ViceværtController>/5 sletter en vicevært udfra Id
-        [HttpDelete("{id}")]
+        [HttpDelete("{Id}")]
         public async Task DeleteViceværtAsync(Guid Id)
         {
             //await _viceværtCommand.DeleteViceværtAsync(new ViceværtCommandDto {Id = Id});

@@ -32,14 +32,14 @@ namespace UnikPedel.ApiInterface.Controllers
         }
         
         // DELETE api/<EjendomAnsvarligController>/ sletter en bestemet EejendomAnsvarlig udfra Id
-        [HttpDelete("{id}")]
+        [HttpDelete("{Id}")]
         public async Task DeleteEjendomAnsvarligAsync(int Id)
         {
             //await _ejendomAnsvarligCommand.DeleteAsync(new EjendomsAnsvarligCommandDto { Id = Id });
         }
 
         //PUT api/<EjendomAnsvarligController>/ når man laver update på en EjendomAnsvarlig.
-        [HttpPut("{id}")]
+        [HttpPut("{Id}")]
         public async Task EditEjendomAnsvarligAsync(EjendomAnsvarligDto ejendomAnsvarlig)
         {
             await _ejendomAnsvarligCommand.EditAsync(new EjendomsAnsvarligCommandDto
@@ -54,7 +54,7 @@ namespace UnikPedel.ApiInterface.Controllers
 
 
         // GET api/<EjendomController> henter en bestemt Ejendom udfra Id
-        [HttpGet("{id}")]
+        [HttpGet("{Id}")]
         public async Task<EjendomAnsvarligDto?> GetEjendomAnsvarligAsync(Guid Id)
         {
             var ejendomsAnsvarlig = await _ejendomAnsvarligQuery.GetEjendomAnsvarligAsync(Id);
