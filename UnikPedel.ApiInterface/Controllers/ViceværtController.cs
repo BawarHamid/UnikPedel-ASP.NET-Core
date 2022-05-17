@@ -31,6 +31,7 @@ namespace UnikPedel.ApiInterface.Controllers
             var vicevært = await _viceværtQuery.GetAllViceværterAsync();
             if (vicevært is null) return null;
             return vicevært;
+
             //return _mapper.Map<IEnumerable<ViceværtDto>>(vicevært);
         }
 
@@ -51,6 +52,7 @@ namespace UnikPedel.ApiInterface.Controllers
                 Telefon = vicevært.Telefon,
                 Email = vicevært.Email
             };
+
             //return _mapper.Map<ViceværtDto>(vicevært); med mapper virker ikke.
         }
 
@@ -58,6 +60,9 @@ namespace UnikPedel.ApiInterface.Controllers
         [HttpPost]
         public async Task<ViceværtCommandDto> CreateViceværtAsync([FromBody] ViceværtCreateCommandDto value)
         {
+            var result = await _viceværtCommand.CreateViceværtAsyc(value);
+            return result;
+
             //await _viceværtCommand.CreateViceværtAsyc(new ViceværtCommandDto
             //{
             //    Id = value.Id,
@@ -66,18 +71,15 @@ namespace UnikPedel.ApiInterface.Controllers
             //    Telefon = value.Telefon,
             //    Email = value.Email
             //});
-
-            var result = await _viceværtCommand.CreateViceværtAsyc(value);
-            return result;
         }
 
         // PUT api/<ViceværtController>/5 når man laver update på en vicevært.
-        [HttpPut("{Id}")]
-        public async Task EditViceværtAsync(ViceværtDto value)
+        [HttpPut]
+        public async Task EditViceværtAsync([FromBody] ViceværtDto value)
         {
             await _viceværtCommand.EditViceværtAsync(new ViceværtCommandDto
             {
-                //Id = value.Id,
+                Id = value.Id,
                 ForNavn = value.ForNavn,
                 EfterNavn = value.EfterNavn,
                 Telefon = value.Telefon,
@@ -87,9 +89,9 @@ namespace UnikPedel.ApiInterface.Controllers
 
         // DELETE api/<ViceværtController>/5 sletter en vicevært udfra Id
         [HttpDelete("{Id}")]
-        public async Task DeleteViceværtAsync(Guid Id)
+        public async Task DeleteViceværtAsync(int Id)
         {
-            //await _viceværtCommand.DeleteViceværtAsync(new ViceværtCommandDto {Id = Id});
+            await _viceværtCommand.DeleteViceværtAsync(new ViceværtCommandDto {Id = Id});
         }
     }
 }

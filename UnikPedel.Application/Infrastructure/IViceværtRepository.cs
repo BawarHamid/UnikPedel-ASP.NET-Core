@@ -9,7 +9,7 @@ namespace UnikPedel.Application.Infrastructure
     public interface IViceværtRepository
     {
         Task AddViceværtAsync(Domain.Entities.Vicevært vicevært);
-        Task DeleteViceværtAsync(Guid Id);
+        Task DeleteViceværtAsync(int Id);
         Task SaveViceværtAsync(Domain.Entities.Vicevært vicevært);
         Task<Domain.Entities.Vicevært> GetViceværtAsync(int Id);
     }
