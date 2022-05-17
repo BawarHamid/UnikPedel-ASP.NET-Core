@@ -22,7 +22,7 @@ namespace UnikPedel.Application.Implementation
 
         async Task<ViceværtCommandDto> IViceværtCommand.CreateViceværtAsyc(ViceværtCreateCommandDto viceværtDto)
         {
-            var vicevært = new UnikPedel.Domain.Entities.Vicevært(viceværtDto.ForNavn, viceværtDto.EfterNavn, viceværtDto.Telefon, viceværtDto.Email);
+            var vicevært = new Domain.Entities.Vicevært(viceværtDto.ForNavn, viceværtDto.EfterNavn, viceværtDto.Telefon, viceværtDto.Email);
             await _repository.AddViceværtAsync(vicevært);
             var vicedto = _mapper.Map<ViceværtCommandDto>(vicevært);
             return vicedto;
@@ -30,14 +30,14 @@ namespace UnikPedel.Application.Implementation
 
         async Task IViceværtCommand.DeleteViceværtAsync(ViceværtCommandDto viceværtDto)
         {
-            //await _repository.DeleteViceværtAsync(viceværtDto.Id);
+            await _repository.DeleteViceværtAsync(viceværtDto.Id);
         }
 
         async Task IViceværtCommand.EditViceværtAsync(ViceværtCommandDto viceværtDto)
         {
-            //var vicevært = await _repository.GetViceværtAsync(viceværtDto.Id);
-            //vicevært.Update(viceværtDto.ForNavn, viceværtDto.EfterNavn, viceværtDto.Telefon, viceværtDto.Email); 
-            //await _repository.SaveViceværtAsync(vicevært);
+            var vicevært = await _repository.GetViceværtAsync(viceværtDto.Id);
+            vicevært.Update(viceværtDto.ForNavn, viceværtDto.EfterNavn, viceværtDto.Telefon, viceværtDto.Email); 
+            await _repository.SaveViceværtAsync(vicevært);
         }
     }
 }

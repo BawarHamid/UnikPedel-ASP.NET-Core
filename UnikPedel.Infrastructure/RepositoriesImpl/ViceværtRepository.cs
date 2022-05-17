@@ -22,7 +22,7 @@ namespace UnikPedel.Infrastructure.RepositoriesImpl
             await _db.SaveChangesAsync();
         }
 
-        async Task IViceværtRepository.DeleteViceværtAsync(Guid Id)
+        async Task IViceværtRepository.DeleteViceværtAsync(int Id)
         {
             var vicevært = _db.Vicevært.Find(Id);
             if (vicevært is null) return;
