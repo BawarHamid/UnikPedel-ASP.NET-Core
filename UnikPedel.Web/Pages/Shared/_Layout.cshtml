@@ -18,27 +18,60 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                    <ul class="navbar-nav flex-grow-1 justify-content-center">
+                        <li class="nav-item">
+                          <a class="nav-link active" asp-page="/Index">Dashboard</a>
+                        </li>
                         <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle btn btn-primary me-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          <a class="nav-link dropdown-toggle btn btn-outline-secondary me-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Vicevært
                           </a>
                           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" asp-page="/Vicevært/Index">Rekvisitioner</a></li>
-                            <li><a class="dropdown-item" asp-page="/Afdelinger/Index">Afdelinger</a></li>
-                            <li><a class="dropdown-item" asp-page="/Afdelinger/Index">Kontakt</a></li>
+                            <li><a class="dropdown-item" asp-page="/Vicevært/Index">Dashboard</a></li>
+                            <li><a class="dropdown-item" asp-page="/Vicevært/KalenderVicevært">Kalender</a></li>
+                            <li><a class="dropdown-item" asp-page="/Vicevært/RekvisitionerViceVært">Rekvisitioner</a></li>
                           </ul>
                         </li>
+
+
                         <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle btn btn-primary" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Gæstelejligheder
+                          <a class="nav-link dropdown-toggle btn btn-outline-secondary me-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Udlejning
                           </a>
                           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" asp-page="/Gæstelejligheder/Index">Bookinger</a></li>
                             <li><a class="dropdown-item" asp-page="/Afdelinger/Index">Kontakt</a></li>
                           </ul>
                         </li>
+
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle btn btn-outline-secondary me-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Admin
+                          </a>
+                          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" asp-page="/Admin/Kalender">Kalender</a></li>
+                            <li><a class="dropdown-item" asp-page="/Admin/Medarbejder">Vicevært</a></li>
+                            <li><a class="dropdown-item" asp-page="/Admin/Udlejninger">Udlejninger</a></li>
+                          </ul>
+                        </li>
+                        
+                        
                     </ul>
+
+                    <ul class="navbar-nav justify-content-end">
+ 
+                        <li class="nav-item ">
+                          <a class="nav-link btn btn-outline-dark me-2">
+                            Log ud
+                          </a>
+                        </li>
+
+                    </ul>
+
+
+
+
+
                 </div>
             </div>
         </nav>
