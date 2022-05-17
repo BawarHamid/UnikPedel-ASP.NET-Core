@@ -2,172 +2,58 @@
 @model UnikPedel.Web.Pages.Vicevært.IndexModel
 @{
 }
-<div class="d-flex justify-content-end">
-    <a class="btn btn-primary" asp-page="/Vicevært/Rekvisitioner/Opret">Opret ny rekvisition</a>
-</div>
+<div class="container mt-5 pt-5">
+  <div class="row">
+    <div class="col mb-3">
+      <div class="card btn" style="width: 18rem;">
+          <div class="card-body btn position-relative">
+            <h5 class="card-title">Opret Opgave</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a asp-page="/Rekvisitioner/Opret" class="card-link btn btn-primary">Opret ny rekvisition</a>
+          </div>
+      </div>
+    </div>
 
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-  <li class="nav-item" role="presentation">
-    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Liste af opgaver</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <a class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false" asp-page="/Vicevært/Rekvisitioner/Index">Nye opgaver</a>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Services</button>
-  </li>
-</ul>
-<div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-      <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">
-                  <label>Vælg service</label>
-          <select class="form-select" aria-label="Default select example">
-                  <option value="1">Badeværelse</option>
-                  <option value="2">Kælder</option>
-                  <option value="3">Oprydning</option>
-          </select>
-      </th>
-      <th scope="col">
-          <label>Sortere efter dato</label>
-          <input class="form-control" type="date" />
-      </th>
-      <th scope="col">
-        <label>Vælg lokation</label>
-          <select class="form-select" aria-label="Default select example">
-                  <option value="1">A1</option>
-                  <option value="2">A2</option>
-                  <option value="3">B3</option>
-          </select>
-      <th scope="col">Kundenavn</th>
-      <th scope="col">Oprettelsesdato</th>
-      <th scope="col">
-          <label>Vælg status</label>
-          <select class="form-select" aria-label="Default select example">
-                 <option value="1">Godkendt</option>
-                 <option value="2">Ikke udført</option>
-                 <option value="3">Afvist</option>
-          </select>
-      </th>
-       <th scope="col">Rediger</th>
+        <div class="col">
+          <div class="card btn" style="width: 18rem;">
+              <div class="card-body btn position-relative">
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">+26 <span class="visually-hidden">unread messages</span></span>
+                <h5 class="card-title">Mine rekvisitioner</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              </div>
+            </div>
+        </div>
 
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Badeværelse</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Oprydning</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Vandskade</td>
-    </tr>
-  </tbody>
-</table>
+        <div class="col">
+          <div class="card btn" style="width: 18rem;">
+              <div class="card-body btn position-relative">
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">+32 <span class="visually-hidden">unread messages</span></span>
+                <h5 class="card-title">Min vagtplan</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              </div>
+            </div>
+        </div>
+
+
+        <div class="col">
+          <div class="card btn" style="width: 18rem;">
+              <div class="card-body btn position-relative">
+                <h5 class="card-title">Kontakt information</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              </div>
+            </div>
+        </div>
+
+        <div class="col">
+          <div class="card btn" style="width: 18rem;">
+              <div class="card-body btn position-relative">
+                <h5 class="card-title">Ejendom & Lejemål</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              </div>
+            </div>
+        </div>
   </div>
-  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-@*      <div class="col-12 border p-3 mt-3">
-          <form method="post">
-                @if(Model.Rekvisitioner.Count() > 0)
-                {
-                    <table class="table table-striped-border">
-                        <tr class="table-secondary">
-                            <th>
-                                <label asp-for="Rekvisitioner.FirstOrDefault().Beskrivelse"></label>
-                            </th>
-
-                            <th>
-                                <label asp-for="Rekvisitioner.FirstOrDefault().Status"></label>
-                            </th>
-                        </tr>
-                        @foreach (var item in Model.Rekvisitioner)
-                        {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(m=>item.Beskrivelse)
-                                </td>>
-                                <td>
-                                    @Html.DisplayFor(m=>item.Status)
-                                </td>
-                            </tr>
-                        }
-                    </table>
-                }
-                else
-                {
-                    <p> Ingen nye rekvisitioner</p>
-                }
-            </form>
-      </div>*@
-      <div class="container-fluid d-flex justify-content-evenly">
-
-      <div class="card rounded-2 w-25 p-3 m-5 d-flex">
-            <h4><b>Naboklage</b></h4>
-            <h6><b>Startdato</b></h6>
-            <p>Service</p>
-            <p>Morten Nielsen</p>
-            <p>12126598</p>
-            <p>Opgave beskrivelse</p>
-
-            <div class="d-flex">
-            <a class=" btn btn-primary">Accepter</a>
-            <a class="btn btn-danger">Afvis</a>
-            </div>
-      </div>
-      <div class="card w-25 p-3 m-5">
-          <div class="card-body">
-            <h4><b>Vandskabe</b></h4>
-            <h6><b>Startdato</b></h6>
-            <p>Service</p>
-            <p>Morten Nielsen</p>
-            <p>12126598</p>
-            <p>Opgave beskrivelse</p>
-
-            <div class="d-flex">
-            <a class=" btn btn-primary">Accepter</a>
-            <a class="btn btn-danger">Afvis</a>
-            </div>
-          </div>
-      </div>
-      <div class="card w-25 p-3 m-5">
-          <div class="card-body">
-            <h4><b>Vandskabe</b></h4>
-            <h6><b>Startdato</b></h6>
-            <p>Service</p>
-            <p>Morten Nielsen</p>
-            <p>12126598</p>
-            <p>Opgave beskrivelse</p>
-
-            <div class="d-flex">
-            <a class="btn btn-primary">Accepter</a>
-            <a class="btn btn-danger">Afvis</a>
-            </div>
-          </div>
-      </div>
-      <div class="card w-25 p-3 m-5">
-          <div class="card-body">
-            <h4><b>Vandskabe</b></h4>
-            <h6><b>Startdato</b></h6>
-            <p>Service</p>
-            <p>Morten Nielsen</p>
-            <p>12126598</p>
-            <p>Opgave beskrivelse</p>
-
-            <div class="d-flex">
-            <a class=" btn btn-primary">Accepter</a>
-            <a class="btn btn-danger">Afvis</a>
-            </div>
-          </div>
-      </div>
-      </div>
-
-  </div>
-  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab"><h4>Test3</h4></div>
-</div>
