@@ -14,7 +14,7 @@ builder.Services.AddHttpClient<IViceværtService, ViceværtServiceProxy>
     (client =>
     {
         client.BaseAddress =
-            new Uri("https://localhost:7071");
+            new Uri("https://localhost:7094");
     });
 
 //builder.Services.AddDbContext<UnikPedelContext>(options =>
