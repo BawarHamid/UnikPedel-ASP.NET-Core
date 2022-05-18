@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using UnikPedel.Contract.IServiceRekvisition;
+using UnikPedel.Contract.IServiceVicevært;
 using UnikPedel.Infrastructure.Database;
 using UnikPedel.Web.Infrastructure;
 
@@ -9,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 
 
-builder.Services.AddHttpClient<IServiceRekvisition, RekvisitionServiceProxy>
+builder.Services.AddHttpClient<IViceværtService, ViceværtServiceProxy>
     (client =>
     {
         client.BaseAddress =
