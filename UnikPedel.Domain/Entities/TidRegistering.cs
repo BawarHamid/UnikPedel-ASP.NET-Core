@@ -8,12 +8,14 @@ namespace UnikPedel.Domain.Entities
 {
    public class TidRegistering : BaseEntity
     {
-        //public Guid Id { get; set; }
+       
         public DateTime RegisterDato { get; set; }
 
         public double AntalTimer { get; set; }
 
+        public int ViceværtId { get; set; }
         public Vicevært? Vicevært { get; set; }
+        public int RekvisitionId { get; set; }
         public Rekvisition? Rekvisition { get; set; }
 
         //Constructor for Ef
@@ -21,23 +23,23 @@ namespace UnikPedel.Domain.Entities
         {
 
         }
-        public TidRegistering(double AntalTimer,Vicevært Vicevært,Rekvisition Rekvisition)
+        public TidRegistering(double AntalTimer,int ViceværtId,int RekvisitionId)
         {
             this.RegisterDato = DateTime.Now;
             this.AntalTimer = AntalTimer;
-            this.Vicevært = Vicevært;
-            this.Rekvisition = Rekvisition;
+            this.ViceværtId = ViceværtId;
+            this.RekvisitionId = RekvisitionId;
         }
-        public void RegistrerTid(double ekstraTid)
-        {
-            RegisterDato = DateTime.Now;
-            AntalTimer = +ekstraTid;
-        }
-        public void Update(double AntalTimer, Vicevært Vicevært, Rekvisition Rekvisition)
+        //public void RegistrerTid(double ekstraTid)
+        //{
+        //    RegisterDato = DateTime.Now;
+        //    AntalTimer = +ekstraTid;
+        //}
+        public void Update(double AntalTimer, int ViceværtId, int RekvisitionId)
         {
             this.AntalTimer = AntalTimer;
-            this.Vicevært = Vicevært;
-            this.Rekvisition = Rekvisition;
+            this.ViceværtId = ViceværtId;
+            this.RekvisitionId = RekvisitionId;
         }
     }
 }

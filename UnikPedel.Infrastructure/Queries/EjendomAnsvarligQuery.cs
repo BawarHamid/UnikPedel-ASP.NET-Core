@@ -20,17 +20,18 @@ namespace UnikPedel.Infrastructure.Queries
         }
      
 
-       async  Task<EjendomsAnsvarligQueryDto?> IEjendomsAnsvarligQuery.GetEjendomAnsvarligAsync(Guid id)
+       async  Task<EjendomsAnsvarligQueryDto?> IEjendomsAnsvarligQuery.GetEjendomAnsvarligAsync(int id)
         {
             var dbEjendomAnsvarlig = await _unikPedelContext.EjendomsAnsvarlig.FindAsync(id);
             if (dbEjendomAnsvarlig is null) return new EjendomsAnsvarligQueryDto();
 
             return new EjendomsAnsvarligQueryDto
             {
+                Id = dbEjendomAnsvarlig.Id,
                 ViceværtId = dbEjendomAnsvarlig.ViceværtId,
-                Vicevært = dbEjendomAnsvarlig.Vicevært,
+               // Vicevært = dbEjendomAnsvarlig.Vicevært,
                 EjendomId = dbEjendomAnsvarlig.EjendomId,
-                Ejendom= dbEjendomAnsvarlig.Ejendom
+               // Ejendom= dbEjendomAnsvarlig.Ejendom
             };
         }
 
@@ -42,10 +43,11 @@ namespace UnikPedel.Infrastructure.Queries
             var dbEjendomAnsvarlig = await _unikPedelContext.EjendomsAnsvarlig.ToListAsync();
             dbEjendomAnsvarlig.ForEach(a => result.Add(new EjendomsAnsvarligQueryDto
             {
+                Id = a.Id,
                 ViceværtId = a.ViceværtId,
-                Vicevært = a.Vicevært,
+                //Vicevært = a.Vicevært,
                 EjendomId = a.EjendomId,
-                Ejendom = a.Ejendom
+                //Ejendom = a.Ejendom
 
             }));
             return result;
