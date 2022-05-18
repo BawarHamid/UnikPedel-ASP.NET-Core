@@ -18,7 +18,7 @@ namespace UnikPedel.Infrastructure.Querys
         {
             _unikPedelContext = unikPedelContext;
         }
-         async Task<EjendomQueryDto?> IEjendomQuery.GetEjendom(Guid id)
+         async Task<EjendomQueryDto?> IEjendomQuery.GetEjendom(int id)
         {
             var dbEjendom = await _unikPedelContext.Ejendom.FindAsync(id);
             if (dbEjendom is null) return new EjendomQueryDto();

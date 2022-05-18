@@ -9,7 +9,7 @@ namespace UnikPedel.Application.EjendomContract
 {
     public interface IEjendomQuery
     {
-        Task<EjendomQueryDto?> GetEjendom(Guid id);
+        Task<EjendomQueryDto?> GetEjendom(int id);
         Task<IEnumerable<EjendomQueryDto>> GetEjendoms();
     }
 }

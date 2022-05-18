@@ -32,6 +32,7 @@ namespace UnikPedel.ApiInterface.Mapper
 
            
             CreateMap<EjendomQueryDto, EjendomDto>().ReverseMap();
+          
 
             CreateMap<EjendomsAnsvarligCommandDto, EjendomDto>().ReverseMap();
             CreateMap<EjendomsAnsvarligQueryDto, EjendomDto>().ReverseMap();

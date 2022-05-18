@@ -9,7 +9,7 @@ namespace UnikPedel.Contract.IServiceEjendom
 {
    public  interface IServiceEjendom
     {
-        Task<EjendomDto?> GetEjendomAsync(Guid Id);
+        Task<EjendomDto?> GetEjendomAsync(int Id);
         Task<IEnumerable<EjendomDto>> GetEjendomAsync();
     }
 }

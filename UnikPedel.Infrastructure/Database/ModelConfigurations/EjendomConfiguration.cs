@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace UnikPedel.Infrastructure.Database.ModelConfigurations
 {
-    public class EjendomConfiguration : IEntityTypeConfiguration<Domain.Entities.EjendomCommandDto>
+    public class EjendomConfiguration : IEntityTypeConfiguration<Domain.Entities.Ejendom>
     {
-        public void Configure(EntityTypeBuilder<Domain.Entities.EjendomCommandDto> entity)
+        public void Configure(EntityTypeBuilder<Domain.Entities.Ejendom> entity)
         {
             entity.ToTable("Ejendom");
             entity.HasKey(x => x.Id);
