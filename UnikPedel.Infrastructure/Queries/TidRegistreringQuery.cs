@@ -18,7 +18,7 @@ namespace UnikPedel.Infrastructure.Queries
             _unikPedelContext = unikPedelContext;
         }
 
-      async   public Task<TidRegistreringQueryDto?> GetTidRegistreringAsync(Guid id)
+      async   public Task<TidRegistreringQueryDto?> GetTidRegistreringAsync(int id)
         {
             var dbTidRegistrering = await _unikPedelContext.TidRegistrering.FindAsync(id);
             if (dbTidRegistrering is null) return new TidRegistreringQueryDto();

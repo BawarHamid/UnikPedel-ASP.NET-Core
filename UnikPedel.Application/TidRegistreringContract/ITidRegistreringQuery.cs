@@ -10,7 +10,7 @@ namespace UnikPedel.Application.TidRegistreringContract
     public interface ITidRegistreringQuery
     {
 
-        Task<TidRegistreringQueryDto?> GetTidRegistreringAsync(Guid id);
+        Task<TidRegistreringQueryDto?> GetTidRegistreringAsync(int id);
         Task<IEnumerable<TidRegistreringQueryDto>> GetTidRegistreringAsync();
     }
 }

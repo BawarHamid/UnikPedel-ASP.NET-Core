@@ -10,7 +10,7 @@ namespace UnikPedel.Contract.IServiceTidRegistrering.TidRegistreringDtos
 {
    public class TidRegistreringDto
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public DateTime RegisterDato { get; set; }
 
         public double AntalTimer { get; set; }
@@ -18,4 +18,14 @@ namespace UnikPedel.Contract.IServiceTidRegistrering.TidRegistreringDtos
         public ViceværtDto Vicevært { get; set; }
         public RekvisitionDto Rekvisition { get; set; }
     }
+    public class TidRegistreringCreateDto
+    {
+        public DateTime RegisterDato { get; set; }
+
+        public double AntalTimer { get; set; }
+
+        public ViceværtDto Vicevært { get; set; }
+        public RekvisitionDto Rekvisition { get; set; }
+    }
+
 }
