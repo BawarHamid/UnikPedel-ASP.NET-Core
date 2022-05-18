@@ -18,22 +18,22 @@ namespace UnikPedel.Application.Implementation
         }
         public async Task CreateAsync(EjendomsAnsvarligCommandDto ejendomsAnsvarlignDto)
         {
-            var ejendomAnsvarlig = new Domain.Entities.EjendomsAnsvarlig(ejendomsAnsvarlignDto.Vicevært, ejendomsAnsvarlignDto.Ejendom);
+           var ejendomAnsvarlig = new Domain.Entities.EjendomsAnsvarlig(ejendomsAnsvarlignDto.ViceværtId, ejendomsAnsvarlignDto.EjendomId);
             await _repository.AddAsync(ejendomAnsvarlig);
         }
 
         public async  Task DeleteAsync(EjendomsAnsvarligCommandDto ejendomsAnsvarlignDto)
         {
-            //await _repository.DeleteAsync(ejendomsAnsvarlignDto.Id);
+            await _repository.DeleteAsync(ejendomsAnsvarlignDto.Id);
         }
 
         public async Task EditAsync(EjendomsAnsvarligCommandDto ejendomsAnsvarlignDto)
         {
-            //var rekvisition = await _repository.GetAsync(ejendomsAnsvarlignDto.Id);
+            var rekvisition = await _repository.GetAsync(ejendomsAnsvarlignDto.Id);
 
-            //rekvisition.Update(ejendomsAnsvarlignDto.Vicevært, ejendomsAnsvarlignDto.Ejendom); ;
+            rekvisition.Update(ejendomsAnsvarlignDto.ViceværtId, ejendomsAnsvarlignDto.EjendomId); ;
 
-            //await _repository.SaveAsync(rekvisition);
+            await _repository.SaveAsync(rekvisition);
         }
     }
 }

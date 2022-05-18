@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using UnikPedel.Application.Contract.Dtos;
 using UnikPedel.Application.EjendomsAnsvarligContract;
 using UnikPedel.Application.EjendomsAnsvarligContract.EjendomsAnsvarligDto;
@@ -14,59 +15,49 @@ namespace UnikPedel.ApiInterface.Controllers
     {
         private readonly IEjendomsAnsvarligQuery _ejendomAnsvarligQuery;
         private readonly IEjendomsAnsvarligCommand _ejendomAnsvarligCommand;
+        private readonly IMapper _mapper;
 
-        public EjendomAnsvarligController(IEjendomsAnsvarligQuery ejendomAnsvarligQuery, IEjendomsAnsvarligCommand ejendomAnsvarligCommand)
+        public EjendomAnsvarligController(IEjendomsAnsvarligQuery ejendomAnsvarligQuery, IEjendomsAnsvarligCommand ejendomAnsvarligCommand, IMapper mapper)
         {
             _ejendomAnsvarligQuery = ejendomAnsvarligQuery;
-            _ejendomAnsvarligCommand = ejendomAnsvarligCommand; 
+            _ejendomAnsvarligCommand = ejendomAnsvarligCommand;
+            _mapper = mapper;
+
         }
         // POST api/<EjendomAnsvarligController> opretter en EjendomAnsvarlig.
         [HttpPost]
-        public async Task CreateEjendomAnsvarligAsync(EjendomAnsvarligDto ejendomAnsvarlig)
+        public async Task CreateEjendomAnsvarligAsync(EjendomAnsvarligCreateDto ejendomAnsvarlig)
         {
-            await _ejendomAnsvarligCommand.CreateAsync(new EjendomsAnsvarligCommandDto
-            {
-                ViceværtId=ejendomAnsvarlig.ViceværtId,
-                EjendomId = ejendomAnsvarlig.EjendomId
-            });
+           var mapperEjendom = _mapper.Map<EjendomsAnsvarligCommandDto>(ejendomAnsvarlig);
+            await _ejendomAnsvarligCommand.CreateAsync(mapperEjendom);
+           
         }
         
         // DELETE api/<EjendomAnsvarligController>/ sletter en bestemet EejendomAnsvarlig udfra Id
         [HttpDelete("{Id}")]
         public async Task DeleteEjendomAnsvarligAsync(int Id)
         {
-            //await _ejendomAnsvarligCommand.DeleteAsync(new EjendomsAnsvarligCommandDto { Id = Id });
+            await _ejendomAnsvarligCommand.DeleteAsync(new EjendomsAnsvarligCommandDto { Id = Id });
         }
 
         //PUT api/<EjendomAnsvarligController>/ når man laver update på en EjendomAnsvarlig.
         [HttpPut("{Id}")]
         public async Task EditEjendomAnsvarligAsync(EjendomAnsvarligDto ejendomAnsvarlig)
         {
-            await _ejendomAnsvarligCommand.EditAsync(new EjendomsAnsvarligCommandDto
-            {
-                ViceværtId = ejendomAnsvarlig.ViceværtId,
-                //Vicevært= ejendomAnsvarlig.Vicevært,
-                EjendomId = ejendomAnsvarlig.EjendomId,
-                //Ejendom = ejendomAnsvarlig.Ejendom
-            });
+            var result = _mapper.Map<EjendomsAnsvarligCommandDto>(ejendomAnsvarlig);
+            await _ejendomAnsvarligCommand.EditAsync(result);
             
         }
 
 
         // GET api/<EjendomController> henter en bestemt Ejendom udfra Id
         [HttpGet("{Id}")]
-        public async Task<EjendomAnsvarligDto?> GetEjendomAnsvarligAsync(Guid Id)
-        {
+        public async Task<EjendomAnsvarligDto?> GetEjendomAnsvarligAsync(int Id)
+        {            
             var ejendomsAnsvarlig = await _ejendomAnsvarligQuery.GetEjendomAnsvarligAsync(Id);
             if (ejendomsAnsvarlig is null) return null;
-            return new EjendomAnsvarligDto
-            {
-                ViceværtId = ejendomsAnsvarlig.ViceværtId,
-                //Vicevært = ejendomsAnsvarlig.Vicevært,
-                EjendomId=ejendomsAnsvarlig.EjendomId,
-                //Ejendom = ejendomsAnsvarlig.Ejendom
-            };
-           
+            return _mapper.Map<EjendomAnsvarligDto>(ejendomsAnsvarlig);
+
         }
 
 
@@ -74,19 +65,9 @@ namespace UnikPedel.ApiInterface.Controllers
         [HttpGet]
         public async Task<IEnumerable<EjendomAnsvarligDto>> GetEjendomAnsvarligAsync()
         {
-            var result = new List<EjendomAnsvarligDto>();
-            var ejendomAnsvarlig = await _ejendomAnsvarligQuery.GetEjendomsAnsvarligAsync();
-            ejendomAnsvarlig.ToList()
-                .ForEach(ejendoms => result.Add(new EjendomAnsvarligDto
-                {
-                    ViceværtId = ejendoms.ViceværtId,
-                    //Vicevært = ejendoms.Vicevært,
-                    EjendomId = ejendoms.EjendomId,
-                    //Ejendom = ejendoms.Ejendom
-
-                }));
-            return result;
-           
+            var ejendomAnsvar = await _ejendomAnsvarligQuery.GetEjendomsAnsvarligAsync();
+            if (ejendomAnsvar == null) return null;
+            return _mapper.Map<IEnumerable<EjendomAnsvarligDto>>(ejendomAnsvar); 
         }
     }
 }

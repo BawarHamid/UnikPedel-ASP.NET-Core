@@ -8,24 +8,26 @@ using UnikPedel.Contract.ViceværtDtos;
 
 namespace UnikPedel.Contract.IServiceTidRegistrering.TidRegistreringDtos
 {
-   public class TidRegistreringDto
+    public class TidRegistreringDto
     {
         public int Id { get; set; }
         public DateTime RegisterDato { get; set; }
 
         public double AntalTimer { get; set; }
-
+        public int ViceværtId { get; set; }
         public ViceværtDto Vicevært { get; set; }
-        public RekvisitionDto Rekvisition { get; set; }
+        public int RekvisitionId { get; set; }
+        public RekvisitionDto Rekvistion { get; set; }
     }
+        
     public class TidRegistreringCreateDto
-    {
-        public DateTime RegisterDato { get; set; }
+        {
+            public DateTime RegisterDato { get; set; }
 
-        public double AntalTimer { get; set; }
+            public double AntalTimer { get; set; }
+            public int ViceværtId { get; set; }
+            public int RekvisitionId { get; set; }
+        }
 
-        public ViceværtDto Vicevært { get; set; }
-        public RekvisitionDto Rekvisition { get; set; }
     }
 
-}

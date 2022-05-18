@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UnikPedel.Infrastructure.Database;
 
@@ -11,9 +12,10 @@ using UnikPedel.Infrastructure.Database;
 namespace UnikPedel.Infrastructure.Migrations
 {
     [DbContext(typeof(UnikPedelContext))]
-    partial class UnikPedelContextModelSnapshot : ModelSnapshot
+    [Migration("20220518192847_City")]
+    partial class City
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -119,24 +121,15 @@ namespace UnikPedel.Infrastructure.Migrations
 
             modelBuilder.Entity("UnikPedel.Domain.Entities.EjendomsAnsvarlig", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("Id");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    b.Property<int>("ViceværtId")
+                        .HasColumnType("int");
 
                     b.Property<int>("EjendomId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ViceværtId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
+                    b.HasKey("ViceværtId", "EjendomId");
 
                     b.HasIndex("EjendomId");
-
-                    b.HasIndex("ViceværtId");
 
                     b.ToTable("EjendomsAnsvarlig", (string)null);
                 });
@@ -331,10 +324,10 @@ namespace UnikPedel.Infrastructure.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("RegisterDato");
 
-                    b.Property<int>("RekvisitionId")
+                    b.Property<int?>("RekvisitionId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ViceværtId")
+                    b.Property<int?>("ViceværtId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -489,14 +482,12 @@ namespace UnikPedel.Infrastructure.Migrations
                     b.HasOne("UnikPedel.Domain.Entities.Rekvisition", "Rekvisition")
                         .WithMany("TidRegistering")
                         .HasForeignKey("RekvisitionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("UnikPedel.Domain.Entities.Vicevært", "Vicevært")
                         .WithMany("TidRegistrering")
                         .HasForeignKey("ViceværtId")
-                        .OnDelete(DeleteBehavior.ClientCascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.ClientCascade);
 
                     b.Navigation("Rekvisition");
 

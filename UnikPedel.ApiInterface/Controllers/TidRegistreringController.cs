@@ -5,6 +5,7 @@ using UnikPedel.Application.TidRegistreringContract;
 using UnikPedel.Application.TidRegistreringContract.TidRegistreringDto;
 using UnikPedel.Contract.IServiceTidRegistrering;
 using UnikPedel.Contract.IServiceTidRegistrering.TidRegistreringDtos;
+using static UnikPedel.Contract.IServiceTidRegistrering.TidRegistreringDtos.TidRegistreringDto;
 
 
 
@@ -39,6 +40,7 @@ namespace UnikPedel.ApiInterface.Controllers
         [HttpDelete("{Id}")]
         public async Task DeleteTidRegistreringAsync(int id)
         {
+
             await _tidRegCommand.DeleteRegistreringAsync(new TidRegistreringCommandDto { Id = id });
         }
 
@@ -53,10 +55,10 @@ namespace UnikPedel.ApiInterface.Controllers
        
 
         [HttpPut("{Id}")]
-        public async Task EditTidRegistreringAsync(TidRegistreringDto tidRegistrering)
+        public async Task EditTidRegistreringAsync(TidRegistreringCreateDto tidRegistrering)
         {
-            _mapper.Map<TidRegistreringCommandDto>(tidRegistrering);
-            await _tidRegCommand.EditRegistreringAsync(new TidRegistreringCommandDto());
+             var registrering = _mapper.Map<TidRegistreringCommandDto>(tidRegistrering);
+            await _tidRegCommand.EditRegistreringAsync(registrering);
          
         }
 

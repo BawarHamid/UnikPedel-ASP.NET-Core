@@ -28,7 +28,7 @@ namespace UnikPedel.Infrastructure.Queries
                 Id= dbTidRegistrering.Id,
                 RegisterDato= dbTidRegistrering.RegisterDato,
                 AntalTimer= dbTidRegistrering.AntalTimer,
-                Vicevært= dbTidRegistrering.Vicevært,
+                ViceværtId= dbTidRegistrering.ViceværtId,
                 Rekvisition= dbTidRegistrering.Rekvisition
             };
         }

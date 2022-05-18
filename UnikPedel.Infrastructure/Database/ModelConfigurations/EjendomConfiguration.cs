@@ -25,7 +25,7 @@ namespace UnikPedel.Infrastructure.Database.ModelConfigurations
            .HasColumnName("PostNummer")
            .IsRequired();
             entity.Property(a => a.By)
-           .HasColumnName("By")
+           .HasColumnName("City")
            .IsRequired();
             entity.Property(a => a.Region)
            .HasColumnName("Region")

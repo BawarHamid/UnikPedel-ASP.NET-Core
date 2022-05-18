@@ -9,10 +9,10 @@ namespace UnikPedel.Contract.IServiceEjendomAnsvarlig
 {
     public interface IServiceEjendomAnsvarlig
     {
-        Task CreateEjendomAnsvarligAsync(EjendomAnsvarligDto ejendomAnsvarlig);
+        Task CreateEjendomAnsvarligAsync(EjendomAnsvarligCreateDto ejendomAnsvarlig);
         Task EditEjendomAnsvarligAsync(EjendomAnsvarligDto ejendomAnsvarlig);
         Task DeleteEjendomAnsvarligAsync(int Id);
-        Task<EjendomAnsvarligDto?> GetEjendomAnsvarligAsync(Guid Id);
+        Task<EjendomAnsvarligDto?> GetEjendomAnsvarligAsync(int Id);
         Task<IEnumerable<EjendomAnsvarligDto>> GetEjendomAnsvarligAsync();
     }
 }

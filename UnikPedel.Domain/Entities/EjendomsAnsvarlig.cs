@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace UnikPedel.Domain.Entities
 {
-    public class EjendomsAnsvarlig
+    public class EjendomsAnsvarlig : BaseEntity
     {
         //[Key]
         //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -26,19 +26,20 @@ namespace UnikPedel.Domain.Entities
 
         }
 
-        public EjendomsAnsvarlig( Vicevært Vicevært, Ejendom Ejendom)
+        public EjendomsAnsvarlig( int ViceværtId , int EjendomId)
         {
+            this.EjendomId = EjendomId;
+            this.ViceværtId = ViceværtId;
+
+        }
+
+        public void Update(int ViceværtId, int EjendomId)
+        {
+            this.EjendomId = EjendomId;
+            this.ViceværtId = ViceværtId;
             
-            //this.Ejendom = Ejendom;
-            //this.Vicevært = Vicevært;
         }
-
-        public void Update( Vicevært Vicevært, Ejendom Ejendom)
-        {
-
-            //this.Ejendom = Ejendom;
-            //this.Vicevært = Vicevært;
-        }
+       
 
      
 

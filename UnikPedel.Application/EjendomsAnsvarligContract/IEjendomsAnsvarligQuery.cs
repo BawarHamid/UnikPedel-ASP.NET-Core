@@ -10,7 +10,7 @@ namespace UnikPedel.Application.EjendomsAnsvarligContract
     public interface IEjendomsAnsvarligQuery
     {
 
-        Task<EjendomsAnsvarligQueryDto?> GetEjendomAnsvarligAsync(Guid id);
+        Task<EjendomsAnsvarligQueryDto?> GetEjendomAnsvarligAsync(int id);
         Task<IEnumerable<EjendomsAnsvarligQueryDto>> GetEjendomsAnsvarligAsync();
 
 

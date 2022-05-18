@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnikPedel.Contract.IServiceTidRegistrering.TidRegistreringDtos;
+using static UnikPedel.Contract.IServiceTidRegistrering.TidRegistreringDtos.TidRegistreringDto;
 
 namespace UnikPedel.Contract.IServiceTidRegistrering
 {
     public interface IServiceTidRegistrering
     {
         Task CreateTidRegistreringAsync(TidRegistreringCreateDto tidRegistrering);
-        Task EditTidRegistreringAsync(TidRegistreringDto tidRegistrering);
+        Task EditTidRegistreringAsync(TidRegistreringCreateDto tidRegistrering);
         Task DeleteTidRegistreringAsync(int id);
         Task<TidRegistreringDto?> GetTidRegistreringAsync(int Id);
         Task<IEnumerable<TidRegistreringDto>> GetTidRegistreringAsync();

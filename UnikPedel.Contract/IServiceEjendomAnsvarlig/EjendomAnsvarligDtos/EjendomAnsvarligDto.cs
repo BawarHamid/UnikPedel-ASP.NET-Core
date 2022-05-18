@@ -10,10 +10,22 @@ namespace UnikPedel.Contract.IServiceEjendomAnsvarlig.EjendomAnsvarligDtos
 {
     public class EjendomAnsvarligDto
     {
+        public int Id { get; set; }
         public int ViceværtId { get; set; }
-        public ViceværtDto Vicevært { get; set; }
+       // public ViceværtDto Vicevært { get; set; }
+
+
+      public int EjendomId { get; set; }
+        //public EjendomDto Ejendom { get; set; }
+    }
+    public class EjendomAnsvarligCreateDto
+    {
+
+      
+        public int ViceværtId { get; set; }
+       
 
         public int EjendomId { get; set; }
-        public EjendomDto Ejendom { get; set; }
+     
     }
 }

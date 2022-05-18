@@ -25,17 +25,7 @@ namespace UnikPedel.ApiInterface.Controllers
         {
             var ejendom = await _ejendomQuery.GetEjendom(Id);
             if (ejendom is null) return null;
-            return new EjendomDto
-            {
-                Id = ejendom.Id,
-                VejNavn = ejendom.VejNavn,
-                BygningsNummer = ejendom.BygningsNummer,
-                PostNummer = ejendom.PostNummer,
-                By = ejendom.By,
-                Region = ejendom.Region,
-                LandKode = ejendom.LandKode
-
-            };
+            return _mapper.Map<EjendomDto>(ejendom);
         }
 
         // GET: api/<EjendomController> henter en list med alle Ejendom
@@ -44,22 +34,6 @@ namespace UnikPedel.ApiInterface.Controllers
         {
             var ejendom = await _ejendomQuery.GetEjendoms();         
             return _mapper.Map<IEnumerable<EjendomDto>>(ejendom); 
-
-
-
-            //var result = new List<EjendomDto>();
-            //var ejendom = await _ejendomQuery.GetEjendoms();
-            //ejendom.ToList().ForEach(a => result.Add(new EjendomDto
-            //{
-            //    Id = a.Id,
-            //    VejNavn = a.VejNavn,
-            //    BygningsNummer = a.BygningsNummer,
-            //    PostNummer = a.PostNummer,
-            //    By = a.By,
-            //    Region = a.Region,
-            //    LandKode = a.LandKode
-            //}));
-            //return result;
         }
     }
 }

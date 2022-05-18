@@ -3,6 +3,8 @@ using System;
 using UnikPedel.ApiInterface.Mapper;
 using UnikPedel.Application;
 using UnikPedel.Application.Contract.ViceværtInterface;
+using UnikPedel.Application.EjendomContract;
+using UnikPedel.Application.EjendomsAnsvarligContract;
 using UnikPedel.Application.Implementation;
 using UnikPedel.Application.Infrastructure;
 using UnikPedel.Application.RekvisitionIfrastructure;
@@ -14,6 +16,7 @@ using UnikPedel.Infrastructure.Database;
 using UnikPedel.Infrastructure.DominServiceImpl;
 using UnikPedel.Infrastructure.Queries;
 using UnikPedel.Infrastructure.Querries;
+using UnikPedel.Infrastructure.Querys;
 using UnikPedel.Infrastructure.RepositoriesImpl;
 using UnikPedel.Web.Infrastructure;
 
@@ -40,6 +43,12 @@ builder.Services.AddScoped<IViceværtDomainService, ViceværtDomainService>();
 builder.Services.AddScoped<IRekvisitionQuery, RekvisitionQuery>();
 builder.Services.AddScoped<IRekvisitionCommand, RekvisitionCommand>();
 builder.Services.AddScoped<IRekvisitionRepository, RekvisitionRepository>();
+
+builder.Services.AddScoped<IEjendomQuery, EjendomQuery>();
+
+builder.Services.AddScoped<IEjendomsAnsvarligQuery,EjendomAnsvarligQuery>();
+builder.Services.AddScoped<IEjendomsAnsvarligCommand, EjendomAnsvarligCommand>();
+builder.Services.AddScoped<IEjendomAnsvarligRepository,EjendomAnsavrligRepository>();
 
 builder.Services.AddScoped<ITidRegistreringQuery, TidRegistreringQuery>();
 builder.Services.AddScoped<ITidRegistreringCommand, TidRegistreringCommand>();

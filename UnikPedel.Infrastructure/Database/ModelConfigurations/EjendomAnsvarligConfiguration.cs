@@ -13,7 +13,8 @@ namespace UnikPedel.Infrastructure.Database.ModelConfigurations
         public void Configure(EntityTypeBuilder<Domain.Entities.EjendomsAnsvarlig> entity)
         {
             entity.ToTable("EjendomsAnsvarlig");
-            entity.HasKey(x => new { x.ViceværtId, x.EjendomId });
+            entity.HasKey(x => x.Id);
+            entity.Property(a => a.Id).HasColumnName("Id").ValueGeneratedOnAdd();
 
             entity.HasOne(x => x.Vicevært)
                   .WithMany(x => x.EjendomsAnsvarlig)
