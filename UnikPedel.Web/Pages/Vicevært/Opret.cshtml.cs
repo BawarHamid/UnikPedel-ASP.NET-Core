@@ -27,7 +27,7 @@ namespace UnikPedel.Web.Pages.Vicevært
             if (!ModelState.IsValid) return Page();
 
             await _viceværtService.CreateViceværtAsync(Vicevært.GetAsVicværtDto());
-            return RedirectToPage("/Index");
+            return RedirectToPage("/Admin/Medarbejder");
         }
 
         public class ViceværtOpretModel
