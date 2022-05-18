@@ -53,8 +53,11 @@
                         @item.Email
                     </td>
                     <td>
-                        <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                        <a asp-page="./Edit" asp-route-id="@item.Id">Rediger</a> |
+                        <a asp-page="/Vicevært/Slet" asp-route-id="@item.Id">Slet</a>
+      @*<a class="btn btn-primary" asp-page="/Vicevært/Opret">Opret ny vicevært</a>*@
+
+                            @*<button type="button" onclick="slet()">Slet</button>*@
                     </td>
                 </tr>
             }
