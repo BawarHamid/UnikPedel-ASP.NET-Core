@@ -11,8 +11,8 @@ namespace UnikPedel.Contract.IServiceTidRegistrering
     {
         Task CreateTidRegistreringAsync(TidRegistreringDto tidRegistrering);
         Task EditTidRegistreringAsync(TidRegistreringDto tidRegistrering);
-        Task DeleteTidRegistreringAsync(Guid id);
-        Task<TidRegistreringDto?> GetTidRegistreringAsync(Guid Id);
+        Task DeleteTidRegistreringAsync(int id);
+        Task<TidRegistreringDto?> GetTidRegistreringAsync(int Id);
         Task<IEnumerable<TidRegistreringDto>> GetTidRegistreringAsync();
     }
 }

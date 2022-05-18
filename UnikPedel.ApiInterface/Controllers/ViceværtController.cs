@@ -26,13 +26,11 @@ namespace UnikPedel.ApiInterface.Controllers
 
         // GET: api/<ViceværtController> henter en list med alle viceværter.
         [HttpGet]
-        public async Task<IEnumerable<ViceværtQueryDto>> GetViceværterAsync()
+        public async Task<IEnumerable<ViceværtDto>> GetViceværterAsync()
         {
             var vicevært = await _viceværtQuery.GetAllViceværterAsync();
-            if (vicevært is null) return null;
-            return vicevært;
-
-            //return _mapper.Map<IEnumerable<ViceværtDto>>(vicevært);
+            if (vicevært == null) return null;
+            return _mapper.Map<IEnumerable<ViceværtDto>>(vicevært);
         }
 
 
@@ -44,24 +42,15 @@ namespace UnikPedel.ApiInterface.Controllers
             var vicevært = await _viceværtQuery.GetViceværtAsync(Id);
             if (vicevært is null) return null;
 
-            return new ViceværtDto
-            {
-                Id = vicevært.Id,
-                ForNavn = vicevært.ForNavn,
-                EfterNavn = vicevært.EfterNavn,
-                Telefon = vicevært.Telefon,
-                Email = vicevært.Email
-            };
-
-            //return _mapper.Map<ViceværtDto>(vicevært); med mapper virker ikke.
+            return _mapper.Map<ViceværtDto>(vicevært);
         }
 
         // POST api/<ViceværtController> opretter en vicevært.
         [HttpPost]
-        public async Task<ViceværtCommandDto> CreateViceværtAsync([FromBody] ViceværtCreateCommandDto value)
+        public async Task  CreateViceværtAsync([FromBody] ViceværtCreateCommandDto value)
         {
-            var result = await _viceværtCommand.CreateViceværtAsyc(value);
-            return result;
+            await _viceværtCommand.CreateViceværtAsyc(value);
+            
 
             //await _viceværtCommand.CreateViceværtAsyc(new ViceværtCommandDto
             //{
@@ -77,14 +66,8 @@ namespace UnikPedel.ApiInterface.Controllers
         [HttpPut]
         public async Task EditViceværtAsync([FromBody] ViceværtDto value)
         {
-            await _viceværtCommand.EditViceværtAsync(new ViceværtCommandDto
-            {
-                Id = value.Id,
-                ForNavn = value.ForNavn,
-                EfterNavn = value.EfterNavn,
-                Telefon = value.Telefon,
-                Email = value.Email
-            });
+            var vicevært = _mapper.Map<ViceværtCommandDto>(value);
+            await _viceværtCommand.EditViceværtAsync(vicevært);
         }
 
         // DELETE api/<ViceværtController>/5 sletter en vicevært udfra Id

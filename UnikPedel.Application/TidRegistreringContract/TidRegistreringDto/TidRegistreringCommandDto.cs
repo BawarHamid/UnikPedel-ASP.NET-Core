@@ -10,7 +10,7 @@ namespace UnikPedel.Application.TidRegistreringContract.TidRegistreringDto
 {
    public class TidRegistreringCommandDto
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public DateTime RegisterDato { get; set; }
 
         public double AntalTimer { get; set; }

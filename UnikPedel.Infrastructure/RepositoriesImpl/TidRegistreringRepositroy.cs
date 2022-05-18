@@ -26,7 +26,7 @@ namespace UnikPedel.Infrastructure.RepositoriesImpl
 
         
 
-        async Task ITidRegistreringRepositroy.DeleteTidRegistreringAsync(Guid id)
+        async Task ITidRegistreringRepositroy.DeleteTidRegistreringAsync(int id)
         {
             var tidRegistering = _db.TidRegistrering.Find(id);
             if (tidRegistering is null) return;
@@ -37,7 +37,7 @@ namespace UnikPedel.Infrastructure.RepositoriesImpl
 
     
 
-        async Task<TidRegistering> ITidRegistreringRepositroy.GetTidRegistreringAsync(Guid id)
+        async Task<TidRegistering> ITidRegistreringRepositroy.GetTidRegistreringAsync(int id)
         {
             return await _db.TidRegistrering.FindAsync(id) ?? throw new Exception("TidRegistrering not found");
         }

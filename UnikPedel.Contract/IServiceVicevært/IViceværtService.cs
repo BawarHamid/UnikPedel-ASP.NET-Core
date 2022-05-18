@@ -10,10 +10,10 @@ namespace UnikPedel.Contract.IServiceVicevært
 {
     public interface IViceværtService
     {
-        Task<ViceværtCommandDto> CreateViceværtAsync(ViceværtCreateCommandDto vicevært);
+        Task  CreateViceværtAsync(ViceværtCreateCommandDto vicevært);
         Task EditViceværtAsync(ViceværtDto vicevært);
         Task DeleteViceværtAsync(int Id);
         Task <ViceværtDto?> GetViceværtAsync(int Id);
-        Task<IEnumerable<ViceværtQueryDto>> GetViceværterAsync();
+        Task<IEnumerable<ViceværtDto>> GetViceværterAsync();
     }
 }

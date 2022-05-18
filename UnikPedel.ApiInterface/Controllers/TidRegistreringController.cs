@@ -37,7 +37,7 @@ namespace UnikPedel.ApiInterface.Controllers
 
 
         [HttpDelete("{Id}")]
-        public async Task DeleteTidRegistreringAsync(Guid id)
+        public async Task DeleteTidRegistreringAsync(int id)
         {
             await _tidRegCommand.DeleteRegistreringAsync(new TidRegistreringCommandDto { Id = id });
         }
@@ -48,7 +48,7 @@ namespace UnikPedel.ApiInterface.Controllers
            
             await _tidRegCommand.CreateTidRegistreringAsyc(new TidRegistreringCommandDto ());
 
-            _mapper.Map<TidRegistreringCommandDto>(tidRegistrering);
+            
             
         }
        
@@ -56,24 +56,17 @@ namespace UnikPedel.ApiInterface.Controllers
         [HttpPut("{Id}")]
         public async Task EditTidRegistreringAsync(TidRegistreringDto tidRegistrering)
         {
-            await _tidRegCommand.EditRegistreringAsync(new TidRegistreringCommandDto());
             _mapper.Map<TidRegistreringCommandDto>(tidRegistrering);
+            await _tidRegCommand.EditRegistreringAsync(new TidRegistreringCommandDto());
+         
         }
 
         [HttpGet("{Id}")]
-        public async Task<TidRegistreringDto?> GetTidRegistreringAsync(Guid Id)
+        public async Task<TidRegistreringDto?> GetTidRegistreringAsync(int Id)
         {
             var registrering = await _tidRegQuery.GetTidRegistreringAsync(Id);
             if (registrering == null) return null;
-            return new TidRegistreringDto
-            {
-                //Id = registrering.Id,
-                //AntalTimer = registrering.AntalTimer,
-                //RegisterDato = registrering.RegisterDato,
-                //Vicevært = registrering.Vicevært,
-                //Rekvisition = registrering.Rekvisition
-
-            };
+            return _mapper.Map<TidRegistreringDto?>(registrering);
         }
 
        
