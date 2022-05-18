@@ -43,12 +43,11 @@ namespace UnikPedel.ApiInterface.Controllers
         }
 
         [HttpPost]
-        public async Task CreateTidRegistreringAsync([FromBody] TidRegistreringDto tidRegistrering)
+        public async Task CreateTidRegistreringAsync([FromBody] TidRegistreringCreateDto tidRegistrering)
         {
-           
-            await _tidRegCommand.CreateTidRegistreringAsyc(new TidRegistreringCommandDto ());
+           var registrering=_mapper.Map<TidRegistreringCommandDto>(tidRegistrering);
+            await _tidRegCommand.CreateTidRegistreringAsyc(registrering);
 
-            
             
         }
        

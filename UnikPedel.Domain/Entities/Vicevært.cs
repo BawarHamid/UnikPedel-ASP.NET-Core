@@ -25,7 +25,7 @@ namespace UnikPedel.Domain.Entities
         //public int EjendomsAnsvarligId { get; set; }
         public IEnumerable<EjendomsAnsvarlig> EjendomsAnsvarlig { get; set; }
         public IEnumerable<Rekvisition> Rekvisitioner { get; set; }
-        public IEnumerable<Ejendom> Ejemdom { get; set; }
+        public IEnumerable<EjendomCommandDto> Ejemdom { get; set; }
         public IEnumerable<TidRegistering> TidRegistrering { get; set; }
 
         //Constructor for Ef

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace UnikPedel.Domain.Entities
 {
-    public class Ejendom : BaseEntity
+    public class EjendomCommandDto : BaseEntity
     {
         //[Key]
         //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
