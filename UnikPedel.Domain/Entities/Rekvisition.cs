@@ -27,7 +27,7 @@ namespace UnikPedel.Domain.Entities
         public Lejer Lejer { get; set; }
 
         public int EjendomId {get;set; }
-        public Ejendom Ejendom {get;set; }
+        public EjendomCommandDto Ejendom {get;set; }
 
         public IEnumerable<TidRegistering> TidRegistering { get; set; }
         public IEnumerable<Lejemål> Lejemål { get; set; }
@@ -41,7 +41,7 @@ namespace UnikPedel.Domain.Entities
 
         }
 
-        public Rekvisition(string type, string status, string beskrivelse, Vicevært vicevært, Lejer lejer, Ejendom ejendom)
+        public Rekvisition(string type, string status, string beskrivelse, Vicevært vicevært, Lejer lejer, EjendomCommandDto ejendom)
         {
             Type = type;
             TimeCreated = DateTime.Now;
@@ -59,7 +59,7 @@ namespace UnikPedel.Domain.Entities
             Type = type;
         }
 
-        public void Update(string type,  string status, string beskrivelse, Vicevært vicevært, Lejer lejer, Ejendom ejendom)
+        public void Update(string type,  string status, string beskrivelse, Vicevært vicevært, Lejer lejer, EjendomCommandDto ejendom)
         {
             Type = type;
             Status = status;

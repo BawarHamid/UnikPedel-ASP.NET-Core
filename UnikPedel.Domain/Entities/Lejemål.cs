@@ -24,7 +24,7 @@ namespace UnikPedel.Domain.Entities
         public  bool IsBookable {get;set;}
 
         public int EjendomId {get;set;}
-        public Ejendom Ejendom { get; set; }
+        public EjendomCommandDto Ejendom { get; set; }
 
         //public int RekvisitionId { get; set; }
         //public Rekvisition Rekvisition { get; set; }

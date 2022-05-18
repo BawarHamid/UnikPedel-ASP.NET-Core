@@ -18,7 +18,7 @@ namespace UnikPedel.Domain.Entities
         public Vicevært Vicevært { get; set; }
 
         public int EjendomId { get; set; }
-        public Ejendom Ejendom { get;  set; }
+        public EjendomCommandDto Ejendom { get;  set; }
 
         // Constractor for EF
         private EjendomsAnsvarlig()
@@ -26,14 +26,14 @@ namespace UnikPedel.Domain.Entities
 
         }
 
-        public EjendomsAnsvarlig( Vicevært Vicevært, Ejendom Ejendom)
+        public EjendomsAnsvarlig( Vicevært Vicevært, EjendomCommandDto Ejendom)
         {
             
             //this.Ejendom = Ejendom;
             //this.Vicevært = Vicevært;
         }
 
-        public void Update( Vicevært Vicevært, Ejendom Ejendom)
+        public void Update( Vicevært Vicevært, EjendomCommandDto Ejendom)
         {
 
             //this.Ejendom = Ejendom;

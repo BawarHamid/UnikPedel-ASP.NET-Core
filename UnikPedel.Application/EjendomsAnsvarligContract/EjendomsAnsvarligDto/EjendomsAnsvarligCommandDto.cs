@@ -13,6 +13,6 @@ namespace UnikPedel.Application.EjendomsAnsvarligContract.EjendomsAnsvarligDto
         public Vicevært Vicevært { get; set; }
 
         public int EjendomId { get; set; }
-        public Ejendom Ejendom { get; set; }
+        public EjendomCommandDto Ejendom { get; set; }
     }
 }
