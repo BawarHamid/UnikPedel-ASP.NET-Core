@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using UnikPedel.Application.EjendomContract;
 using UnikPedel.Contract.IServiceEjendom;
 using UnikPedel.Contract.IServiceEjendom.EjendomDtos;
@@ -10,16 +11,17 @@ namespace UnikPedel.ApiInterface.Controllers
     public class EjendomController : ControllerBase, IServiceEjendom
     {
         private readonly IEjendomQuery _ejendomQuery;
-
-        public EjendomController(IEjendomQuery ejendomQuery)
+        private readonly IMapper _mapper;
+        public EjendomController(IEjendomQuery ejendomQuery, IMapper mapper)
         {
             _ejendomQuery = ejendomQuery;
+            _mapper = mapper;   
         }
 
 
         // GET api/<EjendomController> henter en bestemt Ejendom udfra Id
         [HttpGet("{Id}")]
-        public async Task<EjendomDto?> GetEjendomAsync(Guid Id)
+        public async Task<EjendomDto?> GetEjendomAsync(int Id)
         {
             var ejendom = await _ejendomQuery.GetEjendom(Id);
             if (ejendom is null) return null;
@@ -40,19 +42,24 @@ namespace UnikPedel.ApiInterface.Controllers
         [HttpGet]
         public async Task<IEnumerable<EjendomDto>> GetEjendomAsync()
         {
-            var result = new List<EjendomDto>();
-            var ejendom = await _ejendomQuery.GetEjendoms();
-            ejendom.ToList().ForEach(a => result.Add(new EjendomDto
-            {
-                Id = a.Id,
-                VejNavn = a.VejNavn,
-                BygningsNummer = a.BygningsNummer,
-                PostNummer = a.PostNummer,
-                By = a.By,
-                Region = a.Region,
-                LandKode = a.LandKode
-            }));
-            return result;
+            var ejendom = await _ejendomQuery.GetEjendoms();         
+            return _mapper.Map<IEnumerable<EjendomDto>>(ejendom); 
+
+
+
+            //var result = new List<EjendomDto>();
+            //var ejendom = await _ejendomQuery.GetEjendoms();
+            //ejendom.ToList().ForEach(a => result.Add(new EjendomDto
+            //{
+            //    Id = a.Id,
+            //    VejNavn = a.VejNavn,
+            //    BygningsNummer = a.BygningsNummer,
+            //    PostNummer = a.PostNummer,
+            //    By = a.By,
+            //    Region = a.Region,
+            //    LandKode = a.LandKode
+            //}));
+            //return result;
         }
     }
 }
