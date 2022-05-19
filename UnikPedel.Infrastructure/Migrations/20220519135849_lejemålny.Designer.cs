@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UnikPedel.Infrastructure.Database;
 
@@ -11,9 +12,10 @@ using UnikPedel.Infrastructure.Database;
 namespace UnikPedel.Infrastructure.Migrations
 {
     [DbContext(typeof(UnikPedelContext))]
-    partial class UnikPedelContextModelSnapshot : ModelSnapshot
+    [Migration("20220519135849_lejemålny")]
+    partial class lejemålny
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -186,6 +188,9 @@ namespace UnikPedel.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("Region");
 
+                    b.Property<int?>("RekvisitionId")
+                        .HasColumnType("int");
+
                     b.Property<string>("VejNavn")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
@@ -194,6 +199,8 @@ namespace UnikPedel.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("EjendomId");
+
+                    b.HasIndex("RekvisitionId");
 
                     b.ToTable("Lejemål", (string)null);
                 });
@@ -434,6 +441,10 @@ namespace UnikPedel.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
+                    b.HasOne("UnikPedel.Domain.Entities.Rekvisition", null)
+                        .WithMany("Lejemål")
+                        .HasForeignKey("RekvisitionId");
+
                     b.Navigation("Ejendom");
                 });
 
@@ -520,6 +531,8 @@ namespace UnikPedel.Infrastructure.Migrations
 
             modelBuilder.Entity("UnikPedel.Domain.Entities.Rekvisition", b =>
                 {
+                    b.Navigation("Lejemål");
+
                     b.Navigation("TidRegistering");
                 });
 
