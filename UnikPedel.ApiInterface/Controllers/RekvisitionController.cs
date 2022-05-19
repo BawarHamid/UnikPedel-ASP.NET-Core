@@ -24,23 +24,10 @@ namespace UnikPedel.ApiInterface.Controllers
 
         // POST api/<RekvisitionController> opretter en rekvisition.
         [HttpPost]
-        public async Task CreateRekvisitionAsync([FromBody] RekvisitionCreateCommandDto value)
+        public async Task CreateRekvisitionAsync([FromBody] RekvisitionCreateDto value)
         {
-            //var rekvisition = _mapper.Map<RekvisitionCommandDto>(value);
-            await _rekvisitionCommand.CreateAsync(value);
-
-
-            //await _rekvisitionCommand.CreateAsync(new RekvisitionCommandDto
-            //{
-            //    Id = rekvisition.Id,
-            //    Type = rekvisition.Type,
-            //    Beskrivelse = rekvisition.Beskrivelse,
-            //    TimeCreated = rekvisition.TimeCreated,
-            //    Status = rekvisition.Status,
-            //    //Vicevært = rekvisition.Vicevært,
-            //    // vi mangler Lejer kigge på Dto i SharedContract
-            //    //Ejendom = rekvisition.Ejendom
-            //});
+            var rekvisition = _mapper.Map<RekvisitionCommandDto>(value);
+            await _rekvisitionCommand.CreateAsync(rekvisition);
         }
 
 

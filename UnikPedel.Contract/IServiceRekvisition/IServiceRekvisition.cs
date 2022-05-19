@@ -10,7 +10,7 @@ namespace UnikPedel.Contract.IServiceRekvisition
 {
     public interface IServiceRekvisition
     {
-        Task CreateRekvisitionAsync(RekvisitionCreateCommandDto rekvisition);
+        Task CreateRekvisitionAsync(RekvisitionCreateDto rekvisition);
         Task EditRekvisitionAsync(RekvisitionDto rekvisition);
         Task DeleteRekvisitionAsync(int Id);
         Task<RekvisitionDto?> GetRekvisitionAsync(int Id);

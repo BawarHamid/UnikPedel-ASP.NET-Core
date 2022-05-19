@@ -24,7 +24,7 @@ namespace UnikPedel.Contract.IServiceRekvisition.RekvisitionDtos
         public int LejerId { get; set; }
         //public Lejer Lejer { get; set; }
 
-        public int EjendomsId { get; set; }
+        public int EjendomId { get; set; }
         //public EjendomDto Ejendom { get; set; }
         
     }
@@ -44,7 +44,7 @@ namespace UnikPedel.Contract.IServiceRekvisition.RekvisitionDtos
         public int LejerId { get; set; }
         //public Lejer Lejer { get; set; }
 
-        public int EjendomsId { get; set; }
+        public int EjendomId { get; set; }
         //public EjendomDto Ejendom { get; set; }
         
     }

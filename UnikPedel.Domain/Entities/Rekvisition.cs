@@ -41,15 +41,15 @@ namespace UnikPedel.Domain.Entities
 
         }
 
-        public Rekvisition(string type, string status, string beskrivelse, Vicevært vicevært, Lejer lejer, Ejendom ejendom)
+        public Rekvisition(string type, string status, string beskrivelse, int viceværtId, int lejerId, int ejendomId)
         {
             Type = type;
             TimeCreated = DateTime.Now;
             Status = status;
             Beskrivelse = beskrivelse;
-            Vicevært = vicevært;
-            Lejer = lejer;
-            Ejendom = ejendom;
+            ViceværtId = viceværtId;
+            LejerId = lejerId;
+            EjendomId = ejendomId;
 
         }
 
@@ -59,14 +59,14 @@ namespace UnikPedel.Domain.Entities
             Type = type;
         }
 
-        public void Update(string type,  string status, string beskrivelse, Vicevært vicevært, Lejer lejer, Ejendom ejendom)
+        public void Update(string type,  string status, string beskrivelse, int viceværtId, int lejerId, int ejendomId)
         {
             Type = type;
             Status = status;
             Beskrivelse = beskrivelse;
-            Vicevært = vicevært;
-            Lejer = lejer;
-            Ejendom = ejendom;
+            ViceværtId = viceværtId;
+            LejerId = lejerId;
+            EjendomId = ejendomId;
         }
     }
 }
