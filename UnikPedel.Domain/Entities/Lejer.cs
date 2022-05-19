@@ -29,7 +29,7 @@ namespace UnikPedel.Domain.Entities
         public int LejemålId { get; set; }
         public Lejemål Lejemål { get; set; }
 
-        [Timestamp]
-        public byte[] Version { get; set; }
+        //[Timestamp]
+        //public byte[] Version { get; set; }
     }
 }

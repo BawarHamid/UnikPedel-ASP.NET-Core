@@ -31,7 +31,7 @@ namespace UnikPedel.Infrastructure.Database.ModelConfigurations
            .HasColumnName("PostNummer")
            .IsRequired();
             entity.Property(a => a.By)
-           .HasColumnName("By")
+           .HasColumnName("City")
            .IsRequired();
             entity.Property(a => a.Region)
            .HasColumnName("Region")
@@ -45,9 +45,7 @@ namespace UnikPedel.Infrastructure.Database.ModelConfigurations
                 .HasForeignKey(x => x.EjendomId)
                 .OnDelete(DeleteBehavior.NoAction);
 
-            //entity.HasOne(x => x.Rekvisition)
-            //    .WithMany(x => x.Lejemål)
-            //    .HasForeignKey(x => x.RekvisitionId);
+           
         }
     }
 }

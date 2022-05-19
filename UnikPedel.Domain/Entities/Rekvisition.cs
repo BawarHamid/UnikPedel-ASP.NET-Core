@@ -30,7 +30,7 @@ namespace UnikPedel.Domain.Entities
         public Ejendom Ejendom {get;set; }
 
         public IEnumerable<TidRegistering> TidRegistering { get; set; }
-        public IEnumerable<Lejemål> Lejemål { get; set; }
+        //public IEnumerable<Lejemål> Lejemål { get; set; }
 
         [Timestamp]
         public byte[] Version { get; set; }

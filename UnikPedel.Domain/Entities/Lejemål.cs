@@ -31,6 +31,6 @@ namespace UnikPedel.Domain.Entities
 
         public Lejer Lejer { get; set; }
         public IEnumerable<Booking> Bookings { get; set; }
-        // public IEnumerable<Rekvisition> Rekvisitioner { get; set; }
+      
     }
 }
