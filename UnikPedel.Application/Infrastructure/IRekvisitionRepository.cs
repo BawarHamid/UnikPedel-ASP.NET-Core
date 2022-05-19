@@ -9,8 +9,8 @@ namespace UnikPedel.Application.RekvisitionIfrastructure
     public interface IRekvisitionRepository
     {
         Task AddAsync(Domain.Entities.Rekvisition rekvisition);
-        Task<Domain.Entities.Rekvisition> GetAsync(Guid id);
+        Task<Domain.Entities.Rekvisition> GetAsync(int id);
         Task SaveAsync(Domain.Entities.Rekvisition rekvisition);
-        Task DeleteAsync(Guid id);
+        Task DeleteAsync(int id);
     }
 }

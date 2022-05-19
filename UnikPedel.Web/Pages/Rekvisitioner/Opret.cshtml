@@ -11,35 +11,26 @@
           <form class="row g-3">
             <div class="col-md-6">
                  <label for="inputEmail4" class="form-label">Opgave beskrivelse</label>
-                 <input type="email" class="form-control" id="inputEmail4">
+                 <input type="text" class="form-control" >
             </div>                  
             <div class="col-md-4">
-                    <label for="inputState" class="form-label">Vælg prioritet</label>
+                    <label for="inputState" class="form-label">Type</label>
                     <select id="inputState" class="form-select">
-                    <option value="1">Standard</option>
-                    <option value="2">Vigtigt</option>
-                    <option value="3">Akut</option>                    </select>
-           </div>
-           <div class="col-md-4">
-                    <label for="inputState" class="form-label">Vælg lejemål</label>
-                    <select id="inputState" class="form-select">
-                    <option value="1">A1</option>
-                    <option value="2">A2</option>
-                    <option value="3">B3</option>
+                        <option selected> Vælge rekvitiontype </option>
+                        <option value="1">Køkken</option>
+                        <option value="2">Badeværelse</option>
+                        <option value="3">Stue</option>
+                        <option value="4">Vand</option>  
+                        <option value="5">EL</option>                    
                     </select>
            </div>
+        
             <div class="col-md-4">
                 <label>Start dato</label>
                 <input class="form-control" type="date" />
             </div>
-            <div class="col-md-4">
-                <label>Slut dato</label>
-                <input class="form-control" type="date" />
-            </div>
-            <div class="col-md-6">
-                 <label for="inputEmail4" class="form-label">Time registrering</label>
-                 <input type="email" class="form-control" id="inputEmail4">
-            </div> 
+
+             
             <div class="mb-3">
                   <label for="formFile" class="form-label">Tilføj billeder</label>
                   <input class="form-control" type="file" id="formFile">
@@ -47,13 +38,15 @@
            <div class="col-md-4">
                     <label for="inputState" class="form-label">Vælg ejendom</label>
                     <select id="inputState" class="form-select">
-                    <option value="1">EjendomA</option>
-                    <option value="2">EjendomB</option>
-                    <option value="3">EjendomC</option>
+                        <option selected> Vælge Ejendom </option>
+                        <option value="1">Ejendom A</option>
+                        <option value="2">Ejendom B</option>
+                        <option value="3">Ejendom C</option>
                     </select>
            </div>            
                  <div class="col-12">
                  <input type="submit" value="Opret rekvisition" class="btn btn-primary"/>
+                 
          </div>
         </form>
         </div>

@@ -22,7 +22,7 @@ namespace UnikPedel.Infrastructure.RepositoriesImpl
             await _db.SaveChangesAsync();
         }
 
-        public async  Task DeleteAsync(Guid id)
+        public async  Task DeleteAsync(int id)
         {
             var rekvisition = _db.Rekvisition.Find(id);
             if (rekvisition is null) return;
@@ -31,7 +31,7 @@ namespace UnikPedel.Infrastructure.RepositoriesImpl
             await _db.SaveChangesAsync();
         }
 
-        public async Task<Rekvisition> GetAsync(Guid id)
+        public async Task<Rekvisition> GetAsync(int id)
         {
             return await _db.Rekvisition.FindAsync(id) ?? throw new Exception("Rekvisition not found");
         }

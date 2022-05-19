@@ -16,7 +16,7 @@ namespace UnikPedel.Infrastructure.Querries
         {
             _db = db;
         }
-        public async Task<RekvisitionQueryDto?> GetRekvisitionAsync(Guid id)
+        public async Task<RekvisitionQueryDto?> GetRekvisitionAsync(int id)
         {
             var result = await _db.Rekvisition.FindAsync(id);
             if (result is null) return new RekvisitionQueryDto();

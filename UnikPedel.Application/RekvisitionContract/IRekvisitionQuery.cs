@@ -8,7 +8,7 @@ namespace UnikPedel.Application
 {
     public interface IRekvisitionQuery
     {
-        Task<RekvisitionQueryDto?> GetRekvisitionAsync(Guid id);
+        Task<RekvisitionQueryDto?> GetRekvisitionAsync(int id);
         Task<IEnumerable<RekvisitionQueryDto>> GetRekvisitionerAsync();
     }
 }
