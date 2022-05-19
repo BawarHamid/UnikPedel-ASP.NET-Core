@@ -31,6 +31,7 @@ namespace UnikPedel.ApiInterface.Mapper
             CreateMap<Rekvisition, RekvisitionDto>().ReverseMap();
             CreateMap<RekvisitionCommandDto, RekvisitionDto>().ReverseMap();
             CreateMap<RekvisitionQueryDto, RekvisitionDto>().ReverseMap();
+            CreateMap<RekvisitionCreateDto, RekvisitionCommandDto>().ReverseMap();   
 
            
             CreateMap<EjendomQueryDto, EjendomDto>().ReverseMap();

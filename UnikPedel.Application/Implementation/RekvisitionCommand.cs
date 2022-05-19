@@ -19,12 +19,11 @@ namespace UnikPedel.Application.RekvisitionImpimentation
             _mapper = mapper;
         }
 
-        async Task IRekvisitionCommand.CreateAsync(RekvisitionCreateCommandDto rekvisitionDto)
+        async Task IRekvisitionCommand.CreateAsync(RekvisitionCommandDto rekvisitionDto)
         {
-            var rekvisition = new Rekvisition(rekvisitionDto.Type, rekvisitionDto.Status, rekvisitionDto.Beskrivelse, rekvisitionDto.ViceværtId, rekvisitionDto.LejerId, rekvisitionDto.EjendomsId);
+            var rekvisition = new Rekvisition(rekvisitionDto.Type, rekvisitionDto.Status, rekvisitionDto.Beskrivelse, rekvisitionDto.ViceværtId, rekvisitionDto.LejerId, rekvisitionDto.EjendomId);
             await _repository.AddAsync(rekvisition);
-            _mapper.Map<RekvisitionCommandDto>(rekvisition);
-            
+          
 
             //var rekvisition = new Rekvisition(rekvisitionDto.Type, rekvisitionDto.Status, rekvisitionDto.Beskrivelse, rekvisitionDto.Vicevært, rekvisitionDto.Lejer, rekvisitionDto.Ejendom);
             //var rekvisition = new Rekvisition(rekvisitionDto.Beskrivelse, rekvisitionDto.Type);
@@ -40,7 +39,7 @@ namespace UnikPedel.Application.RekvisitionImpimentation
         {
             var rekvisition = await _repository.GetAsync(rekvisitionDto.Id);
 
-            //rekvisition.Update(rekvisitionDto.Type, rekvisitionDto.Status, rekvisitionDto.Beskrivelse, rekvisitionDto.Vicevært, rekvisitionDto.Lejer, rekvisitionDto.Ejendom);
+            rekvisition.Update(rekvisitionDto.Type, rekvisitionDto.Status, rekvisitionDto.Beskrivelse, rekvisitionDto.ViceværtId, rekvisitionDto.LejerId, rekvisitionDto.EjendomId);
 
             await _repository.SaveAsync(rekvisition);
         }

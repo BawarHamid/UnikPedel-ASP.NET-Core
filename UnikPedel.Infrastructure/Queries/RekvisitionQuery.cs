@@ -23,14 +23,14 @@ namespace UnikPedel.Infrastructure.Querries
 
             return new RekvisitionQueryDto
             {
-                
+                Id = result.Id,
                 Type = result.Type,
                 TimeCreated = result.TimeCreated, 
                 Beskrivelse = result.Beskrivelse,
                 Status = result.Status, 
-                Vicevært=result.Vicevært,
-                Ejendom = result.Ejendom,   
-                Lejer=result.Lejer,
+               ViceværtId=result.ViceværtId,
+               LejerId= result.LejerId,
+               EjendomId=result.EjendomId,
             };
         }
 
@@ -40,13 +40,15 @@ namespace UnikPedel.Infrastructure.Querries
             var dbRekvisition = await _db.Rekvisition.ToListAsync();
             dbRekvisition.ForEach(a => result.Add(new RekvisitionQueryDto
             {
+                Id=a.Id,    
                 Type = a.Type,
                 TimeCreated=a.TimeCreated,
                 Beskrivelse = a.Beskrivelse,
                 Status = a.Status,
-                Vicevært =a.Vicevært,
-                Ejendom = a.Ejendom,
-                Lejer = a.Lejer,
+              
+                ViceværtId = a.ViceværtId,
+                LejerId = a.LejerId,
+                EjendomId = a.EjendomId
             }));
             return result;
         }

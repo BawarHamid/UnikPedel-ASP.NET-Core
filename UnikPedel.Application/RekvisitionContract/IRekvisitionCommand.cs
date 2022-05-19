@@ -8,7 +8,7 @@ namespace UnikPedel.Application
 {
     public interface IRekvisitionCommand
     {
-        Task CreateAsync(RekvisitionCreateCommandDto rekvisitionDto);
+        Task CreateAsync(RekvisitionCommandDto rekvisitionDto);
         Task EditAsync(RekvisitionCommandDto rekvisitionDto);
         Task DeleteAsync(RekvisitionCommandDto rekvisitionDto);
     }

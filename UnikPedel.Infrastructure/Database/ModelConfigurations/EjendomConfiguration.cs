@@ -33,6 +33,7 @@ namespace UnikPedel.Infrastructure.Database.ModelConfigurations
             entity.Property(a => a.LandKode)
            .HasColumnName("LandKode")
            .IsRequired();
+            entity.HasMany(x => x.Rekvisitioner).WithOne(z => z.Ejendom).OnDelete(DeleteBehavior.Cascade);  
         }
     }
 }
