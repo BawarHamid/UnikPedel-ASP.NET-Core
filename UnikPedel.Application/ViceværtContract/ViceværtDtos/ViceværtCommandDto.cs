@@ -13,6 +13,8 @@ namespace UnikPedel.Application.Contract.Dtos
         public string EfterNavn { get; set; }
         public int Telefon { get; set; }
         public string Email { get; set; }
+        public int ViceværtId { get; set; }
+        public int EjendomsId { get; set; }
     }
 
     public class ViceværtCreateCommandDto
@@ -21,5 +23,7 @@ namespace UnikPedel.Application.Contract.Dtos
         public string EfterNavn { get; set; }
         public int Telefon { get; set; }
         public string Email { get; set; }
+        public int ViceværtId { get; set; }
+        public int EjendomsId { get; set; }
     }
 }

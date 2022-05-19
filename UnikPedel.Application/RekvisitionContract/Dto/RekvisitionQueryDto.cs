@@ -9,7 +9,7 @@ namespace UnikPedel.Application
 {
     public class RekvisitionQueryDto
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         public string Type { get; set; }
         public DateTime TimeCreated{ get; set; }
