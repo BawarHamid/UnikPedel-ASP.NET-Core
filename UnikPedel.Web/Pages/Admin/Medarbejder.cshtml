@@ -29,7 +29,7 @@
                     <label asp-for="Viceværter.First().Email"></label>
                 </th>
                 <th>
-                    <label>Actions</label>
+                    <label>Handlinger</label>
                 </th>
             </tr>
             </thead>
@@ -53,7 +53,7 @@
                         @item.Email
                     </td>
                     <td>
-                        <a asp-page="./Edit" asp-route-id="@item.Id">Rediger</a> |
+                        <a asp-page="/Vicevært/Edit" asp-route-id="@item.Id">Rediger</a> |
                         <a asp-page="/Vicevært/Slet" asp-route-id="@item.Id">Slet</a>
       @*<a class="btn btn-primary" asp-page="/Vicevært/Opret">Opret ny vicevært</a>*@
 

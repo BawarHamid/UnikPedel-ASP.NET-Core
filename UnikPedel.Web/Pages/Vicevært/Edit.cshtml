@@ -5,33 +5,44 @@
 
 <div class="container-fluid">
     <br />
-<h2>Edit ny Vicevært</h2>
+<h3>Ændre kontaktoplysninger:</h3>
 <br />
     <div class="border container" style="padding: 30px">
-          <form class="row g-3">
+          <form class="row g-3" method="post">
+               <input type="hidden" asp-for="Vicevært.Id" />
             <div class="col-md-6">
-                 <label for="inputEmail4" class="form-label">Fornavn</label>
-                 <input type="text" class="form-control">
+                <label asp-for="Vicevært.Id" class="control-label"></label>
+                <input asp-for="Vicevært.Id" disabled="disabled" class="form-control"/>
+                <span asp-validation-for="Vicevært.Id" class="text-danger"></span>
+            </div> 
+            <div class="col-md-6">
+                <label asp-for="Vicevært.ForNavn" class="control-label"></label>
+                <input asp-for="Vicevært.ForNavn" class="form-control"/>
+                <span asp-validation-for="Vicevært.ForNavn" class="text-danger"></span>
             </div>
             <div class="col-md-6">
-                 <label for="inputEmail4" class="form-label">Efternavn</label>
-                 <input type="text" class="form-control">
+                <label asp-for="Vicevært.EfterNavn" class="control-label"></label>
+                <input asp-for="Vicevært.EfterNavn" class="form-control"/>
+                <span asp-validation-for="Vicevært.EfterNavn" class="text-danger"></span>
             </div>
             <div class="col-md-6">
-                 <label for="inputEmail4" class="form-label">Telefon</label>
-                 <input type="text" class="form-control">
+                <label asp-for="Vicevært.Telefon" class="control-label"></label>
+                <input asp-for="Vicevært.Telefon" class="form-control"/>
+                <span asp-validation-for="Vicevært.Telefon" class="text-danger"></span>
             </div>
             <div class="col-md-6">
-                 <label for="inputEmail4" class="form-label">Email</label>
-                 <input type="email" class="form-control">
+                <label asp-for="Vicevært.Email" class="control-label"></label>
+                <input asp-for="Vicevært.Email" class="form-control"/>
+                <span asp-validation-for="Vicevært.Email" class="text-danger"></span>
             </div>
             <div class="mb-3">
                   <label for="formFile" class="form-label">Tilføj billeder</label>
                   <input class="form-control" type="file" id="formFile">
             </div>         
                  <div class="col-md-6">
-                 <input type="submit" value="Opret Vicevært" class="btn btn-primary"/>
-            </div>
+                 <input type="submit" value="Update Employee" class="btn btn-outline-warning"/>
+                     <a asp-page="/Admin/Medarbejder">Tilbage</a>
+                 </div>
         </form>
         </div>
 </div>

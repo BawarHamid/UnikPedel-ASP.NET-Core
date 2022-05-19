@@ -20,10 +20,10 @@ namespace UnikPedel.Web.Pages.Vicevært
 
         public async Task<IActionResult> OnGetAsync(int? Id)
         {
-            if (Id == null) return NotFound(/*"Viceværten med " + Id + " eksisterer ikke.."*/);
+            if (Id == null) return NotFound("Viceværten med " + Id + " eksisterer ikke..");
 
             var domainVicevært = await _viceværtService.GetViceværtAsync(Id.Value);
-            if (domainVicevært == null) return NotFound(/*"Viceværten eksisterer ikke.."*/);
+            if (domainVicevært == null) return NotFound("Viceværten med " + Id + " eksisterer ikke..");
 
             Vicevært = ViceværtDeleteModel.CreateFromViceværtDto(domainVicevært);
 
@@ -32,7 +32,7 @@ namespace UnikPedel.Web.Pages.Vicevært
 
         public async Task<IActionResult> OnPostAsync(int? Id)
         {
-            if (Id == null) return NotFound();
+            if (Id == null) return NotFound("Viceværten med " + Id + " eksisterer ikke..");
 
             await _viceværtService.DeleteViceværtAsync(Id.Value);
 
