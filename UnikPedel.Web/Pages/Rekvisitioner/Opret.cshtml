@@ -17,32 +17,35 @@
                 <span asp-validation-for="Rekvisition.Type" class="text-danger"></span>
             </div>
 
+            @*Status*@
              <div class="col-md-6">
                 <label asp-for="Rekvisition.Status" class="control-label"></label>
                 <input asp-for="Rekvisition.Status" class="form-control"/>
                 <span asp-validation-for="Rekvisition.Status" class="text-danger"></span>
             </div>
 
+            @*Beskrivelse*@
             <div class="col-md-6">
                 <label asp-for="Rekvisition.Beskrivelse" class="control-label"></label>
                 <input asp-for="Rekvisition.Beskrivelse" class="form-control"/>
                 <span asp-validation-for="Rekvisition.Beskrivelse" class="text-danger"></span>
             </div>
 
-
+            @*ViceværtId*@
             <div class="col-md-6">
                 <label asp-for="Rekvisition.ViceværtId" class="control-label"></label>
                 <input asp-for="Rekvisition.ViceværtId" class="form-control"/>
                 <span asp-validation-for="Rekvisition.ViceværtId" class="text-danger"></span>
             </div>
 
+            @*LejerId*@
             <div class="col-md-6">
                 <label asp-for="Rekvisition.LejerId" class="control-label"></label>
                 <input asp-for="Rekvisition.LejerId" class="form-control"/>
                 <span asp-validation-for="Rekvisition.LejerId" class="text-danger"></span>
             </div>
 
-
+            @*EjendomId*@
             <div class="col-md-6">
                 <label asp-for="Rekvisition.EjendomId" class="control-label"></label>
                 <input asp-for="Rekvisition.EjendomId" class="form-control"/>
@@ -51,7 +54,7 @@
             
             <div class="col-md-6">
                 <input type="submit" value="Create Rekvisition" class="btn btn-outline-success"/>
-                <a asp-page="/Admin/Medarbejder">Tilbage</a>
+                <a asp-page="/Vicevært/">Tilbage</a>
             </div>
          </form>
     </div>
