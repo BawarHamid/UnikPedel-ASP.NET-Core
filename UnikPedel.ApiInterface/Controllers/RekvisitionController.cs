@@ -31,7 +31,6 @@ namespace UnikPedel.ApiInterface.Controllers
         }
 
 
-
         // PUT api/<RekvisitionController>/5 når man laver update på en rekvisition.
         [HttpPut("{Id}")]
         public async Task EditRekvisitionAsync([FromBody] RekvisitionDto value)
@@ -121,9 +120,7 @@ namespace UnikPedel.ApiInterface.Controllers
             //return result;
         }
 
-
-
-  
+       
     }
     
 }

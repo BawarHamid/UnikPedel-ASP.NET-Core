@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using UnikPedel.Contract.IServiceRekvisition;
+using UnikPedel.Contract.IServiceTidRegistrering;
 using UnikPedel.Contract.IServiceVicevært;
 using UnikPedel.Infrastructure.Database;
 using UnikPedel.Web.Infrastructure;
@@ -11,6 +12,20 @@ builder.Services.AddRazorPages();
 
 
 builder.Services.AddHttpClient<IViceværtService, ViceværtServiceProxy>
+    (client =>
+    {
+        client.BaseAddress =
+            new Uri("https://localhost:7094");
+    });
+
+builder.Services.AddHttpClient<IServiceRekvisition, RekvisitionServiceProxy>
+    (client =>
+    {
+        client.BaseAddress =
+            new Uri("https://localhost:7094");
+    });
+
+builder.Services.AddHttpClient<IServiceTidRegistrering, TidRegistreringServiceProxy>
     (client =>
     {
         client.BaseAddress =
