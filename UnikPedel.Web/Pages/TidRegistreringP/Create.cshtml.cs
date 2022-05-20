@@ -23,17 +23,17 @@ namespace UnikPedel.Web.Pages.TidRegsitrering
         {
             if (!ModelState.IsValid) return Page();
             await _registreringService.CreateTidRegistreringAsync(TidRegistrering.GetAsTidRegistreringCreateDto());
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Index");
         }
     }
     public class TidRegsitreringCreateModel
     {
         public int Id { get; set; }
        [DisplayName("Registrering Dato")] public DateTime RegistreringDato { get; set; } = DateTime.Now;
-        public double AntalTimer { get; set; }  
-        
-        public int  viceværtID { get; set; }
-        public int rekvisitionId { get; set; }
+        [DisplayName("Antal Timer")]public double AntalTimer { get; set; }
+
+        [DisplayName("Vicevært Id")] public int  viceværtID { get; set; }
+        [DisplayName("Rekvisition Id")] public int rekvisitionId { get; set; }
 
         public TidRegistreringCreateDto GetAsTidRegistreringCreateDto()
         {
