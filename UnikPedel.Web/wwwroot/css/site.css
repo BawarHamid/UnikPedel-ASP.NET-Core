@@ -39,7 +39,6 @@ section {
 .card {
     width: 100%;
     cursor: default;
-    padding: 1.25rem;
     border-radius: 0.25rem;
     background-color: var(--sdcolor);
     transition: transform 0.3s ease-in-out;
@@ -79,3 +78,11 @@ section {
     text-transform: capitalize;
     margin: 0.75rem 0;
 }
+
+hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+

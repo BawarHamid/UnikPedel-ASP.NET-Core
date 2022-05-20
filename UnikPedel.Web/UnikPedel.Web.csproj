@@ -24,4 +24,8 @@
     <ProjectReference Include="..\UnikPedel.Contract\UnikPedel.Contract.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\" />
+  </ItemGroup>
+
 </Project>
