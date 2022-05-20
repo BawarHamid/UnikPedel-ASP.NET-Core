@@ -1,0 +1,72 @@
+﻿@page
+@model UnikPedel.Web.Pages.TidRegistreringP.IndexModel
+@{
+}
+<section class="container-fluid">
+     <article class="align-content-lg-start" style="color:green;">
+        <a  asp-page="Create">Registrer ny tid</a>
+    </article>
+    <section style="align-content:center;">
+    <h1>Tid Registreringer</h1>
+   
+<section>
+        <table class="table" style="  border: 1px solid;  border-collapse: collapse, separate;
+  border-spacing: 0 15px;">
+            <thead>
+            <tr >
+                <th>
+                    <label asp-for="Registreringer.First().Id"></label>
+                </th>
+                 <th>
+                    <label asp-for="Registreringer.First().RegistreringDato"></label>
+                </th>
+                 <th>
+                    <label asp-for="Registreringer.First().AntalTimer"></label>
+                </th>
+                 <th>
+                    <label asp-for="Registreringer.First().viceværtID"></label>
+                </th>
+                 <th>
+                    <label asp-for="Registreringer.First().rekvisitionId"></label>
+                </th>
+                <th>
+                    <label>Action</label>
+                </th>
+            </tr>
+            </thead>   
+
+            <tbody class="align-items-xl-center" >
+            @foreach (var item in Model.Registreringer)
+            {
+                <tr >
+                    <td>
+                        @item.Id
+                    </td>
+                    <td>
+                        @item.RegistreringDato
+                    </td>
+
+                    <td>
+                        @item.AntalTimer
+                    </td>
+
+                    <td>
+                        @item.viceværtID
+                    </td>
+                    <td>
+                        @item.rekvisitionId
+                    </td>
+
+
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+   
+    </section>
+    </section>
+</section>

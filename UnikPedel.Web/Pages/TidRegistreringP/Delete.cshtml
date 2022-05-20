@@ -1,0 +1,41 @@
+﻿@page
+@model UnikPedel.Web.Pages.TidRegistreringP.DeleteModel
+@{
+}
+<h3>Slet Registrering</h3>
+<br />
+    <div class="border container" style="padding: 10px">
+          <form class="row g-3" method="post">
+                <input type="hidden" asp-for="TidRegistrering.Id" />
+            <div class="col-md-20">
+                <label asp-for="TidRegistrering.Id" class="control-label"></label>
+                <input asp-for="TidRegistrering.Id" disabled="disabled" class="form-control"/>
+                <span asp-validation-for="TidRegistrering.Id" class="text-danger"></span>
+           </div>
+            <div class="col-md-20">
+                <label asp-for="TidRegistrering.RegistreringDato" class="control-label"></label>
+                <input asp-for="TidRegistrering.RegistreringDato" disabled="disabled" class="form-control"/>
+                <span asp-validation-for="TidRegistrering.RegistreringDato" class="text-danger"></span>
+            </div>
+            <div class="col-md-20">
+                <label asp-for="TidRegistrering.AntalTimer" class="control-label"></label>
+                <input asp-for="TidRegistrering.AntalTimer" disabled="disabled" class="form-control"/>
+                <span asp-validation-for="TidRegistrering.AntalTimer" class="text-danger"></span>
+            </div>
+            <div class="col-md-20">
+                <label asp-for="TidRegistrering.viceværtID" class="control-label"></label>
+                <input asp-for="TidRegistrering.viceværtID" disabled="disabled" class="form-control"/>
+                <span asp-validation-for="TidRegistrering.viceværtID" class="text-danger"></span>
+            </div>
+            <div class="col-md-20">
+                <label asp-for="TidRegistrering.rekvisitionId" class="control-label"></label>
+                <input asp-for="TidRegistrering.rekvisitionId" disabled="disabled" class="form-control"/>
+                <span asp-validation-for="TidRegistrering.rekvisitionId" class="text-danger"></span>
+            </div>
+                 <div class="col-md-11">
+                
+                  <input type="submit" value="Delete "  class="btn btn-outline-danger"/>
+                 
+                   <a asp-page="./Index">Tilbage</a>
+                 </div>
+        </form>
