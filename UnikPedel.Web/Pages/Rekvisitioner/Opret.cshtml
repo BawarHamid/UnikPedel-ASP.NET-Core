@@ -5,49 +5,54 @@
 
 <div class="container-fluid">
     <br />
-<h2>Opret ny rekvisition</h2>
-<br />
+    <h2>Opret ny rekvisition</h2> 
+    <br />
+    
     <div class="border container" style="padding: 30px">
-          <form class="row g-3">
+        <form class="row g-3" method="post">
+            @*Type*@
             <div class="col-md-6">
-                 <label for="inputEmail4" class="form-label">Opgave beskrivelse</label>
-                 <input type="text" class="form-control" >
-            </div>                  
-            <div class="col-md-4">
-                    <label for="inputState" class="form-label">Type</label>
-                    <select id="inputState" class="form-select">
-                        <option selected> Vælge rekvitiontype </option>
-                        <option value="1">Køkken</option>
-                        <option value="2">Badeværelse</option>
-                        <option value="3">Stue</option>
-                        <option value="4">Vand</option>  
-                        <option value="5">EL</option>                    
-                    </select>
-           </div>
-        
-            <div class="col-md-4">
-                <label>Start dato</label>
-                <input class="form-control" type="date" />
+                <label asp-for="Rekvisition.Type" class="control-label"></label>
+                <input asp-for="Rekvisition.Type" class="form-control"/>
+                <span asp-validation-for="Rekvisition.Type" class="text-danger"></span>
             </div>
 
-             
-            <div class="mb-3">
-                  <label for="formFile" class="form-label">Tilføj billeder</label>
-                  <input class="form-control" type="file" id="formFile">
+             <div class="col-md-6">
+                <label asp-for="Rekvisition.Status" class="control-label"></label>
+                <input asp-for="Rekvisition.Status" class="form-control"/>
+                <span asp-validation-for="Rekvisition.Status" class="text-danger"></span>
             </div>
-           <div class="col-md-4">
-                    <label for="inputState" class="form-label">Vælg ejendom</label>
-                    <select id="inputState" class="form-select">
-                        <option selected> Vælge Ejendom </option>
-                        <option value="1">Ejendom A</option>
-                        <option value="2">Ejendom B</option>
-                        <option value="3">Ejendom C</option>
-                    </select>
-           </div>            
-                 <div class="col-12">
-                 <input type="submit" value="Opret rekvisition" class="btn btn-primary"/>
-                 
-         </div>
-        </form>
-        </div>
+
+            <div class="col-md-6">
+                <label asp-for="Rekvisition.Beskrivelse" class="control-label"></label>
+                <input asp-for="Rekvisition.Beskrivelse" class="form-control"/>
+                <span asp-validation-for="Rekvisition.Beskrivelse" class="text-danger"></span>
+            </div>
+
+
+            <div class="col-md-6">
+                <label asp-for="Rekvisition.ViceværtId" class="control-label"></label>
+                <input asp-for="Rekvisition.ViceværtId" class="form-control"/>
+                <span asp-validation-for="Rekvisition.ViceværtId" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-6">
+                <label asp-for="Rekvisition.LejerId" class="control-label"></label>
+                <input asp-for="Rekvisition.LejerId" class="form-control"/>
+                <span asp-validation-for="Rekvisition.LejerId" class="text-danger"></span>
+            </div>
+
+
+            <div class="col-md-6">
+                <label asp-for="Rekvisition.EjendomId" class="control-label"></label>
+                <input asp-for="Rekvisition.EjendomId" class="form-control"/>
+                <span asp-validation-for="Rekvisition.EjendomId" class="text-danger"></span>
+            </div>
+            
+            <div class="col-md-6">
+                <input type="submit" value="Create Rekvisition" class="btn btn-outline-success"/>
+                <a asp-page="/Admin/Medarbejder">Tilbage</a>
+            </div>
+         </form>
+    </div>
 </div>
