@@ -20,162 +20,125 @@
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
       <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">
-                  <label>Vælg service</label>
-          <select class="form-select" aria-label="Default select example">
-                  <option value="1">Badeværelse</option>
-                  <option value="2">Kælder</option>
-                  <option value="3">Oprydning</option>
-          </select>
-      </th>
-      <th scope="col">
-          <label>Sortere efter dato</label>
-          <input class="form-control" type="date" />
-      </th>
-      <th scope="col">
-        <label>Vælg lokation</label>
-          <select class="form-select" aria-label="Default select example">
-                  <option value="1">A1</option>
-                  <option value="2">A2</option>
-                  <option value="3">B3</option>
-          </select>
-      <th scope="col">Kundenavn</th>
-      <th scope="col">Oprettelsesdato</th>
-      <th scope="col">
-          <label>Vælg status</label>
-          <select class="form-select" aria-label="Default select example">
-                 <option value="1">Godkendt</option>
-                 <option value="2">Ikke udført</option>
-                 <option value="3">Afvist</option>
-          </select>
-      </th>
-       <th scope="col">Rediger</th>
-
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Badeværelse</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Oprydning</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Vandskade</td>
-    </tr>
-  </tbody>
-</table>
+            <thead>
+            <tr>
+                <th>
+                    <label asp-for="Rekvisitioner.First().Id"></label>
+                </th>
+                <th>
+                    <label asp-for="Rekvisitioner.First().Beskrivelse"></label>
+                </th>
+               <th>
+                    <label asp-for="Rekvisitioner.First().Status"></label>
+                </th>
+                <th>
+                    <label asp-for="Rekvisitioner.First().ViceværtId"></label>
+                </th>
+                <th>
+                    <label asp-for="Rekvisitioner.First().LejerId"></label>
+                </th>
+                <th>
+                    <label asp-for="Rekvisitioner.First().EjendomId"></label>
+                </th>
+                <th>
+                    <label>Edit</label>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.Rekvisitioner)
+            {
+                <tr>
+                    <td>
+                        @item.Id
+                    </td>
+                    <td>
+                        @item.Beskrivelse
+                    </td>
+                    <td>
+                        @item.Status
+                    </td>
+                    <td>
+                        @item.ViceværtId
+                    </td>
+                    <td>
+                        @item.LejerId
+                    </td>
+                    <td>
+                        @item.EjendomId
+                    </td>
+                    <td>
+                        <a asp-page="/Admin/Kalender/Edit" class="btn btn-light" asp-route-id="@item.Id">Rediger</a> |
+                        <a asp-page="/Admin/Kalender/Slet" class="btn btn-danger" asp-route-id="@item.Id">Slet</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
   </div>
       <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
             <div class="container mt-5 pt-5">
-  <div class="row">
-    <div class="col">
-          <div class="card btn">
-            <h5 class="card-title">Badeværelse renovering</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Boulevard 14b</h6>
-            <hr class="mb-3" />
-            <h7 class="m-4">Kunde Information</h7>
-                <ol class="list-group list-group-numbered mt-0 mb-5">
-                      <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div class="ms-2 me-auto">
-                          <div class="fw-bold">Jesper Jensen</div>
-                          <div class="fw-bold">Vestergade 13b</div>
-                          <div class="fw-bold">24367434</div>
-                        </div>
-                        <span class="badge bg-primary rounded-pill">14</span>
-                      </li>
-                      <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div class="ms-2 me-auto">
-                          <div class="fw-bold">Mathias Hansen</div>
-                          Telefon nr: 53233223
-                        </div>
-                        <span class="badge bg-primary rounded-pill">14</span>
-                      </li>
-                      <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div class="ms-2 me-auto">
-                          <div class="fw-bold">Casper Hansen</div>
-                          Telefon nr: 4324324
-                        </div>
-                        <span class="badge bg-primary rounded-pill">14</span>
-                      </li>
-                    </ol>
-            <a asp-page="/Admin/Afdelinger/Edit" class="card-link btn btn-light m-2">Rediger</a>
-              </div>
-        </div>
 
-        <div class="col">
-          <div class="card btn">
-            <h5 class="card-title">Trappevask</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Boulevard 14b</h6>
-            <hr class="mb-3" />
-            <h7 class="m-4">Kunde Information</h7>
-                <ol class="list-group list-group-numbered mt-0 mb-5">
-                      <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div class="ms-2 me-auto">
-                          <div class="fw-bold">Jesper Jensen</div>
-                          Telefon nr: 23423423
-                        </div>
-                        <span class="badge bg-primary rounded-pill">14</span>
-                      </li>
-                      <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div class="ms-2 me-auto">
-                          <div class="fw-bold">Mathias Hansen</div>
-                          Telefon nr: 53233223
-                        </div>
-                        <span class="badge bg-primary rounded-pill">14</span>
-                      </li>
-                      <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div class="ms-2 me-auto">
-                          <div class="fw-bold">Casper Hansen</div>
-                          Telefon nr: 4324324
-                        </div>
-                        <span class="badge bg-primary rounded-pill">14</span>
-                      </li>
-                    </ol>
-            <a asp-page="/Admin/Afdelinger/Edit" class="card-link btn btn-light m-2">Rediger</a>
-              </div>
-        </div>
-
-        <div class="col">
-          <div class="card btn">
-            <h5 class="card-title">Vandskade</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Boulevard 14b</h6>
-            <hr class="mb-3" />
-            <h7 class="m-4">Kunde Information</h7>
-                <ol class="list-group list-group-numbered mt-0 mb-5">
-                      <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div class="ms-2 me-auto">
-                          <div class="fw-bold">Jesper Jensen</div>
-                          Telefon nr: 23423423
-                        </div>
-                        <span class="badge bg-primary rounded-pill">14</span>
-                      </li>
-                      <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div class="ms-2 me-auto">
-                          <div class="fw-bold">Mathias Hansen</div>
-                          Telefon nr: 53233223
-                        </div>
-                        <span class="badge bg-primary rounded-pill">14</span>
-                      </li>
-                      <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div class="ms-2 me-auto">
-                          <div class="fw-bold">Casper Hansen</div>
-                          Telefon nr: 4324324
-                        </div>
-                        <span class="badge bg-primary rounded-pill">14</span>
-                      </li>
-                    </ol>
-            <a asp-page="/Admin/Afdelinger/Edit" class="card-link btn btn-light m-2">Rediger</a>
-              </div>
+                <table class="table">
+            <thead>
+            <tr>
+                <th>
+                    <label asp-for="Rekvisitioner.First().Id"></label>
+                    <label asp-for="Rekvisitioner.First().Beskrivelse"></label>
+                    <label asp-for="Rekvisitioner.First().Status"></label>
+                    <label asp-for="Rekvisitioner.First().ViceværtId"></label>
+                    <label asp-for="Rekvisitioner.First().LejerId"></label>
+                    <label asp-for="Rekvisitioner.First().EjendomId"></label>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.Rekvisitioner)
+            {
+                <tr>
+                    <td>
+                        <div class="col">
+                              <div class="card btn">
+                                  <div class="container d-flex justify-content-between mt-2">
+                                      <h5>#@item.Id</h5>
+                                      <h5 class="card-subtitle text-muted">@item.Status</h5>
+                                  </div>    
+                                <hr class="mb-3" />
+                                <h7 class="m-4">Rekvisition information</h7>
+                                    <ol class="list-group list-group-numbered mt-0 mb-5">
+                                          <li class="list-group-item d-flex justify-content-between align-items-start">
+                                            <div class="ms-2 me-auto">
+                                              <h6 class="card-title">@item.Beskrivelse</h6>
+                                            </div>
+                                          </li>
+                                          <li class="list-group-item d-flex justify-content-between align-items-start">
+                                            <div class="ms-2 me-auto">
+                                              <div class="fw-bold">@item.ViceværtId</div>
+                                            </div>
+                                          </li>
+                                          <li class="list-group-item d-flex justify-content-between align-items-start">
+                                            <div class="ms-2 me-auto">
+                                              <div class="fw-bold">@item.LejerId</div>
+                                            </div>
+                                          </li>
+                                          <li class="list-group-item d-flex justify-content-between align-items-start">
+                                            <div class="ms-2 me-auto">
+                                              <div class="fw-bold">@item.EjendomId</div>
+                                            </div>
+                                          </li>
+                                        </ol>
+                                        <div class="container d-flex justify-content-center">
+                                            <a asp-page="/Vicevært/Edit"  class="card-link btn btn-primary m-2" asp-route-id="@item.Id">Accepter</a> |
+                                            <a asp-page="/Vicevært/Slet" class="card-link btn btn-danger m-2" asp-route-id="@item.Id">Afvis</a>
+                                        </div>
+                                </div>
+                                 </div>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
         </div>
         </div>
-</div>
        </div>
          <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab"><h4>Test3</h4></div>
-  </div>
