@@ -27,6 +27,7 @@ namespace UnikPedel.ApiInterface.Mapper
             CreateMap<TidRegistering, TidRegistreringDto>().ReverseMap();
             CreateMap<TidRegistreringQueryDto, TidRegistreringDto>().ReverseMap();
             CreateMap<TidRegistreringCreateDto,TidRegistreringCommandDto >().ReverseMap();
+            CreateMap<TidRegistreringDto, TidRegistreringCommandDto>().ReverseMap();
 
             CreateMap<Rekvisition, RekvisitionDto>().ReverseMap();
             CreateMap<RekvisitionCommandDto, RekvisitionDto>().ReverseMap();

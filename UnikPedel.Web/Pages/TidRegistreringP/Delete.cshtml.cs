@@ -20,10 +20,10 @@ namespace UnikPedel.Web.Pages.TidRegistreringP
         {
             if (id == null) return NotFound();
 
-            var domainRegistrering = await _registreringService.GetTidRegistreringAsync(id);
-            if (domainRegistrering == null) return NotFound();
+            var DtoRegistrering = await _registreringService.GetTidRegistreringAsync(id);
+            if (DtoRegistrering == null) return NotFound();
 
-            TidRegistrering = TidRegistreringDeleteModel.GetAsTidRegistreringDeletModel(domainRegistrering);
+            TidRegistrering = TidRegistreringDeleteModel.GetAsTidRegistreringDeletModel(DtoRegistrering);
 
             return Page();
         }
