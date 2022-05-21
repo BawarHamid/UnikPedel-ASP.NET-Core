@@ -54,8 +54,8 @@ namespace UnikPedel.ApiInterface.Controllers
         }
        
 
-        [HttpPut("{Id}")]
-        public async Task EditTidRegistreringAsync(TidRegistreringCreateDto tidRegistrering)
+        [HttpPut]
+        public async Task EditTidRegistreringAsync([FromBody]TidRegistreringDto tidRegistrering)
         {
              var registrering = _mapper.Map<TidRegistreringCommandDto>(tidRegistrering);
             await _tidRegCommand.EditRegistreringAsync(registrering);

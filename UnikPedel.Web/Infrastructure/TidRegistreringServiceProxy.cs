@@ -27,13 +27,13 @@ namespace UnikPedel.Web.Infrastructure
             await _client.DeleteAsync($"/api/TidRegistrering/{id}");
         }
 
-        public async Task EditTidRegistreringAsync(TidRegistreringCreateDto tidRegistrering)
+        public async Task EditTidRegistreringAsync(TidRegistreringDto tidRegistrering)
         {
             var registreringDtoJson = new StringContent(
                JsonSerializer.Serialize(tidRegistrering),
                Encoding.UTF8,
                MediaTypeNames.Application.Json);
-            await _client.PutAsync("/api/TidRegistrering", registreringDtoJson);
+            await _client.PutAsync("/api/TidRegistrering/", registreringDtoJson);
         }
 
         public async Task<TidRegistreringDto?> GetTidRegistreringAsync(int Id)

@@ -35,8 +35,9 @@ namespace UnikPedel.Domain.Entities
         //    RegisterDato = DateTime.Now;
         //    AntalTimer = +ekstraTid;
         //}
-        public void Update(double AntalTimer, int ViceværtId, int RekvisitionId)
+        public void Update( DateTime registerDato, double AntalTimer, int ViceværtId, int RekvisitionId)
         {
+           this.RegisterDato=registerDato;
             this.AntalTimer = AntalTimer;
             this.ViceværtId = ViceværtId;
             this.RekvisitionId = RekvisitionId;
