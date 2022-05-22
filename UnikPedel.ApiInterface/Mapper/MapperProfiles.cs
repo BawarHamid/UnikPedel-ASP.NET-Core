@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using UnikPedel.Application;
+using UnikPedel.Application.BookingContract.BookingDto;
 using UnikPedel.Application.Contract.Dtos;
 using UnikPedel.Application.EjendomContract.EjendomDto;
 using UnikPedel.Application.EjendomsAnsvarligContract.EjendomsAnsvarligDto;
 using UnikPedel.Application.TidRegistreringContract.TidRegistreringDto;
+using UnikPedel.Contract.IServiceBooking.BookingDtos;
 using UnikPedel.Contract.IServiceEjendom.EjendomDtos;
 using UnikPedel.Contract.IServiceEjendomAnsvarlig.EjendomAnsvarligDtos;
 using UnikPedel.Contract.IServiceRekvisition.RekvisitionDtos;
@@ -40,6 +42,10 @@ namespace UnikPedel.ApiInterface.Mapper
             CreateMap<EjendomsAnsvarligCommandDto, EjendomAnsvarligDto>().ReverseMap();
             CreateMap<EjendomsAnsvarligCommandDto, EjendomAnsvarligCreateDto>().ReverseMap();
             CreateMap<EjendomsAnsvarligQueryDto, EjendomAnsvarligDto>().ReverseMap();
+
+            CreateMap<BookingCommandDto, BookingDto>().ReverseMap();
+            CreateMap<BookingCommandDto, BookingCreateBookingDto>().ReverseMap();
+            CreateMap<BookingQueryDto, BookingDto>().ReverseMap();
         }
     }
 }

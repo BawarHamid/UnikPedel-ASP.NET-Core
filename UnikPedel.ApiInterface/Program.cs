@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using UnikPedel.ApiInterface.Mapper;
 using UnikPedel.Application;
+using UnikPedel.Application.BookingContract;
 using UnikPedel.Application.Contract.ViceværtInterface;
 using UnikPedel.Application.EjendomContract;
 using UnikPedel.Application.EjendomsAnsvarligContract;
@@ -53,9 +54,12 @@ builder.Services.AddScoped<IEjendomAnsvarligRepository,EjendomAnsavrligRepositor
 builder.Services.AddScoped<ITidRegistreringQuery, TidRegistreringQuery>();
 builder.Services.AddScoped<ITidRegistreringCommand, TidRegistreringCommand>();
 builder.Services.AddScoped<ITidRegistreringRepositroy, TidRegistreringRepositroy>();
-//builder.Services.AddScoped<ITidRegistreringDomainService, TidRegistreringDomainService>();
 
 
+builder.Services.AddScoped<IBookingQuery, BookingQuery>();
+builder.Services.AddScoped<IBookingCommand, BookingCommand>();
+builder.Services.AddScoped<IBookingRepository, BookingRepository>();
+builder.Services.AddScoped<IBookingDomainService, BookingDomainService>();
 
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

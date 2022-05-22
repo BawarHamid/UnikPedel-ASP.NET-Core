@@ -15,7 +15,7 @@ public class BookingQuery : IBookingQuery
         _db = db;
     }
 
-    async Task<BookingQueryDto?> IBookingQuery.GetBookingAsync(Guid id)
+    async Task<BookingQueryDto?> IBookingQuery.GetBookingAsync(int id)
     {
         var result = await _db.Booking.FindAsync(id);
         if (result is null) return new BookingQueryDto();
