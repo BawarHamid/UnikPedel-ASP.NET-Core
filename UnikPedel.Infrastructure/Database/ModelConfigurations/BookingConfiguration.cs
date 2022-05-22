@@ -21,6 +21,7 @@ namespace UnikPedel.Infrastructure.Database.ModelConfigurations
                 .WithMany(d => d.Bookings)
                 .HasForeignKey(x => x.LejerId)
                 .OnDelete(DeleteBehavior.NoAction);
+            entity.Ignore(v => v._serviceProvider);
 
             entity.HasOne(a => a.Lejemål)
                 .WithMany(d => d.Bookings)

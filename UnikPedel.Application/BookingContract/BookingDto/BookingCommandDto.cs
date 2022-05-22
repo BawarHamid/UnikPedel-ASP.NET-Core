@@ -1,0 +1,23 @@
+﻿namespace UnikPedel.Application.BookingContract.BookingDto;
+
+public class BookingCommandDto
+{
+
+
+    public int Id { get; set; }
+    public DateTime StartTid { get; set; }
+    public DateTime SlutTid { get; set; }
+
+    public int LejerId { get; set; }
+
+    public int LejemålId { get; set; }
+
+
+}
+   
+
+
+
+    
+
+
