@@ -32,7 +32,7 @@ public class BookingCommand : IBookingCommand
     async Task IBookingCommand.EditAsync(BookingCommandDto bookingDto)
     {
         var booking = await _repository.GetAsync(bookingDto.Id);
-       // booking._serviceProvider = _serviceProvider;
+       booking._serviceProvider = _serviceProvider;
         booking.Update(bookingDto.StartTid, bookingDto.SlutTid);
         await _repository.SaveAsync(booking);
     }

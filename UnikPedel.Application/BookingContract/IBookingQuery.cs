@@ -7,6 +7,6 @@ namespace UnikPedel.Application.BookingContract;
 
 public interface IBookingQuery
 {
-    Task<BookingQueryDto?> GetBookingAsync(Guid id);
+    Task<BookingQueryDto?> GetBookingAsync(int id);
     Task<IEnumerable<BookingQueryDto>> GetBookingsAsync();
 }
