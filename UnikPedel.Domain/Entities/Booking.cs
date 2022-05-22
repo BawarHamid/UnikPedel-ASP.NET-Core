@@ -30,6 +30,12 @@ namespace UnikPedel.Domain.Entities
         [Timestamp]
         public byte[] Version { get; set; }
 
+        //for ef
+        private Booking()
+        {
+
+        }
+
         public Booking(IServiceProvider? serviceProvider, DateTime startTid, DateTime slutTid, int lejerId, int lejemålId)
         {
             if (startTid == default) throw new ArgumentOutOfRangeException(nameof(startTid), "Start dato skal være udfyldt");

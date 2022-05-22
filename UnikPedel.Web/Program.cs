@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using UnikPedel.Contract.IServiceEjendomAnsvarlig;
 using UnikPedel.Contract.IServiceRekvisition;
 using UnikPedel.Contract.IServiceTidRegistrering;
 using UnikPedel.Contract.IServiceVicevært;
@@ -31,12 +32,13 @@ builder.Services.AddHttpClient<IServiceTidRegistrering, TidRegistreringServicePr
         client.BaseAddress =
             new Uri("https://localhost:7094");
     });
+builder.Services.AddHttpClient<IServiceEjendomAnsvarlig, EjendomAnsvarligServiceProxy>
+    (client =>
+    {
+        client.BaseAddress =
+            new Uri("https://localhost:7094");
+    });
 
-//builder.Services.AddDbContext<UnikPedelContext>(options =>
-//    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), x =>
-//    {
-//        x.MigrationsAssembly("UnikPedel.Infrastructure");
-//    }));
 
 var app = builder.Build();
 
