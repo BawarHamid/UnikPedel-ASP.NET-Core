@@ -1,8 +1,7 @@
 ﻿@page
-@model UnikPedel.Web.Pages.Rekvisitioner.OpretModel
+@model UnikPedel.Web.Pages.Rekvisitioner.SletModel
 @{
 }
-
 <div class="container-fluid">
     <br />
     <h2>Opret ny rekvisition</h2> 
@@ -10,50 +9,51 @@
     
     <div class="border container" style="padding: 30px">
         <form class="row g-3" method="post">
-            @*Type*@
+@*            <input type="hidden" asp-for="Rekvisition.Id" />
+*@            @*Type*@
             <div class="col-md-6">
                 <label asp-for="Rekvisition.Type" class="control-label"></label>
-                <input asp-for="Rekvisition.Type" class="form-control"/>
+                <input asp-for="Rekvisition.Type" disabled="disabled" class="form-control"/>
                 <span asp-validation-for="Rekvisition.Type" class="text-danger"></span>
             </div>
 
             @*Status*@
              <div class="col-md-6">
                 <label asp-for="Rekvisition.Status" class="control-label"></label>
-                <input asp-for="Rekvisition.Status" class="form-control"/>
+                <input asp-for="Rekvisition.Status" disabled="disabled" class="form-control"/>
                 <span asp-validation-for="Rekvisition.Status" class="text-danger"></span>
             </div>
 
             @*Beskrivelse*@
             <div class="col-md-6">
                 <label asp-for="Rekvisition.Beskrivelse" class="control-label"></label>
-                <input asp-for="Rekvisition.Beskrivelse" class="form-control"/>
+                <input asp-for="Rekvisition.Beskrivelse" disabled="disabled" class="form-control"/>
                 <span asp-validation-for="Rekvisition.Beskrivelse" class="text-danger"></span>
             </div>
 
             @*ViceværtId*@
             <div class="col-md-6">
                 <label asp-for="Rekvisition.ViceværtId" class="control-label"></label>
-                <input asp-for="Rekvisition.ViceværtId" class="form-control"/>
+                <input asp-for="Rekvisition.ViceværtId" disabled="disabled" class="form-control"/>
                 <span asp-validation-for="Rekvisition.ViceværtId" class="text-danger"></span>
             </div>
 
             @*LejerId*@
             <div class="col-md-6">
                 <label asp-for="Rekvisition.LejerId" class="control-label"></label>
-                <input asp-for="Rekvisition.LejerId" class="form-control"/>
+                <input asp-for="Rekvisition.LejerId" disabled="disabled" class="form-control"/>
                 <span asp-validation-for="Rekvisition.LejerId" class="text-danger"></span>
             </div>
 
             @*EjendomId*@
             <div class="col-md-6">
                 <label asp-for="Rekvisition.EjendomId" class="control-label"></label>
-                <input asp-for="Rekvisition.EjendomId" class="form-control"/>
+                <input asp-for="Rekvisition.EjendomId" disabled="disabled" class="form-control"/>
                 <span asp-validation-for="Rekvisition.EjendomId" class="text-danger"></span>
             </div>
             
             <div class="col-md-6">
-                <input type="submit" value="Create Rekvisition" class="btn btn-outline-success"/>
+                <input type="submit" value="Slet Rekvisition" class="btn btn-outline-danger"/>
                 <a class="btn btn-primary" asp-page="/Admin/Kalender/Index">Tilbage</a>
             </div>
          </form>

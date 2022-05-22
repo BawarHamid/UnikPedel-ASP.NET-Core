@@ -46,6 +46,7 @@ namespace UnikPedel.Web.Pages.Rekvisitioner
                 return new RekvisitionCreateDto
                 {
                     Type = Type,
+                    TimeCreated = TimeCreated,
                     Status = Status,
                     Beskrivelse = Beskrivelse,
                     ViceværtId = ViceværtId,
