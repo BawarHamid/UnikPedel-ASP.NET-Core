@@ -17,7 +17,7 @@ namespace UnikPedel.Contract.IServiceBooking.BookingDtos
         public int LejemålId { get; set; }
     }
 
-    public class BookingCreateBookingDto
+    public class BookingCreateDto
     {
         public DateTime StartTid { get; set; }
         public DateTime SlutTid { get; set; }

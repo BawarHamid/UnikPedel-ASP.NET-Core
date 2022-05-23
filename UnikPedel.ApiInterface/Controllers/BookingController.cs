@@ -25,7 +25,7 @@ namespace UnikPedel.ApiInterface.Controllers
 
         // POST api/<BookingController> opretter en Booking.
         [HttpPost]
-        public async Task CreateAsync([FromBody] BookingCreateBookingDto booking)
+        public async Task CreateAsync([FromBody] BookingCreateDto booking)
         {
             var mapperBooking = _mapper.Map<BookingCommandDto>(booking);
             await _bookingCommand.CreateAsync(mapperBooking);

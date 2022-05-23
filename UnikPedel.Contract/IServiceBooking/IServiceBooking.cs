@@ -9,7 +9,7 @@ namespace UnikPedel.Contract.IServiceBooking
 {
     public interface IServiceBooking
     {
-        Task CreateAsync(BookingCreateBookingDto booking);
+        Task CreateAsync(BookingCreateDto booking);
         Task EditAsync(BookingDto booking);
         Task DeleteAsync(int Id);
         Task<BookingDto?> GetBookingAsync(int Id);
