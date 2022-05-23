@@ -44,7 +44,7 @@ namespace UnikPedel.ApiInterface.Mapper
             CreateMap<EjendomsAnsvarligQueryDto, EjendomAnsvarligDto>().ReverseMap();
 
             CreateMap<BookingCommandDto, BookingDto>().ReverseMap();
-            CreateMap<BookingCommandDto, BookingCreateBookingDto>().ReverseMap();
+            CreateMap<BookingCommandDto, BookingCreateDto>().ReverseMap();
             CreateMap<BookingQueryDto, BookingDto>().ReverseMap();
         }
     }
