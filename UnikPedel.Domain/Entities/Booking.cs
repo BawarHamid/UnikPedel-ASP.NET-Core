@@ -26,7 +26,6 @@ namespace UnikPedel.Domain.Entities
         public Lejemål Lejemål { get; set; }
 
 
-
         [Timestamp]
         public byte[] Version { get; set; }
 

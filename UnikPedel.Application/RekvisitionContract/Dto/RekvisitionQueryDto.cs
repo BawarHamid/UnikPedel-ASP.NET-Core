@@ -18,9 +18,11 @@ namespace UnikPedel.Application
 
         public int   ViceværtId { get; set; }
         public Vicevært Vicevært { get; set; }
-        public int EjendomId { get; set; }
+
         public Lejer Lejer { get; set; }
         public int LejerId { get; set; }
+
+        public int EjendomId { get; set; }
         public Ejendom Ejendom { get; set; }
     }
 }
