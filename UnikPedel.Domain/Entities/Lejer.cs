@@ -29,6 +29,28 @@ namespace UnikPedel.Domain.Entities
         public int LejemålId { get; set; }
         public Lejemål Lejemål { get; set; }
 
-        
+        public Lejer(string forNavn, string mellemNavn, string efterNavn, string email, int telefon, DateTime indDato, DateTime? udDato, int lejemålId)
+        {
+            ForNavn = forNavn;
+            MellemNavn = mellemNavn;
+            EfterNavn = efterNavn;
+            Email = email;
+            Telefon = telefon;
+            IndDato = indDato;
+            UdDato = udDato;
+            LejemålId = lejemålId;
+        }
+
+        public void Update(string forNavn, string mellemNavn, string efterNavn, string email, int telefon, DateTime indDato, DateTime? udDato, int lejemålId)
+        {
+            ForNavn = forNavn;
+            MellemNavn = mellemNavn;
+            EfterNavn = efterNavn;
+            Email = email;
+            Telefon = telefon;
+            indDato = IndDato;
+            udDato = UdDato;
+            LejemålId = lejemålId;
+        }
     }
 }

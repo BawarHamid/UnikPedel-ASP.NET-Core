@@ -37,9 +37,9 @@ namespace UnikPedel.Web.Pages.Vicevært
             public int Telefon { get; set; }
             public string Email { get; set; }
 
-            public ViceværtCreateCommandDto GetAsVicværtDto()
+            public ViceværtCreateDto GetAsVicværtDto()
             {
-                return new ViceværtCreateCommandDto
+                return new ViceværtCreateDto
                 {
                     ForNavn = ForNavn, EfterNavn = EfterNavn, Telefon = Telefon, Email = Email
                 };
