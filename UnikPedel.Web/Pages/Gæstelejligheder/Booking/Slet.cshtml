@@ -1,12 +1,11 @@
-﻿@page
-@model UnikPedel.Web.Pages.Gæstelejligheder.Booking.OpretModel
+﻿        @page
+@model UnikPedel.Web.Pages.Gæstelejligheder.Booking.SletModel
 @{
 }
 
-
 <div class="container-fluid">
     <br />
-    <h2>Opret ny Booking</h2> 
+    <h2>Slet Booking</h2> 
     <br />
     
     <div class="border container" style="padding: 30px">
@@ -14,14 +13,14 @@
             @*StartTid*@
             <div class="col-md-6">
                 <label asp-for="Booking.StartTid" class="control-label"></label>
-                <input asp-for="Booking.StartTid" class="form-control" datetime-picker="dd MMM yyyy HH:mm"/>
+                <input asp-for="Booking.StartTid" class="form-control"/>
                 <span asp-validation-for="Booking.StartTid" class="text-danger"></span>
             </div>
 
             @*SlutTid*@
              <div class="col-md-6">
                 <label asp-for="Booking.SlutTid" class="control-label"></label>
-                <input asp-for="Booking.SlutTid" class="form-control" datetime-picker="dd MMM yyyy HH:mm"/>
+                <input asp-for="Booking.SlutTid" class="form-control"/>
                 <span asp-validation-for="Booking.SlutTid" class="text-danger"></span>
             </div>
 
@@ -40,7 +39,7 @@
             </div>
             
             <div class="col-md-6">
-                <input type="submit" value="Opret Booking" class="btn btn-outline-success"/>
+                <input type="submit" value="Slet Booking" class="btn btn-danger"/>
                 <a class="btn btn-primary" asp-page="/Gæstelejligheder/Index">Tilbage</a>
             </div>
          </form>
