@@ -5,10 +5,12 @@ using UnikPedel.Application.Contract.Dtos;
 using UnikPedel.Application.EjendomContract.EjendomDto;
 using UnikPedel.Application.EjendomsAnsvarligContract.EjendomsAnsvarligDto;
 using UnikPedel.Application.LejemålContract.Dto;
+using UnikPedel.Application.LejerContract.Dtos;
 using UnikPedel.Application.TidRegistreringContract.TidRegistreringDto;
 using UnikPedel.Contract.IServiceBooking.BookingDtos;
 using UnikPedel.Contract.IServiceEjendom.EjendomDtos;
 using UnikPedel.Contract.IServiceEjendomAnsvarlig.EjendomAnsvarligDtos;
+using UnikPedel.Contract.IServiceLejer.LejerDtos;
 using UnikPedel.Contract.IServiceLejmål.LejemålDtos;
 using UnikPedel.Contract.IServiceRekvisition.RekvisitionDtos;
 using UnikPedel.Contract.IServiceTidRegistrering.TidRegistreringDtos;
@@ -22,23 +24,22 @@ namespace UnikPedel.ApiInterface.Mapper
     {
         public MapperProfiles()
         {
-            CreateMap<Vicevært,ViceværtDto>().ReverseMap();
-            CreateMap<ViceværtCommandDto, Vicevært>().ReverseMap();
-            CreateMap<ViceværtCommandDto, ViceværtDto>().ReverseMap();
+            CreateMap<Vicevært, ViceværtDto>().ReverseMap();
             CreateMap<ViceværtQueryDto, ViceværtDto>().ReverseMap();
+            CreateMap<ViceværtDto, ViceværtCommandDto>().ReverseMap();
+            CreateMap<ViceværtCreateDto, ViceværtCreateCommandDto>().ReverseMap();
 
-           
             CreateMap<TidRegistering, TidRegistreringDto>().ReverseMap();
             CreateMap<TidRegistreringQueryDto, TidRegistreringDto>().ReverseMap();
-            CreateMap<TidRegistreringCreateDto,TidRegistreringCommandDto >().ReverseMap();
+            CreateMap<TidRegistreringCreateDto, TidRegistreringCommandDto>().ReverseMap();
             CreateMap<TidRegistreringDto, TidRegistreringCommandDto>().ReverseMap();
 
             CreateMap<Rekvisition, RekvisitionDto>().ReverseMap();
             CreateMap<RekvisitionCommandDto, RekvisitionDto>().ReverseMap();
             CreateMap<RekvisitionQueryDto, RekvisitionDto>().ReverseMap();
-            CreateMap<RekvisitionCreateDto, RekvisitionCommandDto>().ReverseMap();   
+            CreateMap<RekvisitionCreateDto, RekvisitionCommandDto>().ReverseMap();
 
-           
+
             CreateMap<EjendomQueryDto, EjendomDto>().ReverseMap();
 
             CreateMap<EjendomsAnsvarligCommandDto, EjendomAnsvarligDto>().ReverseMap();
@@ -54,6 +55,11 @@ namespace UnikPedel.ApiInterface.Mapper
             CreateMap<LejemålCommandDto, LejemålDto>().ReverseMap();
             CreateMap<LejemålQueryDto, LejemålDto>().ReverseMap();
             CreateMap<LejemålCreateDto, LejemålCommandDto>().ReverseMap();
+
+            CreateMap<Lejer, LejerDto>().ReverseMap();
+            CreateMap<LejerQueryDto, LejerDto>().ReverseMap();
+            CreateMap<LejerDto, LejerCommandDto>().ReverseMap();
+            CreateMap<LejerCreateDto, LejerCreateCommandDto>().ReverseMap();
         }
     }
 }

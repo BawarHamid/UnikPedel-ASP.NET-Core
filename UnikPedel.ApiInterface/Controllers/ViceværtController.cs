@@ -33,12 +33,10 @@ namespace UnikPedel.ApiInterface.Controllers
             return _mapper.Map<IEnumerable<ViceværtDto>>(vicevært);
         }
 
-
         // GET api/<ViceværtController>/5 henter en vicevært udfra Id
         [HttpGet("{Id}")]
         public async Task<ViceværtDto?> GetViceværtAsync(int Id)
         {
-
             var vicevært = await _viceværtQuery.GetViceværtAsync(Id);
             if (vicevært is null) return null;
 
@@ -47,19 +45,10 @@ namespace UnikPedel.ApiInterface.Controllers
 
         // POST api/<ViceværtController> opretter en vicevært.
         [HttpPost]
-        public async Task  CreateViceværtAsync([FromBody] ViceværtCreateCommandDto value)
+        public async Task CreateViceværtAsync([FromBody] ViceværtCreateDto value)
         {
-            await _viceværtCommand.CreateViceværtAsyc(value);
-            
-
-            //await _viceværtCommand.CreateViceværtAsyc(new ViceværtCommandDto
-            //{
-            //    Id = value.Id,
-            //    ForNavn = value.ForNavn,
-            //    EfterNavn = value.EfterNavn,
-            //    Telefon = value.Telefon,
-            //    Email = value.Email
-            //});
+            var vicevært = _mapper.Map<ViceværtCreateCommandDto>(value);
+            await _viceværtCommand.CreateViceværtAsyc(vicevært);
         }
 
         // PUT api/<ViceværtController>/5 når man laver update på en vicevært.

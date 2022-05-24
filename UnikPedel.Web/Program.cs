@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using UnikPedel.Contract.IServiceBooking;
 using UnikPedel.Contract.IServiceEjendomAnsvarlig;
+using UnikPedel.Contract.IServiceLejer;
 using UnikPedel.Contract.IServiceRekvisition;
 using UnikPedel.Contract.IServiceTidRegistrering;
 using UnikPedel.Contract.IServiceVicevært;
@@ -45,6 +46,12 @@ builder.Services.AddHttpClient<IServiceBooking, BookingServiceProxy>
         client.BaseAddress =
             new Uri("https://localhost:7094");
     });
+//builder.Services.AddHttpClient<ILejerService, LejerServiceProxy>
+//    (client =>
+//    {
+//        client.BaseAddress =
+//            new Uri("https://localhost:7094");
+//    });
 
 
 var app = builder.Build();

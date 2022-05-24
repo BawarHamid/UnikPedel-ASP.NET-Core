@@ -9,6 +9,7 @@ using UnikPedel.Application.EjendomsAnsvarligContract;
 using UnikPedel.Application.Implementation;
 using UnikPedel.Application.Infrastructure;
 using UnikPedel.Application.LejemålContract;
+using UnikPedel.Application.LejerContract;
 using UnikPedel.Application.RekvisitionIfrastructure;
 using UnikPedel.Application.RekvisitionImpimentation;
 using UnikPedel.Application.TidRegistreringContract;
@@ -40,7 +41,6 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IViceværtQuery, ViceværtQuery>();
 builder.Services.AddScoped<IViceværtCommand, ViceværtCommands>();
 builder.Services.AddScoped<IViceværtRepository, ViceværtRepository>();
-builder.Services.AddScoped<IViceværtDomainService, ViceværtDomainService>();
 
 builder.Services.AddScoped<IRekvisitionQuery, RekvisitionQuery>();
 builder.Services.AddScoped<IRekvisitionCommand, RekvisitionCommand>();
@@ -65,6 +65,10 @@ builder.Services.AddScoped<IBookingDomainService, BookingDomainService>();
 builder.Services.AddScoped<ILejemålQuery, LejemålQuery>();
 builder.Services.AddScoped<ILejemålCommand, LejemålCommand>();
 builder.Services.AddScoped<ILejemålRepository, LejemålRepository>();
+
+builder.Services.AddScoped<ILejerQuery, LejerQuery>();
+builder.Services.AddScoped<ILejerCommand, LejerCommands>();
+builder.Services.AddScoped<ILejerRepository, LejerRepository>();
 
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

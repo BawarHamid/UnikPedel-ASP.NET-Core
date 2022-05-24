@@ -16,7 +16,7 @@ namespace UnikPedel.Web.Infrastructure
             _client = client;
         }
 
-        async Task IViceværtService.CreateViceværtAsync(ViceværtCreateCommandDto vicevært)
+        async Task IViceværtService.CreateViceværtAsync(ViceværtCreateDto vicevært)
         {
             var viceværtDtoJson = new StringContent(
                 JsonSerializer.Serialize(vicevært),

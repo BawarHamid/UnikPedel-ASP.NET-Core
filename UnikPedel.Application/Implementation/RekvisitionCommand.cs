@@ -23,11 +23,6 @@ namespace UnikPedel.Application.RekvisitionImpimentation
         {
             var rekvisition = new Rekvisition(rekvisitionDto.Type, rekvisitionDto.Status, rekvisitionDto.Beskrivelse, rekvisitionDto.ViceværtId, rekvisitionDto.LejerId, rekvisitionDto.EjendomId);
             await _repository.AddAsync(rekvisition);
-          
-
-            //var rekvisition = new Rekvisition(rekvisitionDto.Type, rekvisitionDto.Status, rekvisitionDto.Beskrivelse, rekvisitionDto.Vicevært, rekvisitionDto.Lejer, rekvisitionDto.Ejendom);
-            //var rekvisition = new Rekvisition(rekvisitionDto.Beskrivelse, rekvisitionDto.Type);
-            //await _repository.AddAsync(rekvisition);
         }   
 
         public async Task DeleteAsync(RekvisitionCommandDto rekvisitionDto)
