@@ -8,6 +8,7 @@ using UnikPedel.Application.EjendomContract;
 using UnikPedel.Application.EjendomsAnsvarligContract;
 using UnikPedel.Application.Implementation;
 using UnikPedel.Application.Infrastructure;
+using UnikPedel.Application.LejemålContract;
 using UnikPedel.Application.RekvisitionIfrastructure;
 using UnikPedel.Application.RekvisitionImpimentation;
 using UnikPedel.Application.TidRegistreringContract;
@@ -60,6 +61,10 @@ builder.Services.AddScoped<IBookingQuery, BookingQuery>();
 builder.Services.AddScoped<IBookingCommand, BookingCommand>();
 builder.Services.AddScoped<IBookingRepository, BookingRepository>();
 builder.Services.AddScoped<IBookingDomainService, BookingDomainService>();
+
+builder.Services.AddScoped<ILejemålQuery, LejemålQuery>();
+builder.Services.AddScoped<ILejemålCommand, LejemålCommand>();
+builder.Services.AddScoped<ILejemålRepository, LejemålRepository>();
 
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

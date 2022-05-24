@@ -35,11 +35,7 @@ namespace UnikPedel.Domain.Entities
         [Timestamp]
         public byte[] Version { get; set; }
 
-        // constructor for EF
-        private Rekvisition()
-        {
-
-        }
+      
 
         public Rekvisition(string type, string status, string beskrivelse, int viceværtId, int lejerId, int ejendomId)
         {
@@ -51,12 +47,6 @@ namespace UnikPedel.Domain.Entities
             LejerId = lejerId;
             EjendomId = ejendomId;
 
-        }
-
-        public Rekvisition(string beskrivelse, string type)
-        {
-            Beskrivelse = beskrivelse;
-            Type = type;
         }
 
         public void Update(string type,  string status, string beskrivelse, int viceværtId, int lejerId, int ejendomId)
