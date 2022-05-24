@@ -41,6 +41,11 @@ namespace UnikPedel.Web.Pages.Vicevært
 
         public class ViceværtEditModel
         {
+            public int Id { get; set; }
+            public string ForNavn { get; set; }
+            public string EfterNavn { get; set; }
+            public int Telefon { get; set; }
+            public string Email { get; set; }
             private ViceværtEditModel(ViceværtDto vicevært)
             {
                 Id = vicevært.Id;
@@ -53,12 +58,6 @@ namespace UnikPedel.Web.Pages.Vicevært
             public ViceværtEditModel()
             {
             }
-
-            public int Id { get; set; }
-            public string ForNavn { get; set; }
-            public string EfterNavn { get; set; }
-            public int Telefon { get; set; }
-            public string Email { get; set; }
 
             public ViceværtDto GetAsViceværtDto()
             {
