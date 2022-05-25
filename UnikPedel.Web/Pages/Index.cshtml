@@ -3,4 +3,49 @@
 @{
     ViewData["Title"] = "Home page";
 }
-
+<div class="container px-4 px-lg-5">
+            <!-- Heading Row-->
+            <div class="row gx-4 gx-lg-5 align-items-center my-5">
+                <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="/Images/hernan-lucio-gJFvHkUHdSI-unsplash.jpg" alt="..." /></div>
+                <div class="col-lg-5">
+                    <h1 class="font-weight-light">Unik System Design</h1>
+                    <p>Unik Bolig er den mest anvendte softwareløsning på markedet til at administrere ejendomme. Den hjælper dig med at spare tid samtidigt med, at du sikrer kvaliteten i alle dine arbejdsgange.
+Det er en skalerbar løsning og passer til alle behov, både administrationer med få og mange lejemål, både til erhvervslejemål, private eller almene administrationer.</p>
+                    <a class="btn btn-primary" href="#!">Call to Action!</a>
+                </div>
+            </div>
+            <!-- Call to Action-->
+            <div class="card text-white bg-secondary my-5 py-4 text-center">
+                <div class="card-body"><p class="text-white m-0">Med Unik Bolig får I et system med mange automatiseringer, der sparer jer tid på hidtil manuelle processer. Vi har sørget for at gøre boligadministration let og enkelt, så I kan bruge tid på andre opgaver i jeres hverdag.</p></div>
+            </div>
+            <!-- Content Row-->
+            <div class="row gx-4 gx-lg-5">
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Gæstelokaler</h2>
+                            <p class="card-text">Du kan her se vores ledige lokaler og resvere til dine gæster. Du har også mulighed for at leje lokaler til arrangementer og andre diverse fester.</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" asp-page="/Gæstelejligheder/Booking/Opret">Klik for at reserver</a></div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Opret rekvisitioner</h2>
+                            <p class="card-text">Har du problemer som vores vicevært skal løse, så kan du nemt oprette rekvisitioner. Du bestemmer selv hvornår og hvilken tidspunkt der passer dig bedst!</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" asp-page="/Rekvisitioner/Opret">Log ind for at oprette</a></div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h2 class="card-title">Kontakt os</h2>
+                            <p class="card-text">Har du nogen spørgsmål? Tøv ikke med at kontakte os direkte. Vores team vil vende tilbage til dig inden for et par timer til at hjælpe dig.</p>
+                        </div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" asp-page="/Admin/Kontakt">Kontakt os</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>

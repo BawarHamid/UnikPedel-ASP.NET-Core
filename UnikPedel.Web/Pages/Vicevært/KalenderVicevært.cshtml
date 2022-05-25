@@ -99,17 +99,19 @@
                 <tr>
                     <td>
                         <div class="col-6">
-                              <div class="card btn">
-                                  <div class="container d-flex justify-content-between mt-2">
-                                      <h5>#@item.Id ID</h5>
-                                      <h5 class="card-subtitle text-muted">@item.Status</h5>
-                                  </div>    
-                                <hr class="mb-3" />
-                                <h7 class="m-4">Rekvisition information</h7>
+                              <div class="card btn">    
                                     <ul class="list-group list-group-numbered mt-0 mb-5">
+                                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                                            <div class="container d-flex justify-content-between mt-2">
+                                                  <h5>#ID @item.Id</h5>
+                                                  <h5 class="card-subtitle text-muted">@item.Status</h5>
+                                              </div>>
+                                          </li>
+
                                           <li class="list-group-item d-flex justify-content-between align-items-start">
                                             <div class="ms-2 me-auto">
-                                              <h6 class="card-title">Beskrivelse: @item.Beskrivelse</h6>
+                                                <p class="d-flex justify-content-center">Rekvisition beskrivelse</p>
+                                              <h6 class="card-title">@item.Beskrivelse</h6>
                                             </div>
                                           </li>
                                           <li class="list-group-item d-flex justify-content-between align-items-start">
@@ -129,8 +131,8 @@
                                           </li>
                                         </ul>
                                         <div class="container d-flex justify-content-center">
-                                            <a asp-page="/Vicevært/Edit"  class="card-link btn btn-primary m-2" asp-route-id="@item.Id">Accepter</a> |
-                                            <a asp-page="/Vicevært/Slet" class="card-link btn btn-danger m-2" asp-route-id="@item.Id">Afvis</a>
+                                            <a asp-page="/Vicevært/Edit"  class="card-link btn btn-primary mb-2" asp-route-id="@item.Id">Accepter</a> |
+                                            <a asp-page="/Vicevært/Slet" class="card-link btn btn-danger mb-2" asp-route-id="@item.Id">Afvis</a>
                                         </div>
                                 </div>
                                  </div>
