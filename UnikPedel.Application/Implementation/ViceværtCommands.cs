@@ -13,14 +13,16 @@ namespace UnikPedel.Application.Implementation
     public class ViceværtCommands : IViceværtCommand
     {
         private readonly IViceværtRepository _repository;
-        public ViceværtCommands(IViceværtRepository repository)
+        private readonly IServiceProvider _serviceProvider;
+        public ViceværtCommands(IViceværtRepository repository, IServiceProvider serviceProvider)
         {
             _repository = repository;
+            _serviceProvider = serviceProvider;
         }
 
         async Task IViceværtCommand.CreateViceværtAsyc(ViceværtCreateCommandDto viceværtDto)
         {
-            var vicevært = new Domain.Entities.Vicevært(viceværtDto.ForNavn, viceværtDto.EfterNavn, viceværtDto.Telefon, viceværtDto.Email);
+            var vicevært = new Domain.Entities.Vicevært(_serviceProvider, viceværtDto.ForNavn, viceværtDto.EfterNavn, viceværtDto.Telefon, viceværtDto.Email);
             await _repository.AddViceværtAsync(vicevært);
         }
 
@@ -32,6 +34,7 @@ namespace UnikPedel.Application.Implementation
         async Task IViceværtCommand.EditViceværtAsync(ViceværtCommandDto viceværtDto)
         {
             var vicevært = await _repository.GetViceværtAsync(viceværtDto.Id);
+            vicevært._serviceProvider = _serviceProvider;
             vicevært.Update(viceværtDto.ForNavn, viceværtDto.EfterNavn, viceværtDto.Telefon, viceværtDto.Email);
             await _repository.SaveViceværtAsync(vicevært);
         }

@@ -40,6 +40,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IViceværtQuery, ViceværtQuery>();
 builder.Services.AddScoped<IViceværtCommand, ViceværtCommands>();
 builder.Services.AddScoped<IViceværtRepository, ViceværtRepository>();
+builder.Services.AddScoped<IViceværtDomainService,ViceværtDomainService>(); 
 
 builder.Services.AddScoped<IRekvisitionQuery, RekvisitionQuery>();
 builder.Services.AddScoped<IRekvisitionCommand, RekvisitionCommand>();
