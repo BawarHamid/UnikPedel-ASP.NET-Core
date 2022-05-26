@@ -18,6 +18,7 @@ namespace UnikPedel.Infrastructure.Database.ModelConfigurations
             entity.Property(a => a.ForNavn).HasColumnName("ForNavn").IsRequired();
             entity.Property(a => a.EfterNavn).HasColumnName("EfterNavn").IsRequired();
             entity.Property(a => a.Email).HasColumnName("Email").IsRequired();
+            entity.Ignore(v => v._serviceProvider);
 
             //entity.HasOne(c => c.EjendomsAnsvarlig).WithMany(d => d.Vicevært).HasForeignKey(x => x.EjendomsAnsvarligId).OnDelete(DeleteBehavior.Cascade);
             //entity.HasMany(c => c.Rekvisitioner).WithOne(d => d.Vicevært).OnDelete(DeleteBehavior.Cascade);
