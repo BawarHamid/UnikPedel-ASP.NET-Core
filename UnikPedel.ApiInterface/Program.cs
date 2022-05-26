@@ -13,7 +13,6 @@ using UnikPedel.Application.LejerContract;
 using UnikPedel.Application.RekvisitionIfrastructure;
 using UnikPedel.Application.RekvisitionImpimentation;
 using UnikPedel.Application.TidRegistreringContract;
-using UnikPedel.Contract.IServiceRekvisition;
 using UnikPedel.Domain.DomainServices;
 using UnikPedel.Infrastructure.Database;
 using UnikPedel.Infrastructure.DominServiceImpl;
@@ -21,7 +20,7 @@ using UnikPedel.Infrastructure.Queries;
 using UnikPedel.Infrastructure.Querries;
 using UnikPedel.Infrastructure.Querys;
 using UnikPedel.Infrastructure.RepositoriesImpl;
-using UnikPedel.Web.Infrastructure;
+
 
 var builder = WebApplication.CreateBuilder(args);
 

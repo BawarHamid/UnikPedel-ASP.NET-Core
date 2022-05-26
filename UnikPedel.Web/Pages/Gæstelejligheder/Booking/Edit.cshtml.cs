@@ -29,16 +29,17 @@ namespace UnikPedel.Web.Pages.Gæstelejligheder.Booking
             return Page();
         }
 
-        public IActionResult OnPostAsync()
+        public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid) return Page();
-            _serviceBooking.EditAsync(Booking.GetAsBookingDto());
+           await  _serviceBooking.EditAsync(Booking.GetAsBookingDto());
             return RedirectToPage("/Gæstelejligheder/Index");
         }
     }
 
     public class BookingEditModel
     {
+        public int Id { get; set; }
         public DateTime StartTid { get; set; }
         public DateTime SlutTid { get; set; }
         public int LejerId { get; set; }
@@ -47,6 +48,7 @@ namespace UnikPedel.Web.Pages.Gæstelejligheder.Booking
 
         public BookingEditModel(BookingDto booking)
         {
+            Id=booking.Id;
             StartTid = booking.StartTid;
             SlutTid = booking.SlutTid;
             LejerId = booking.LejerId;
@@ -62,6 +64,7 @@ namespace UnikPedel.Web.Pages.Gæstelejligheder.Booking
         {
             return new BookingDto
             {
+                Id = Id,
                 StartTid = StartTid,
                 SlutTid = SlutTid,
                 LejerId = LejerId,
