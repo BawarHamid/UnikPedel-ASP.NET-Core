@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UnikPedel.Infrastructure.Database;
 
@@ -11,9 +12,10 @@ using UnikPedel.Infrastructure.Database;
 namespace UnikPedel.Infrastructure.Migrations
 {
     [DbContext(typeof(UnikPedelContext))]
-    partial class UnikPedelContextModelSnapshot : ModelSnapshot
+    [Migration("20220525235300_UpdateBooking")]
+    partial class UpdateBooking
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -387,7 +389,7 @@ namespace UnikPedel.Infrastructure.Migrations
                     b.HasOne("UnikPedel.Domain.Entities.Lejemål", "Lejemål")
                         .WithMany("Bookings")
                         .HasForeignKey("LejemålId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("UnikPedel.Domain.Entities.Lejer", "Lejer")

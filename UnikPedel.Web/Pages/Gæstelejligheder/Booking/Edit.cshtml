@@ -10,6 +10,7 @@
     
     <div class="border container" style="padding: 30px">
         <form class="row g-3" method="post">
+              <input type="hidden" asp-for="Booking.Id" />
             @*StartTid*@
             <div class="col-md-6">
                 <label asp-for="Booking.StartTid" class="control-label"></label>

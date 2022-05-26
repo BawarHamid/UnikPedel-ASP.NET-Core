@@ -29,13 +29,24 @@ namespace UnikPedel.Domain.Entities
         [Timestamp]
         public byte[] Version { get; set; }
 
+
+        //  TEST ONLY!!!
+        public Booking(int id, DateTime startTid, DateTime slutTid,int lejemålId, int lejerId)
+        {
+            Id = id;
+            StartTid = startTid;
+            SlutTid = slutTid;
+            LejerId = lejerId;
+            LejemålId = lejemålId;
+        }
+
         //for ef
         private Booking()
         {
 
         }
 
-        public Booking(IServiceProvider? serviceProvider, DateTime startTid, DateTime slutTid, int lejerId, int lejemålId)
+        public Booking(IServiceProvider serviceProvider, DateTime startTid, DateTime slutTid, int lejerId, int lejemålId)
         {
             if (startTid == default) throw new ArgumentOutOfRangeException(nameof(startTid), "Start dato skal være udfyldt");
             if (slutTid == default) throw new ArgumentOutOfRangeException(nameof(slutTid), "Slut dato skal være udfyldt");
@@ -48,6 +59,7 @@ namespace UnikPedel.Domain.Entities
             _serviceProvider = serviceProvider;
 
             if (IsOverlapping()) throw new Exception("Booking overlapper med eksisterende booking");
+            
 
         }
 
@@ -59,18 +71,18 @@ namespace UnikPedel.Domain.Entities
 
             return bookingDomainService.GetExsistingBookings()
 
-                .Any(a => a.Id != Id && a.StartTid <= SlutTid && StartTid <= a.SlutTid);
+                .Any(a => a.Id != Id && a.StartTid <= SlutTid && StartTid <= a.SlutTid && a.LejemålId == LejemålId);
         }
 
-        public void Update(DateTime startTid, DateTime slutTid)
+        public void Update(DateTime startTid, DateTime slutTid, int lejemålId)
         {
             if (startTid == default) throw new ArgumentOutOfRangeException(nameof(startTid), "Start dato skal være udfyldt");
             if (slutTid == default) throw new ArgumentOutOfRangeException(nameof(slutTid), "Slut dato skal være udfyldt");
             if (startTid >= slutTid)
                 throw new Exception($"Slut dato/tid skal være senere end start (start, slut): {startTid}, {slutTid}");
-
             StartTid = startTid;
             SlutTid = slutTid;
+            LejemålId = lejemålId;
             if (IsOverlapping()) throw new Exception("Booking overlapper med eksisterende booking");
         }
     }

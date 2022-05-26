@@ -26,7 +26,7 @@ namespace UnikPedel.Infrastructure.Database.ModelConfigurations
             entity.HasOne(a => a.Lejemål)
                 .WithMany(d => d.Bookings)
                 .HasForeignKey(x => x.LejemålId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
