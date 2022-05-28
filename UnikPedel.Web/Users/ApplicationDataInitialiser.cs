@@ -5,37 +5,27 @@ namespace UnikPedel.Web.Users
 {
     public static  class ApplicationDataInitialiser
     {
-        public static void SeedData(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
+        public static void SeedData(UserManager<IdentityUser> userManager)
         {
-            //SeedRoles(roleManager);
+            
             SeedUsers(userManager);
         }
         public static void SeedUsers(UserManager<IdentityUser> userManager)
         {
-            if (userManager.FindByNameAsync("admin@contoso.com").Result == null)
+            if (userManager.FindByNameAsync("admin@admin.com").Result == null)
             {
                 var user = new IdentityUser
                 {
-                    UserName = "admin@contoso.com",
-                    Email = "admin@contoso.com",
+                    UserName = "admin@admin.com",
+                    Email = "admin@admin.com",
                     NormalizedUserName = "ADMIN",
-                    NormalizedEmail = "ADMIN@CONTOSO.COM"
+                    NormalizedEmail = "ADMIN@ADMIN.COM"
                 };
                 var password = "123456";
                 var result = userManager.CreateAsync(user, password).Result;
                 if (result.Succeeded) userManager.AddClaimAsync(user, new Claim(UserClaimTypeEnum.IsAdmin, "")).Wait();
             }
         }
-        //public static void SeedRoles(RoleManager<IdentityRole> roleManager)
-        //{
-        //    if (!roleManager.RoleExistsAsync("Administrator").Result)
-        //    {
-        //        var role = new IdentityRole
-        //        {
-        //            Name = "Administrator"
-        //        };
-        //        roleManager.CreateAsync(role).Wait();
-        //    }
-        //}
+       
     }
 }

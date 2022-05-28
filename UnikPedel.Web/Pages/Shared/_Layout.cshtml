@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@using System.Security.Claims
+@using UnikPedel.Web.Users
+@inject SignInManager<IdentityUser> signInManager;
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -24,27 +28,33 @@
                         <li class="nav-item">
                           <a class="nav-link active" asp-page="/Index">Dashboard</a>
                         </li>
-                        <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle btn btn-outline-secondary me-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Vicevært
-                          </a>
-                          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" asp-page="/Vicevært/Index">Dashboard</a></li>
-                            <li><a class="dropdown-item" asp-page="/Vicevært/KalenderVicevært">Kalender</a></li>
-                          </ul>
-                        </li>
+                        @*hvis men er logget på kan man se følgende*@
+                        @if (signInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle btn btn-outline-secondary me-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Vicevært
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" asp-page="/Vicevært/Index">Dashboard</a></li>
+                                    <li><a class="dropdown-item" asp-page="/Vicevært/KalenderVicevært">Kalender</a></li>
+                                </ul>
+                            </li>
 
 
-                        <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle btn btn-outline-secondary me-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Udlejning
-                          </a>
-                          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" asp-page="/Gæstelejligheder/Index">Bookinger</a></li>
-                            <li><a class="dropdown-item" asp-page="/Afdelinger/Index">Kontakt</a></li>
-                          </ul>
-                        </li>
-
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle btn btn-outline-secondary me-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Udlejning
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" asp-page="/Gæstelejligheder/Index">Bookinger</a></li>
+                                    <li><a class="dropdown-item" asp-page="/Afdelinger/Index">Kontakt</a></li>
+                                </ul>
+                            </li>
+                        }
+                     @*   hvis useren er admin så bliver der vist alle nav items*@
+                        @if (signInManager.IsSignedIn(User)&& User.HasClaim(  UserClaimTypeEnum.IsAdmin,"" ))
+                        {
                         <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle btn btn-outline-secondary me-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Admin
@@ -57,7 +67,7 @@
                           </ul>
                         </li>
                         
-                        
+                        }
                     </ul>
 
                     

@@ -29,10 +29,11 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => {
     options.Password.RequiredUniqueChars = 0;
     options.Password.RequireDigit = false;
     options.Password.RequiredLength = 4;
-}).AddRoles<IdentityRole>()
+})
   .AddEntityFrameworkStores<IdentityDbContext>();
 builder.Services.AddAuthorization(options =>
 {
+    options.AddPolicy(PolicyEnum.ViceVærtOnly, policyBuilder => policyBuilder.RequireClaim(UserClaimTypeEnum.IsVicevært));
     options.AddPolicy(PolicyEnum.AdminOnly, policyBuilder => policyBuilder.RequireClaim(UserClaimTypeEnum.IsAdmin));
 });
 
@@ -77,6 +78,13 @@ builder.Services.AddHttpClient<IServiceBooking, BookingServiceProxy>
 
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
+    ApplicationDataInitialiser.SeedData(userManager);
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
