@@ -2,6 +2,7 @@
 {
     public static class UserClaimTypeEnum
     {
-        public const string IsAdmin = "IsAdmin";  
+        public const string IsAdmin = "IsAdmin";
+        public const string IsVicevært = "IsVicevært";
     }
 }
