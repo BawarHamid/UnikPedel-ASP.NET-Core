@@ -8,7 +8,7 @@
 
 <div class="row">
     <div class="col-md-4">
-        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+        <form id="registerForm" name="RegisterFrom" asp-route-returnUrl="@Model.ReturnUrl" method="post">
             <h2>Create a new account.</h2>
             <hr />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -27,6 +27,22 @@
                 <label asp-for="Input.ConfirmPassword"></label>
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
+            <br />
+
+             @*vi laver radio buttons ud af vores model i register.cshtml.cs*@
+             @foreach (var role in Model.Roles)
+    {
+        <input type="radio" asp-for="Role" value="@role"  required/>@role<br />
+    }
+           @*  <input type="radio" id="vice" name="role" value="Vicevært">
+             <label for="vice">Vicevært</label><br>
+             <input type="radio" id="lejer" name="role" value="Lejer">
+             <label for="lejer">Lejer</label><br>
+
+             Vicevært @Html.RadioButton("Role","Vicevært") 
+              Lejer @Html.RadioButton("Role","Lejer")*@
+
+              <br />
             <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
         </form>
     </div>

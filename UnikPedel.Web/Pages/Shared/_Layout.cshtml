@@ -29,7 +29,7 @@
                           <a class="nav-link active" asp-page="/Index">Dashboard</a>
                         </li>
                         @*hvis men er logget på kan man se følgende*@
-                        @if (signInManager.IsSignedIn(User))
+                        @if (signInManager.IsSignedIn(User) && User.HasClaim(UserClaimTypeEnum.IsVicevært, "")||User.HasClaim(UserClaimTypeEnum.IsAdmin, ""))
                         {
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle btn btn-outline-secondary me-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -40,8 +40,10 @@
                                     <li><a class="dropdown-item" asp-page="/Vicevært/KalenderVicevært">Kalender</a></li>
                                 </ul>
                             </li>
+                        }
 
-
+                         @if (signInManager.IsSignedIn(User) && User.HasClaim(UserClaimTypeEnum.IsLejer, "")||User.HasClaim(UserClaimTypeEnum.IsAdmin, ""))
+                         {
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle btn btn-outline-secondary me-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Udlejning

@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading;
@@ -18,6 +19,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using UnikPedel.Web.Users;
 
 namespace WebApplication1.Areas.Identity.Pages.Account
 {
@@ -51,6 +53,11 @@ namespace WebApplication1.Areas.Identity.Pages.Account
         /// </summary>
         [BindProperty]
         public InputModel Input { get; set; }
+
+        // modeler for radio buttons
+        [BindProperty]
+        public string Role { get; set; }
+        public string[] Roles = new[] { "Vicevært", "Lejer" };
 
         /// <summary>
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
@@ -106,7 +113,7 @@ namespace WebApplication1.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
-        public async Task<IActionResult> OnPostAsync(string returnUrl = null)
+        public async Task<IActionResult> OnPostAsync(string returnUrl = null )
         {
             returnUrl ??= Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
@@ -116,7 +123,7 @@ namespace WebApplication1.Areas.Identity.Pages.Account
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
-
+            
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
                 if (result.Succeeded)
@@ -134,6 +141,16 @@ namespace WebApplication1.Areas.Identity.Pages.Account
 
                     await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    //her man tjkeer hvis radio button value er vicevært så få useren Isvicevært claim
+                    if (Role == "Vicevært")
+                    {
+                        _userManager.AddClaimAsync(user, new Claim(UserClaimTypeEnum.IsVicevært, "")).Wait();
+                    }
+                    //her man tjkeer hvis radio button value er lejer så få useren Islejer claim
+                    if (Role=="Lejer")
+                    {
+                        _userManager.AddClaimAsync(user, new Claim(UserClaimTypeEnum.IsLejer, "")).Wait();
+                    }
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
@@ -177,5 +194,6 @@ namespace WebApplication1.Areas.Identity.Pages.Account
             }
             return (IUserEmailStore<IdentityUser>)_userStore;
         }
+        
     }
 }
