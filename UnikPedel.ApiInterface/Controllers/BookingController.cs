@@ -64,5 +64,8 @@ namespace UnikPedel.ApiInterface.Controllers
             if (booking == null) return null;
             return _mapper.Map<IEnumerable<BookingDto>>(booking);
         }
+
+        
+
     }
 }

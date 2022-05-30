@@ -15,6 +15,22 @@ public class BookingQuery : IBookingQuery
         _db = db;
     }
 
+    public async Task<IEnumerable<BookingQueryDto>> GetBookingsForLejerAsync(int Id)
+    {
+        var result = new List<BookingQueryDto>();
+        var v =  await _db.Lejer.Include(a=> a.Bookings).FirstOrDefaultAsync(b=> b.Id == Id);
+        var bookingl= v.Bookings.ToList();
+        bookingl.ForEach(a => result.Add(new BookingQueryDto
+        {
+            Id = a.Id,
+            StartTid = a.StartTid,
+            SlutTid = a.SlutTid,
+            LejemålId = a.LejemålId,
+            LejerId = a.LejerId
+        }));
+        return result;
+    }
+
     async Task<BookingQueryDto?> IBookingQuery.GetBookingAsync(int id)
     {
         var result = await _db.Booking.FindAsync(id);

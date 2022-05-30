@@ -14,6 +14,7 @@ namespace UnikPedel.Contract.IServiceBooking
         Task DeleteAsync(int Id);
         Task<BookingDto?> GetBookingAsync(int Id);
         Task<IEnumerable<BookingDto>> GetBookingsAsync();
+        
     }
 
 

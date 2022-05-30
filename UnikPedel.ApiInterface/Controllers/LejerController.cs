@@ -65,5 +65,7 @@ namespace UnikPedel.ApiInterface.Controllers
         {
             await _lejerCommand.DeleteLejerAsync(new LejerCommandDto { Id = Id });
         }
+
+        
     }
 }

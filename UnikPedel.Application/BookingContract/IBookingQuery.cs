@@ -9,4 +9,6 @@ public interface IBookingQuery
 {
     Task<BookingQueryDto?> GetBookingAsync(int id);
     Task<IEnumerable<BookingQueryDto>> GetBookingsAsync();
+
+    Task<IEnumerable<BookingQueryDto>> GetBookingsForLejerAsync(int Id);
 }
