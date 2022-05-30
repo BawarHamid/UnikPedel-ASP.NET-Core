@@ -19,6 +19,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using UnikPedel.Contract.IServiceLejer;
+using UnikPedel.Contract.IServiceLejer.LejerDtos;
 using UnikPedel.Web.Users;
 
 namespace WebApplication1.Areas.Identity.Pages.Account
@@ -31,13 +33,16 @@ namespace WebApplication1.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<IdentityUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly ILejerService _serviceLejer;
 
         public RegisterModel(
             UserManager<IdentityUser> userManager,
             IUserStore<IdentityUser> userStore,
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            ILejerService lejerService)
+
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -45,6 +50,7 @@ namespace WebApplication1.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _serviceLejer = lejerService;
         }
 
         /// <summary>
@@ -113,6 +119,7 @@ namespace WebApplication1.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
+        [BindProperty] public LejerModel Lejer { get; set; } = new ();
         public async Task<IActionResult> OnPostAsync(string returnUrl = null )
         {
             returnUrl ??= Url.Content("~/");
@@ -149,6 +156,8 @@ namespace WebApplication1.Areas.Identity.Pages.Account
                     //her man tjkeer hvis radio button value er lejer så få useren Islejer claim
                     if (Role=="Lejer")
                     {
+                        var email = Input.Email;
+                       await  _serviceLejer.CreateLejerAsync(Lejer.GetAsLejerCreateDto(email));
                         _userManager.AddClaimAsync(user, new Claim(UserClaimTypeEnum.IsLejer, "")).Wait();
                     }
 
@@ -195,5 +204,35 @@ namespace WebApplication1.Areas.Identity.Pages.Account
             return (IUserEmailStore<IdentityUser>)_userStore;
         }
         
+    }
+    public class LejerModel
+    {
+        
+        public string ForNavn { get; set; }
+        public string MellemNavn { get; set; }
+        public string EfterNavn { get; set; }
+      
+        public int Telefon { get; set; }
+        public DateTime IndDato { get; init; }
+        public DateTime? UdDato { get; init; }
+        public int LejemålId { get; set; }
+
+        public LejerCreateDto GetAsLejerCreateDto(string email)
+        {
+           
+            return new LejerCreateDto
+            {
+
+                ForNavn = ForNavn,
+                MellemNavn = MellemNavn,
+                EfterNavn = EfterNavn,
+                Email = email,
+                Telefon = Telefon,
+                IndDato = IndDato,
+                UdDato = UdDato,
+                LejemålId=LejemålId
+
+            };
+        }
     }
 }

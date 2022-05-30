@@ -69,12 +69,18 @@ builder.Services.AddHttpClient<IServiceBooking, BookingServiceProxy>
         client.BaseAddress =
             new Uri("https://localhost:7094");
     });
-//builder.Services.AddHttpClient<ILejerService, LejerServiceProxy>
-//    (client =>
-//    {
-//        client.BaseAddress =
-//            new Uri("https://localhost:7094");
-//    });
+builder.Services.AddHttpClient<ILejerService, LejerServiceProxy>
+    (client =>
+    {
+        client.BaseAddress =
+            new Uri("https://localhost:7094");
+   });
+builder.Services.AddHttpClient<IServiceBookingLejer, BookingLejerServiceProxy>
+    (client =>
+    {
+        client.BaseAddress =
+            new Uri("https://localhost:7094");
+    });
 
 
 var app = builder.Build();

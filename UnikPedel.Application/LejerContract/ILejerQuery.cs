@@ -11,5 +11,6 @@ namespace UnikPedel.Application.LejerContract
     {
         Task<LejerQueryDto?> GetLejerAsync(int Id);
         Task<IEnumerable<LejerQueryDto>> GetAllLejereAsync();
+      
     }
 }

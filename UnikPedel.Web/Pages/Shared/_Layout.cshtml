@@ -28,6 +28,7 @@
                         <li class="nav-item">
                           <a class="nav-link active" asp-page="/Index">Dashboard</a>
                         </li>
+
                         @*hvis men er logget på kan man se følgende*@
                         @if (signInManager.IsSignedIn(User) && User.HasClaim(UserClaimTypeEnum.IsVicevært, "")||User.HasClaim(UserClaimTypeEnum.IsAdmin, ""))
                         {
@@ -49,11 +50,19 @@
                                     Udlejning
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" asp-page="/Gæstelejligheder/Index">Bookinger</a></li>
+
+                                    @if (signInManager.IsSignedIn(User) && User.HasClaim(UserClaimTypeEnum.IsAdmin, ""))
+                        {
+                                    <li><a class="dropdown-item" asp-page="/Gæstelejligheder/Index">Alle Bookinger</a></li>
+                        }
+                                  <li><a class="dropdown-item" asp-page="/Gæstelejligheder/Booking/IndexForLejer">Mine Bookinger</a></li>
                                     <li><a class="dropdown-item" asp-page="/Afdelinger/Index">Kontakt</a></li>
+                                    <li><a class="dropdown-item" asp-page="/Rekvisitioner/Opret">Opret Rekvisition </a></li>
+
                                 </ul>
                             </li>
                         }
+
                      @*   hvis useren er admin så bliver der vist alle nav items*@
                         @if (signInManager.IsSignedIn(User)&& User.HasClaim(  UserClaimTypeEnum.IsAdmin,"" ))
                         {
@@ -75,11 +84,7 @@
                     
                        <partial name="_LoginPartial.cshtml" />
 
-                    
-
-
-
-
+      
 
                 </div>
             </div>

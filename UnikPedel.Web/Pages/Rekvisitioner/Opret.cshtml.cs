@@ -27,7 +27,7 @@ namespace UnikPedel.Web.Pages.Rekvisitioner
         {
             if (!ModelState.IsValid) return Page();
             await _serviceRekvisition.CreateRekvisitionAsync(Rekvisition.GetAsRekvisitionDto());
-            return RedirectToPage("/Vicevært/KalenderVicevært"); 
+            return RedirectToPage("/Index"); 
         }
 
 

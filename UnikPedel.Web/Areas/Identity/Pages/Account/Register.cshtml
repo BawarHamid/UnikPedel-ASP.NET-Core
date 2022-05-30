@@ -28,6 +28,41 @@
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
             <br />
+             <div class="col-md-6">
+                <label asp-for="Lejer.ForNavn" class="control-label"aria-required="true"></label>
+                <input asp-for="Lejer.ForNavn" class="form-control"/>
+                <span asp-validation-for="Lejer.ForNavn" class="text-danger"></span>
+            </div>
+                 <div class="col-md-6">
+                <label asp-for="Lejer.MellemNavn" class="control-label"aria-required="true"></label>
+                <input asp-for="Lejer.MellemNavn" class="form-control"/>
+                <span asp-validation-for="Lejer.MellemNavn" class="text-danger"></span>
+            </div>
+             <div class="col-md-6">
+                <label asp-for="Lejer.EfterNavn" class="control-label"aria-required="true"></label>
+                <input asp-for="Lejer.EfterNavn" class="form-control"/>
+                <span asp-validation-for="Lejer.EfterNavn" class="text-danger"></span>
+            </div>
+            <div class="col-md-6">
+                <label asp-for="Lejer.Telefon" class="control-label"aria-required="true"></label>
+                <input asp-for="Lejer.Telefon" class="form-control"/>
+                <span asp-validation-for="Lejer.Telefon" class="text-danger"></span>
+            </div>
+             <div class="col-md-6">
+                <label asp-for="Lejer.IndDato" class="control-label"aria-required="true"></label>
+                <input asp-for="Lejer.IndDato" class="form-control"/>
+                <span asp-validation-for="Lejer.IndDato" class="text-danger"></span>
+            </div>
+             <div class="col-md-6">
+                <label asp-for="Lejer.UdDato" class="control-label"aria-required="true"></label>
+                <input asp-for="Lejer.UdDato" class="form-control"/>
+                <span asp-validation-for="Lejer.UdDato" class="text-danger"></span>
+            </div>
+             <div class="col-md-6">
+                <label asp-for="Lejer.LejemålId" class="control-label"aria-required="true"></label>
+                <input asp-for="Lejer.LejemålId" class="form-control"/>
+                <span asp-validation-for="Lejer.LejemålId" class="text-danger"></span>
+            </div>
 
              @*vi laver radio buttons ud af vores model i register.cshtml.cs*@
              @foreach (var role in Model.Roles)

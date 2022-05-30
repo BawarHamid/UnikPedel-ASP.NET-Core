@@ -26,7 +26,7 @@ namespace UnikPedel.Web.Pages.Gæstelejligheder.Booking
         {
             if (!ModelState.IsValid) return Page();
             await _serviceBooking.CreateAsync(Booking.GetAsBookingDto());
-            return RedirectToPage("/Gæstelejligheder/Index");
+            return RedirectToPage("/Index");
         }
     }
 
