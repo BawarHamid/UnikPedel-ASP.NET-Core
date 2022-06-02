@@ -51,12 +51,15 @@
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                                    @if (signInManager.IsSignedIn(User) && User.HasClaim(UserClaimTypeEnum.IsAdmin, ""))
+                                    @if (signInManager.IsSignedIn(User) && User.HasClaim(UserClaimTypeEnum.IsAdmin, "")|| User.HasClaim(UserClaimTypeEnum.IsVicevaert,""))
                         {
                                     <li><a class="dropdown-item" asp-page="/Gæstelejligheder/Index">Alle Bookinger</a></li>
                         }
+                        @if (signInManager.IsSignedIn(User) && User.HasClaim(UserClaimTypeEnum.IsLejer, ""))
+                         {
                                   <li><a class="dropdown-item" asp-page="/Gæstelejligheder/Booking/IndexForLejer">Mine Bookinger</a></li>
-                                    <li><a class="dropdown-item" asp-page="/Afdelinger/Index">Kontakt</a></li>
+                         }                                    
+                         <li><a class="dropdown-item" asp-page="/Afdelinger/Index">Kontakt</a></li>
                                     <li><a class="dropdown-item" asp-page="/Rekvisitioner/Opret">Opret Rekvisition </a></li>
 
                                 </ul>

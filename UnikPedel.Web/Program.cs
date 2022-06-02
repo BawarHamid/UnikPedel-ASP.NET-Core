@@ -41,45 +41,45 @@ builder.Services.AddHttpClient<IVicevaertService, VicevaertServiceProxy>
     (client =>
     {
         client.BaseAddress =
-            new Uri("http://localhost:7094");
+            new Uri("https://localhost:7094");
     });
 
 builder.Services.AddHttpClient<IServiceRekvisition, RekvisitionServiceProxy>
     (client =>
     {
         client.BaseAddress =
-            new Uri("http://localhost:7094");
+            new Uri("https://localhost:7094");
     });
 
 builder.Services.AddHttpClient<IServiceTidRegistrering, TidRegistreringServiceProxy>
     (client =>
     {
         client.BaseAddress =
-            new Uri("http://localhost:7094");
+            new Uri("https://localhost:7094");
     });
 builder.Services.AddHttpClient<IServiceEjendomAnsvarlig, EjendomAnsvarligServiceProxy>
     (client =>
     {
         client.BaseAddress =
-            new Uri("http://localhost:7094");
+            new Uri("https://localhost:7094");
     });
 builder.Services.AddHttpClient<IServiceBooking, BookingServiceProxy>
     (client =>
     {
         client.BaseAddress =
-            new Uri("http://localhost:7094");
+            new Uri("https://localhost:7094");
     });
 builder.Services.AddHttpClient<ILejerService, LejerServiceProxy>
     (client =>
     {
         client.BaseAddress =
-            new Uri("http://localhost:7094");
-   });
+            new Uri("https://localhost:7094");
+    });
 builder.Services.AddHttpClient<IServiceBookingLejer, BookingLejerServiceProxy>
     (client =>
     {
         client.BaseAddress =
-            new Uri("http://localhost:7094");
+            new Uri("https://localhost:7094");
     });
 
 
