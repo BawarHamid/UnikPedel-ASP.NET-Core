@@ -20,8 +20,8 @@ namespace UnikPedel.Domain.Entities
         public DateTime TimeCreated { get; set; }
         public string Status { get; set; }
 
-        public int ViceværtId { get; set; }
-        public Vicevært Vicevært { get; set; }
+        public int VicevaertId { get; set; }
+        public Vicevaert Vicevaert { get; set; }
 
         public int LejerId { get; set; }
         public Lejer Lejer { get; set; }
@@ -37,24 +37,24 @@ namespace UnikPedel.Domain.Entities
 
       
 
-        public Rekvisition(string type, string status, string beskrivelse, int viceværtId, int lejerId, int ejendomId)
+        public Rekvisition(string type, string status, string beskrivelse, int vicevaertId, int lejerId, int ejendomId)
         {
             Type = type;
             TimeCreated = DateTime.Now;
             Status = status;
             Beskrivelse = beskrivelse;
-            ViceværtId = viceværtId;
+            VicevaertId = vicevaertId;
             LejerId = lejerId;
             EjendomId = ejendomId;
 
         }
 
-        public void Update(string type,  string status, string beskrivelse, int viceværtId, int lejerId, int ejendomId)
+        public void Update(string type,  string status, string beskrivelse, int vicevaertId, int lejerId, int ejendomId)
         {
             Type = type;
             Status = status;
             Beskrivelse = beskrivelse;
-            ViceværtId = viceværtId;
+            VicevaertId = vicevaertId;
             LejerId = lejerId;
             EjendomId = ejendomId;
         }

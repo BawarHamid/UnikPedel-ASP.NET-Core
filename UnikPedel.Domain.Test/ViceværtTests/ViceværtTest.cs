@@ -13,13 +13,13 @@ namespace UnikPedel.Domain.Test
 
         public ViceværtTest()
         {
-            var exsistingBookings = new List<Entities.Vicevært>(new[]
+            var exsistingBookings = new List<Entities.Vicevaert>(new[]
          {
-            new Entities.Vicevært(1, "Karl","Karlsen",60918171,"karlkarlsen@gmail.com"),
-            new Entities.Vicevært( 2,"Test","Testen",136734352,"testtestenn@gmail.com")
+            new Entities.Vicevaert(1, "Karl","Karlsen",60918171,"karlkarlsen@gmail.com"),
+            new Entities.Vicevaert( 2,"Test","Testen",136734352,"testtestenn@gmail.com")
         });
-            var bookingDomainServiceMock = new Mock<IViceværtDomainService>();
-            bookingDomainServiceMock.Setup(foo => foo.GetExsistingViceværter()).Returns(exsistingBookings);
+            var bookingDomainServiceMock = new Mock<IVicevaertDomainService>();
+            bookingDomainServiceMock.Setup(foo => foo.GetExsistingVicevaerter()).Returns(exsistingBookings);
 
             var serviceCollection = new ServiceCollection();
             serviceCollection.AddScoped(_ => bookingDomainServiceMock.Object);
@@ -40,7 +40,7 @@ namespace UnikPedel.Domain.Test
             var _Serviceprovider = _serviceProvider;
 
             // Act
-            Action action = () => new Entities.Vicevært(_Serviceprovider, navn,efternavn,default,email);
+            Action action = () => new Entities.Vicevaert(_Serviceprovider, navn,efternavn,default,email);
 
             //Assert
             var caughtException = Assert.Throws<ArgumentOutOfRangeException>(action);
@@ -61,7 +61,7 @@ namespace UnikPedel.Domain.Test
             var _Serviceprovider = _serviceProvider;
 
             // Act
-            Action action = () => new Entities.Vicevært(_Serviceprovider, navn, efternavn, telefon, default);
+            Action action = () => new Entities.Vicevaert(_Serviceprovider, navn, efternavn, telefon, default);
 
             //Assert
             var caughtException = Assert.Throws<ArgumentOutOfRangeException>(action);
@@ -81,7 +81,7 @@ namespace UnikPedel.Domain.Test
             var expected = "Der findes en vicevært med det sammen Telefon nummer eller Email";
             var _ServiceProvider=_serviceProvider;
             // Act
-            Action action = () => new Entities.Vicevært(_ServiceProvider,ForNavn,efternavn,telefon,email);
+            Action action = () => new Entities.Vicevaert(_ServiceProvider,ForNavn,efternavn,telefon,email);
 
             //Assert
             var caughtException = Assert.Throws<Exception>(action);
@@ -100,7 +100,7 @@ namespace UnikPedel.Domain.Test
             var expected = "Der findes en vicevært med det sammen Telefon nummer eller Email";
             var _ServiceProvider = _serviceProvider;
             // Act
-            Action action = () => new Entities.Vicevært(_ServiceProvider, ForNavn, efternavn, telefon, email);
+            Action action = () => new Entities.Vicevaert(_ServiceProvider, ForNavn, efternavn, telefon, email);
 
             //Assert
             var caughtException = Assert.Throws<Exception>(action);

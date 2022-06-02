@@ -20,9 +20,9 @@ namespace UnikPedel.Infrastructure.Database.ModelConfigurations
             entity.Property(a => a.TimeCreated).HasColumnName("TimeCreated").IsRequired();
             entity.Property(a => a.Status).HasColumnName("Status").IsRequired();
 
-            entity.HasOne(x => x.Vicevært)
+            entity.HasOne(x => x.Vicevaert)
                 .WithMany(x => x.Rekvisitioner)
-                .HasForeignKey(x => x.ViceværtId)
+                .HasForeignKey(x => x.VicevaertId)
                 .OnDelete(DeleteBehavior.NoAction);
 
             entity.HasOne(x => x.Lejer)

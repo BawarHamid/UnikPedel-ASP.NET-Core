@@ -6,7 +6,7 @@ using UnikPedel.Contract.IServiceEjendomAnsvarlig;
 using UnikPedel.Contract.IServiceLejer;
 using UnikPedel.Contract.IServiceRekvisition;
 using UnikPedel.Contract.IServiceTidRegistrering;
-using UnikPedel.Contract.IServiceVicevært;
+using UnikPedel.Contract.IServiceVicevaert;
 using UnikPedel.Infrastructure.Database;
 using UnikPedel.Web.Infrastructure;
 using UnikPedel.Web.Policies;
@@ -33,53 +33,53 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => {
   .AddEntityFrameworkStores<IdentityDbContext>();
 builder.Services.AddAuthorization(options =>
 {
-    options.AddPolicy(PolicyEnum.ViceVærtOnly, policyBuilder => policyBuilder.RequireClaim(UserClaimTypeEnum.IsVicevært));
+    options.AddPolicy(PolicyEnum.ViceVaertOnly, policyBuilder => policyBuilder.RequireClaim(UserClaimTypeEnum.IsVicevaert));
     options.AddPolicy(PolicyEnum.AdminOnly, policyBuilder => policyBuilder.RequireClaim(UserClaimTypeEnum.IsAdmin));
 });
 
-builder.Services.AddHttpClient<IViceværtService, ViceværtServiceProxy>
+builder.Services.AddHttpClient<IVicevaertService, VicevaertServiceProxy>
     (client =>
     {
         client.BaseAddress =
-            new Uri("https://localhost:7094");
+            new Uri("http://localhost:7094");
     });
 
 builder.Services.AddHttpClient<IServiceRekvisition, RekvisitionServiceProxy>
     (client =>
     {
         client.BaseAddress =
-            new Uri("https://localhost:7094");
+            new Uri("http://localhost:7094");
     });
 
 builder.Services.AddHttpClient<IServiceTidRegistrering, TidRegistreringServiceProxy>
     (client =>
     {
         client.BaseAddress =
-            new Uri("https://localhost:7094");
+            new Uri("http://localhost:7094");
     });
 builder.Services.AddHttpClient<IServiceEjendomAnsvarlig, EjendomAnsvarligServiceProxy>
     (client =>
     {
         client.BaseAddress =
-            new Uri("https://localhost:7094");
+            new Uri("http://localhost:7094");
     });
 builder.Services.AddHttpClient<IServiceBooking, BookingServiceProxy>
     (client =>
     {
         client.BaseAddress =
-            new Uri("https://localhost:7094");
+            new Uri("http://localhost:7094");
     });
 builder.Services.AddHttpClient<ILejerService, LejerServiceProxy>
     (client =>
     {
         client.BaseAddress =
-            new Uri("https://localhost:7094");
+            new Uri("http://localhost:7094");
    });
 builder.Services.AddHttpClient<IServiceBookingLejer, BookingLejerServiceProxy>
     (client =>
     {
         client.BaseAddress =
-            new Uri("https://localhost:7094");
+            new Uri("http://localhost:7094");
     });
 
 

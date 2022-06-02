@@ -18,7 +18,7 @@ namespace UnikPedel.Application.Implementation
         }
         async Task ITidRegistreringCommand.CreateTidRegistreringAsyc(TidRegistreringCommandDto tidRegistreringDto)
         {
-            var tidRegistrering  = new UnikPedel.Domain.Entities.TidRegistering(tidRegistreringDto.AntalTimer,tidRegistreringDto.ViceværtId , tidRegistreringDto.RekvisitionId );
+            var tidRegistrering  = new UnikPedel.Domain.Entities.TidRegistering(tidRegistreringDto.AntalTimer,tidRegistreringDto.VicevaertId , tidRegistreringDto.RekvisitionId );
             await _repository.AddRegistreringAsync(tidRegistrering);
         }
 
@@ -31,7 +31,7 @@ namespace UnikPedel.Application.Implementation
         async Task ITidRegistreringCommand.EditRegistreringAsync(TidRegistreringCommandDto tidRegistreringDto)
         {
             var tidRegistrering = await _repository.GetTidRegistreringAsync(tidRegistreringDto.Id);
-            tidRegistrering.Update( tidRegistreringDto.RegisterDato,tidRegistreringDto.AntalTimer, tidRegistreringDto.ViceværtId, tidRegistreringDto.RekvisitionId);
+            tidRegistrering.Update( tidRegistreringDto.RegisterDato,tidRegistreringDto.AntalTimer, tidRegistreringDto.VicevaertId, tidRegistreringDto.RekvisitionId);
             await _repository.SaveTidRegistreringAsync(tidRegistrering);
         }
     }

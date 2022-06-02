@@ -1,0 +1,8 @@
+version: '3'
+services:
+  api:
+    image: ks5327/unikapi
+  web:
+    image: ks5327/unikweb
+    ports:
+      - "80:80"

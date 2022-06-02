@@ -19,7 +19,7 @@ namespace UnikPedel.Infrastructure.Database.ModelConfigurations
             entity.Property(b => b.Id).HasColumnName("Id");
             entity.Property(c => c.AntalTimer).HasColumnName("AntalTimer").IsRequired();
             entity.Property(b => b.RegisterDato).HasColumnName("RegisterDato").IsRequired();
-            entity.HasOne(a => a.Vicevært).WithMany(d => d.TidRegistrering).OnDelete(DeleteBehavior.ClientCascade).HasForeignKey(j => j.ViceværtId);
+            entity.HasOne(a => a.Vicevaert).WithMany(d => d.TidRegistrering).OnDelete(DeleteBehavior.ClientCascade).HasForeignKey(j => j.VicevaertId);
             entity.HasOne(a => a.Rekvisition).WithMany(d => d.TidRegistering).OnDelete(DeleteBehavior.Cascade).HasForeignKey(j => j.RekvisitionId);
         }
     }

@@ -13,8 +13,8 @@ namespace UnikPedel.Domain.Entities
 
         public double AntalTimer { get; set; }
 
-        public int ViceværtId { get; set; }
-        public Vicevært? Vicevært { get; set; }
+        public int VicevaertId { get; set; }
+        public Vicevaert? Vicevaert { get; set; }
         public int RekvisitionId { get; set; }
         public Rekvisition? Rekvisition { get; set; }
 
@@ -23,11 +23,11 @@ namespace UnikPedel.Domain.Entities
         {
 
         }
-        public TidRegistering(double AntalTimer,int ViceværtId,int RekvisitionId)
+        public TidRegistering(double AntalTimer,int VicevaertId,int RekvisitionId)
         {
             this.RegisterDato = DateTime.Now;
             this.AntalTimer = AntalTimer;
-            this.ViceværtId = ViceværtId;
+            this.VicevaertId = VicevaertId;
             this.RekvisitionId = RekvisitionId;
         }
         //public void RegistrerTid(double ekstraTid)
@@ -35,11 +35,11 @@ namespace UnikPedel.Domain.Entities
         //    RegisterDato = DateTime.Now;
         //    AntalTimer = +ekstraTid;
         //}
-        public void Update( DateTime registerDato, double AntalTimer, int ViceværtId, int RekvisitionId)
+        public void Update( DateTime registerDato, double AntalTimer, int VicevaertId, int RekvisitionId)
         {
            this.RegisterDato=registerDato;
             this.AntalTimer = AntalTimer;
-            this.ViceværtId = ViceværtId;
+            this.VicevaertId = VicevaertId;
             this.RekvisitionId = RekvisitionId;
         }
     }

@@ -57,7 +57,7 @@ namespace UnikPedel.Domain.Test.BookingTest
             booking._serviceProvider = _serviceProvider;
 
             // Act
-            Action action = () => booking.Update(default, booking.SlutTid,booking.LejemålId);
+            Action action = () => booking.Update(default, booking.SlutTid,booking.LejemaalId);
 
             //Assert
             var caughtException = Assert.Throws<ArgumentOutOfRangeException>(action);
@@ -73,7 +73,7 @@ namespace UnikPedel.Domain.Test.BookingTest
             booking._serviceProvider = _serviceProvider;
 
             // Act
-            Action action = () => booking.Update(booking.StartTid, default,booking.LejemålId);
+            Action action = () => booking.Update(booking.StartTid, default,booking.LejemaalId);
 
             //Assert
             var caughtException = Assert.Throws<ArgumentOutOfRangeException>(action);

@@ -21,7 +21,7 @@ namespace UnikPedel.Application.Implementation
 
         async Task ILejerCommand.CreateLejerAsync(LejerCreateCommandDto lejerDto)
         {
-            var lejer = new Domain.Entities.Lejer(lejerDto.ForNavn, lejerDto.MellemNavn, lejerDto.EfterNavn, lejerDto.Email, lejerDto.Telefon, lejerDto.IndDato, lejerDto.UdDato, lejerDto.LejemålId);
+            var lejer = new Domain.Entities.Lejer(lejerDto.ForNavn, lejerDto.MellemNavn, lejerDto.EfterNavn, lejerDto.Email, lejerDto.Telefon, lejerDto.IndDato, lejerDto.UdDato, lejerDto.LejemaalId);
             await _repository.AddLejerAsync(lejer);
         }
 
@@ -33,7 +33,7 @@ namespace UnikPedel.Application.Implementation
         async Task ILejerCommand.EditLejerAsync(LejerCommandDto lejerDto)
         {
             var lejer = await _repository.GetLejerAsync(lejerDto.Id);
-            lejer.Update(lejerDto.ForNavn, lejerDto.MellemNavn, lejerDto.EfterNavn, lejerDto.Email, lejerDto.Telefon, lejerDto.IndDato, lejerDto.UdDato, lejerDto.LejemålId);
+            lejer.Update(lejerDto.ForNavn, lejerDto.MellemNavn, lejerDto.EfterNavn, lejerDto.Email, lejerDto.Telefon, lejerDto.IndDato, lejerDto.UdDato, lejerDto.LejemaalId);
             await _repository.SaveLejerAsync(lejer);
         }
     }

@@ -16,7 +16,7 @@ namespace UnikPedel.Application.LejerContract.Dtos
         public int Telefon { get; set; }
         public DateTime IndDato { get; init; }
         public DateTime? UdDato { get; init; }
-        public int LejemålId { get; set; }
+        public int LejemaalId { get; set; }
     }
 
     public class LejerCreateCommandDto
@@ -28,6 +28,6 @@ namespace UnikPedel.Application.LejerContract.Dtos
         public int Telefon { get; set; }
         public DateTime IndDato { get; init; }
         public DateTime? UdDato { get; init; }
-        public int LejemålId { get; set; }
+        public int LejemaalId { get; set; }
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnikPedel.Contract.IServiceEjendom.EjendomDtos;
-using UnikPedel.Contract.ViceværtDtos;
+using UnikPedel.Contract.VicevaertDtos;
 
 namespace UnikPedel.Contract.IServiceRekvisition.RekvisitionDtos
 {
@@ -18,7 +18,7 @@ namespace UnikPedel.Contract.IServiceRekvisition.RekvisitionDtos
         public string Beskrivelse { get; set; }
 
         
-        public int ViceværtId { get; set; }
+        public int VicevaertId { get; set; }
         //public ViceværtDto Vicevært { get; set; }
 
         public int LejerId { get; set; }
@@ -38,7 +38,7 @@ namespace UnikPedel.Contract.IServiceRekvisition.RekvisitionDtos
 
 
         
-        public int ViceværtId { get; set; }
+        public int VicevaertId { get; set; }
         //public ViceværtDto Vicevært { get; set; }
 
         public int LejerId { get; set; }

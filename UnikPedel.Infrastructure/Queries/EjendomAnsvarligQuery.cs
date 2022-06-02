@@ -28,7 +28,7 @@ namespace UnikPedel.Infrastructure.Queries
             return new EjendomsAnsvarligQueryDto
             {
                 Id = dbEjendomAnsvarlig.Id,
-                ViceværtId = dbEjendomAnsvarlig.ViceværtId,
+                VicevaertId = dbEjendomAnsvarlig.VicevaertId,
                // Vicevært = dbEjendomAnsvarlig.Vicevært,
                 EjendomId = dbEjendomAnsvarlig.EjendomId,
                // Ejendom= dbEjendomAnsvarlig.Ejendom
@@ -44,7 +44,7 @@ namespace UnikPedel.Infrastructure.Queries
             dbEjendomAnsvarlig.ForEach(a => result.Add(new EjendomsAnsvarligQueryDto
             {
                 Id = a.Id,
-                ViceværtId = a.ViceværtId,
+                VicevaertId = a.VicevaertId,
                 //Vicevært = a.Vicevært,
                 EjendomId = a.EjendomId,
                 //Ejendom = a.Ejendom

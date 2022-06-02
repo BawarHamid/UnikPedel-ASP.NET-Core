@@ -20,7 +20,7 @@ public class BookingCommand : IBookingCommand
 
     async Task IBookingCommand.CreateAsync(BookingCommandDto bookingDto)
     {
-        var booking = new UnikPedel.Domain.Entities.Booking(_serviceProvider, bookingDto.StartTid, bookingDto.SlutTid,bookingDto.LejerId,bookingDto.LejemålId);
+        var booking = new UnikPedel.Domain.Entities.Booking(_serviceProvider, bookingDto.StartTid, bookingDto.SlutTid,bookingDto.LejerId,bookingDto.LejemaalId);
         await _repository.AddAsync(booking);
     }
 
@@ -33,7 +33,7 @@ public class BookingCommand : IBookingCommand
     {
         var booking = await _repository.GetAsync(bookingDto.Id);
       booking._serviceProvider = _serviceProvider;
-        booking.Update(bookingDto.StartTid, bookingDto.SlutTid,booking.LejemålId);
+        booking.Update(bookingDto.StartTid, bookingDto.SlutTid,booking.LejemaalId);
         await _repository.SaveAsync(booking);
     }
 }

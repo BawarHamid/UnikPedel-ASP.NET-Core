@@ -1,0 +1,46 @@
+﻿@page
+@model UnikPedel.Web.Pages.Vicevaert.SletModel
+@{
+}
+
+<div class="container-fluid">
+    <br />
+<h3>Slet vicevært permanent:</h3>
+<br />
+    <div class="border container" style="padding: 10px">
+          <form class="row g-3" method="post">
+                <input type="hidden" asp-for="Vicevaert.Id" />
+            <div class="col-md-20">
+                <label asp-for="Vicevaert.Id" class="control-label"></label>
+                <input asp-for="Vicevaert.Id" disabled="disabled" class="form-control"/>
+                <span asp-validation-for="Vicevaert.Id" class="text-danger"></span>
+           </div>
+            <div class="col-md-20">
+                <label asp-for="Vicevaert.ForNavn" class="control-label"></label>
+                <input asp-for="Vicevaert.ForNavn" disabled="disabled" class="form-control"/>
+                <span asp-validation-for="Vicevaert.ForNavn" class="text-danger"></span>
+            </div>
+            <div class="col-md-20">
+                <label asp-for="Vicevaert.EfterNavn" class="control-label"></label>
+                <input asp-for="Vicevaert.EfterNavn" disabled="disabled" class="form-control"/>
+                <span asp-validation-for="Vicevaert.EfterNavn" class="text-danger"></span>
+            </div>
+            <div class="col-md-20">
+                <label asp-for="Vicevaert.Telefon" class="control-label"></label>
+                <input asp-for="Vicevaert.Telefon" disabled="disabled" class="form-control"/>
+                <span asp-validation-for="Vicevaert.Telefon" class="text-danger"></span>
+            </div>
+            <div class="col-md-20">
+                <label asp-for="Vicevaert.Email" class="control-label"></label>
+                <input asp-for="Vicevaert.Email" disabled="disabled" class="form-control"/>
+                <span asp-validation-for="Vicevaert.Email" class="text-danger"></span>
+            </div>
+                 <div class="col-md-11">
+                 @*<input type="submit" value="Slet Vicevært" class="btn btn-primary"/>*@
+                  <input type="submit" value="Delete Employee"  class="btn btn-outline-danger"/>
+                   @*<a asp-page="/Admin/Medarbejder">Tilbage</a>*@
+                   <a class="btn btn-primary" asp-page="/Admin/Medarbejder">Tilbage</a>
+                 </div>
+        </form>
+        </div>
+</div>

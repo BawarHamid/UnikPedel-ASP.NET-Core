@@ -18,7 +18,7 @@ namespace UnikPedel.Application.Implementation
         }
         public async Task CreateAsync(EjendomsAnsvarligCommandDto ejendomsAnsvarlignDto)
         {
-           var ejendomAnsvarlig = new Domain.Entities.EjendomsAnsvarlig(ejendomsAnsvarlignDto.ViceværtId, ejendomsAnsvarlignDto.EjendomId);
+           var ejendomAnsvarlig = new Domain.Entities.EjendomsAnsvarlig(ejendomsAnsvarlignDto.VicevaertId, ejendomsAnsvarlignDto.EjendomId);
             await _repository.AddAsync(ejendomAnsvarlig);
         }
 
@@ -31,7 +31,7 @@ namespace UnikPedel.Application.Implementation
         {
             var rekvisition = await _repository.GetAsync(ejendomsAnsvarlignDto.Id);
 
-            rekvisition.Update(ejendomsAnsvarlignDto.ViceværtId, ejendomsAnsvarlignDto.EjendomId); ;
+            rekvisition.Update(ejendomsAnsvarlignDto.VicevaertId, ejendomsAnsvarlignDto.EjendomId); ;
 
             await _repository.SaveAsync(rekvisition);
         }

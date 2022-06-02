@@ -1,0 +1,48 @@
+﻿@page
+@model UnikPedel.Web.Pages.Vicevaert.EditModel
+@{
+}
+
+<div class="container-fluid">
+    <br />
+<h3>Ændre kontaktoplysninger:</h3>
+<br />
+    <div class="border container" style="padding: 30px">
+          <form class="row g-3" method="post">
+               <input type="hidden" asp-for="Vicevaert.Id" />
+            <div class="col-md-6">
+                <label asp-for="Vicevaert.Id" class="control-label"></label>
+                <input asp-for="Vicevaert.Id" disabled="disabled" class="form-control"/>
+                <span asp-validation-for="Vicevaert.Id" class="text-danger"></span>
+            </div> 
+            <div class="col-md-6">
+                <label asp-for="Vicevaert.ForNavn" class="control-label"></label>
+                <input asp-for="Vicevaert.ForNavn" class="form-control"/>
+                <span asp-validation-for="Vicevaert.ForNavn" class="text-danger"></span>
+            </div>
+            <div class="col-md-6">
+                <label asp-for="Vicevaert.EfterNavn" class="control-label"></label>
+                <input asp-for="Vicevaert.EfterNavn" class="form-control"/>
+                <span asp-validation-for="Vicevaert.EfterNavn" class="text-danger"></span>
+            </div>
+            <div class="col-md-6">
+                <label asp-for="Vicevaert.Telefon" class="control-label"></label>
+                <input asp-for="Vicevaert.Telefon" class="form-control"/>
+                <span asp-validation-for="Vicevaert.Telefon" class="text-danger"></span>
+            </div>
+            <div class="col-md-6">
+                <label asp-for="Vicevaert.Email" class="control-label"></label>
+                <input asp-for="Vicevaert.Email" class="form-control"/>
+                <span asp-validation-for="Vicevaert.Email" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                  <label for="formFile" class="form-label">Tilføj billeder</label>
+                  <input class="form-control" type="file" id="formFile">
+            </div>         
+                 <div class="col-md-6">
+                 <input type="submit" value="Update Employee" class="btn btn-outline-warning"/>
+                     <a asp-page="/Admin/Medarbejder">Tilbage</a>
+                 </div>
+        </form>
+        </div>
+</div>

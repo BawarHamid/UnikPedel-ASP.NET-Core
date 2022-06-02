@@ -22,8 +22,8 @@ namespace UnikPedel.Domain.Entities
         public int LejerId { get; set; }
         public Lejer Lejer { get; set; }
 
-        public int LejemålId { get; set; }
-        public Lejemål Lejemål { get; set; }
+        public int LejemaalId { get; set; }
+        public Lejemaal Lejemaal { get; set; }
 
 
         [Timestamp]
@@ -31,13 +31,13 @@ namespace UnikPedel.Domain.Entities
 
 
         //  TEST ONLY!!!
-        public Booking(int id, DateTime startTid, DateTime slutTid,int lejemålId, int lejerId)
+        public Booking(int id, DateTime startTid, DateTime slutTid,int lejemaalId, int lejerId)
         {
             Id = id;
             StartTid = startTid;
             SlutTid = slutTid;
             LejerId = lejerId;
-            LejemålId = lejemålId;
+            LejemaalId = lejemaalId;
         }
 
         //for ef
@@ -46,7 +46,7 @@ namespace UnikPedel.Domain.Entities
 
         }
 
-        public Booking(IServiceProvider serviceProvider, DateTime startTid, DateTime slutTid, int lejerId, int lejemålId)
+        public Booking(IServiceProvider serviceProvider, DateTime startTid, DateTime slutTid, int lejerId, int lejemaalId)
         {
             if (startTid == default) throw new ArgumentOutOfRangeException(nameof(startTid), "Start dato skal være udfyldt");
             if (slutTid == default) throw new ArgumentOutOfRangeException(nameof(slutTid), "Slut dato skal være udfyldt");
@@ -55,7 +55,7 @@ namespace UnikPedel.Domain.Entities
             StartTid = startTid;
             SlutTid = slutTid;
             LejerId = lejerId;
-            LejemålId = lejemålId;
+            LejemaalId = lejemaalId;
             _serviceProvider = serviceProvider;
 
             if (IsOverlapping()) throw new Exception("Booking overlapper med eksisterende booking");
@@ -71,10 +71,10 @@ namespace UnikPedel.Domain.Entities
 
             return bookingDomainService.GetExsistingBookings()
 
-                .Any(a => a.Id != Id && a.StartTid <= SlutTid && StartTid <= a.SlutTid && a.LejemålId == LejemålId);
+                .Any(a => a.Id != Id && a.StartTid <= SlutTid && StartTid <= a.SlutTid && a.LejemaalId == LejemaalId);
         }
 
-        public void Update(DateTime startTid, DateTime slutTid, int lejemålId)
+        public void Update(DateTime startTid, DateTime slutTid, int lejemaalId)
         {
             if (startTid == default) throw new ArgumentOutOfRangeException(nameof(startTid), "Start dato skal være udfyldt");
             if (slutTid == default) throw new ArgumentOutOfRangeException(nameof(slutTid), "Slut dato skal være udfyldt");
@@ -82,7 +82,7 @@ namespace UnikPedel.Domain.Entities
                 throw new Exception($"Slut dato/tid skal være senere end start (start, slut): {startTid}, {slutTid}");
             StartTid = startTid;
             SlutTid = slutTid;
-            LejemålId = lejemålId;
+            LejemaalId = lejemaalId;
             if (IsOverlapping()) throw new Exception("Booking overlapper med eksisterende booking");
         }
     }

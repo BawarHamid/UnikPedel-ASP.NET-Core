@@ -38,9 +38,9 @@ namespace UnikPedel.Infrastructure.Database.ModelConfigurations
             entity.Property(a => a.UdDato)
            .HasColumnName("UdDato");
 
-            entity.HasOne(c => c.Lejemål)
+            entity.HasOne(c => c.Lejemaal)
                 .WithOne(d => d.Lejer)
-                .HasForeignKey<Domain.Entities.Lejer>(x => x.LejemålId)
+                .HasForeignKey<Domain.Entities.Lejer>(x => x.LejemaalId)
                 .OnDelete(DeleteBehavior.NoAction);
         }
     }

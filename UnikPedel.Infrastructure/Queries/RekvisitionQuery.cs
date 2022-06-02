@@ -28,7 +28,7 @@ namespace UnikPedel.Infrastructure.Querries
                 TimeCreated = result.TimeCreated, 
                 Beskrivelse = result.Beskrivelse,
                 Status = result.Status, 
-               ViceværtId=result.ViceværtId,
+               VicevaertId=result.VicevaertId,
                LejerId= result.LejerId,
                EjendomId=result.EjendomId,
             };
@@ -45,8 +45,7 @@ namespace UnikPedel.Infrastructure.Querries
                 TimeCreated=a.TimeCreated,
                 Beskrivelse = a.Beskrivelse,
                 Status = a.Status,
-              
-                ViceværtId = a.ViceværtId,
+                VicevaertId = a.VicevaertId,
                 LejerId = a.LejerId,
                 EjendomId = a.EjendomId
             }));

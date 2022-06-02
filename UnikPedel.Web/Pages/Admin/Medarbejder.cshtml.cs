@@ -2,23 +2,23 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-using UnikPedel.Contract.IServiceVicevært;
-using UnikPedel.Contract.ViceværtDtos;
+using UnikPedel.Contract.IServiceVicevaert;
+using UnikPedel.Contract.VicevaertDtos;
 using UnikPedel.Web.Policies;
 
 namespace UnikPedel.Web.Pages.Admin
 {
     public class MedarbejderModel : PageModel
     {
-        private readonly IViceværtService _viceværtService;
+        private readonly IVicevaertService _vicevaertService;
         private readonly IAuthorizationService _authService;
-        public MedarbejderModel(IViceværtService viceværtService, IAuthorizationService authService)
+        public MedarbejderModel(IVicevaertService vicevaertService, IAuthorizationService authService)
         {
-            _viceværtService = viceværtService;
+            _vicevaertService = vicevaertService;
             _authService = authService; 
         }
 
-        [BindProperty] public IEnumerable<MedarbejderGetAllModel> Viceværter { get; set; } = Enumerable.Empty<MedarbejderGetAllModel>();
+        [BindProperty] public IEnumerable<MedarbejderGetAllModel> Vicevaerter { get; set; } = Enumerable.Empty<MedarbejderGetAllModel>();
 
         public async Task<IActionResult> OnGetAsync()
         {
@@ -31,10 +31,10 @@ namespace UnikPedel.Web.Pages.Admin
             if (!ModelState.IsValid) return Page();
             try
             {
-                var viceværter = new List<MedarbejderGetAllModel>();
-                var dbViceværter = await _viceværtService.GetViceværterAsync();
-                dbViceværter.ToList().ForEach(v => viceværter.Add(new MedarbejderGetAllModel(v)));
-                Viceværter = viceværter;
+                var vicevaerter = new List<MedarbejderGetAllModel>();
+                var dbVicevaerter = await _vicevaertService.GetVicevaerterAsync();
+                dbVicevaerter.ToList().ForEach(v => vicevaerter.Add(new MedarbejderGetAllModel(v)));
+                Vicevaerter = vicevaerter;
             }
             catch (Exception e)
             {
@@ -47,13 +47,13 @@ namespace UnikPedel.Web.Pages.Admin
 
         public class MedarbejderGetAllModel
         {
-            public MedarbejderGetAllModel(ViceværtDto vicevært)
+            public MedarbejderGetAllModel(VicevaertDto vicevaert)
             {
-                Id = vicevært.Id;
-                ForNavn = vicevært.ForNavn;
-                EfterNavn = vicevært.EfterNavn;
-                Telefon = vicevært.Telefon;
-                Email = vicevært.Email;
+                Id = vicevaert.Id;
+                ForNavn = vicevaert.ForNavn;
+                EfterNavn = vicevaert.EfterNavn;
+                Telefon = vicevaert.Telefon;
+                Email = vicevaert.Email;
             }
 
             public int Id { get; set; }

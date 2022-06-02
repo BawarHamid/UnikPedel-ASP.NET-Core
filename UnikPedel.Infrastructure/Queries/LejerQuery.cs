@@ -34,7 +34,7 @@ namespace UnikPedel.Infrastructure.Queries
                 Telefon = result.Telefon,
                 IndDato = result.IndDato,
                 UdDato = result.UdDato,
-                LejemålId = result.LejemålId
+                LejemaalId = result.LejemaalId
             };
         }
 
@@ -52,7 +52,7 @@ namespace UnikPedel.Infrastructure.Queries
                 Telefon = Lejer.Telefon,
                 IndDato = Lejer.IndDato,
                 UdDato = Lejer.UdDato,
-                LejemålId = Lejer.LejemålId
+                LejemaalId = Lejer.LejemaalId
             }));
             return result;
         }

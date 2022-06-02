@@ -40,7 +40,7 @@ namespace UnikPedel.Web.Pages.TidRegistreringP
             Id = tidRegistrering.Id;
             RegistreringDato = tidRegistrering.RegisterDato;
             AntalTimer = tidRegistrering.AntalTimer;
-            viceværtID = tidRegistrering.ViceværtId;
+            vicevaertID = tidRegistrering.VicevaertId;
             rekvisitionId = tidRegistrering.RekvisitionId;
         }
         public TidRegsitreringEditModel()
@@ -50,7 +50,7 @@ namespace UnikPedel.Web.Pages.TidRegistreringP
         public int Id { get; set; }
         [DisplayName("Antal Timer ")] public double AntalTimer { get; set; }
 
-        [DisplayName("Vicevært Id")] public int viceværtID { get; set; }
+        [DisplayName("Vicevært Id")] public int vicevaertID { get; set; }
         [DisplayName("Rekvisition Id")] public int rekvisitionId { get; set; }
         [DisplayName("Registrering Dato")] public DateTime RegistreringDato { get; set; } = DateTime.Now;
 
@@ -61,7 +61,7 @@ namespace UnikPedel.Web.Pages.TidRegistreringP
                 Id = Id,
                 AntalTimer = AntalTimer,
                 RegisterDato = RegistreringDato,
-                ViceværtId = viceværtID,
+                VicevaertId = vicevaertID,
                 RekvisitionId = rekvisitionId
             };
         }
