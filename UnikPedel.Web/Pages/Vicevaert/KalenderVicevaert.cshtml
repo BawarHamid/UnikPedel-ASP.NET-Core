@@ -1,0 +1,147 @@
+﻿@page
+@model UnikPedel.Web.Pages.Vicevaert.KalenderViceværtModel
+@{
+}
+
+<div class="d-flex justify-content-end mt-5">
+    <a class="btn btn-primary" asp-page="/Rekvisitioner/Opret">Opret ny rekvisition</a>
+</div>
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Alle rekvisitioner</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false" asp-page="/Vicevært/RekvisitionererVicevært/Index">Nye opgaver</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Min Service</button>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+      <table class="table table-striped mt-3">
+            <thead>
+            <tr>
+                <th>
+                    <label asp-for="Rekvisitioner.First().Id"></label>
+                </th>
+                <th>
+                    <label asp-for="Rekvisitioner.First().Beskrivelse"></label>
+                </th>
+               <th>
+                    <label asp-for="Rekvisitioner.First().Status"></label>
+                </th>
+                <th>
+                    <label asp-for="Rekvisitioner.First().VicevaertId"></label>
+                </th>
+                <th>
+                    <label asp-for="Rekvisitioner.First().LejerId"></label>
+                </th>
+                <th>
+                    <label asp-for="Rekvisitioner.First().EjendomId"></label>
+                </th>
+                <th>
+                    <label>Tidsregistrering</label>
+                </th>
+                <th>
+                    <label>Edit</label>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.Rekvisitioner)
+            {
+                <tr>
+                    <td>
+                        @item.Id
+                    </td>
+                    <td>
+                        @item.Beskrivelse
+                    </td>
+                    <td>
+                        @item.Status
+                    </td>
+                    <td>
+                        @item.VicevaertId
+                    </td>
+                    <td>
+                        @item.LejerId
+                    </td>
+                    <td>
+                        @item.EjendomId
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" asp-page="/TidRegistreringP/Create">registrer timer</a>
+                    </td>
+                    <td>
+                        <a asp-page="/Rekvisitioner/Edit" class="btn btn-light" asp-route-id="@item.Id">Rediger</a> |
+                        <a asp-page="/Rekvisitioner/Slet" class="btn btn-danger" asp-route-id="@item.Id">Slet</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+  </div>
+      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <div class="container mt-5 pt-5">
+
+                <table class="table">
+            <thead>
+            <tr>
+                <th>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.Rekvisitioner)
+            {
+                <tr>
+                    <td>
+                        <div class="col-6">
+                              <div class="card btn">    
+                                    <ul class="list-group list-group-numbered mt-0 mb-5">
+                                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                                            <div class="container d-flex justify-content-between mt-2">
+                                                  <h5>#ID @item.Id</h5>
+                                                  <h5 class="card-subtitle text-muted">@item.Status</h5>
+                                              </div>>
+                                          </li>
+
+                                          <li class="list-group-item d-flex justify-content-between align-items-start">
+                                            <div class="ms-2 me-auto">
+                                                <p class="d-flex justify-content-center">Rekvisition beskrivelse</p>
+                                              <h6 class="card-title">@item.Beskrivelse</h6>
+                                            </div>
+                                          </li>
+                                          <li class="list-group-item d-flex justify-content-between align-items-start">
+                                            <div class="ms-2 me-auto">
+                                              <div class="fw-bold">ViceværtID @item.VicevaertId</div>
+                                            </div>
+                                          </li>
+                                          <li class="list-group-item d-flex justify-content-between align-items-start">
+                                            <div class="ms-2 me-auto">
+                                              <div class="fw-bold">LejerID @item.LejerId</div>
+                                            </div>
+                                          </li>
+                                          <li class="list-group-item d-flex justify-content-between align-items-start">
+                                            <div class="ms-2 me-auto">
+                                              <div class="fw-bold">EjendomID @item.EjendomId</div>
+                                            </div>
+                                          </li>
+                                        </ul>
+                                        <div class="container d-flex justify-content-center">
+                                            <a asp-page="/Vicevært/Edit"  class="card-link btn btn-primary mb-2" asp-route-id="@item.Id">Accepter</a> |
+                                            <a asp-page="/Vicevært/Slet" class="card-link btn btn-danger mb-2" asp-route-id="@item.Id">Afvis</a>
+                                        </div>
+                                </div>
+                                 </div>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+        </div>
+        </div>
+            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab"><h4>Test3</h4></div>
+       </div>

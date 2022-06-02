@@ -14,8 +14,8 @@ namespace UnikPedel.Domain.Entities
         //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         //public Guid Id { get; private set; }
 
-        public int ViceværtId { get; set; }
-        public Vicevært Vicevært { get; set; }
+        public int VicevaertId { get; set; }
+        public Vicevaert Vicevaert { get; set; }
 
         public int EjendomId { get; set; }
         public Ejendom Ejendom { get;  set; }
@@ -26,17 +26,17 @@ namespace UnikPedel.Domain.Entities
 
         }
 
-        public EjendomsAnsvarlig( int ViceværtId , int EjendomId)
+        public EjendomsAnsvarlig( int VicevaertId , int EjendomId)
         {
             this.EjendomId = EjendomId;
-            this.ViceværtId = ViceværtId;
+            this.VicevaertId = VicevaertId;
 
         }
 
-        public void Update(int ViceværtId, int EjendomId)
+        public void Update(int VicevaertId, int EjendomId)
         {
             this.EjendomId = EjendomId;
-            this.ViceværtId = ViceværtId;
+            this.VicevaertId = VicevaertId;
             
         }
        

@@ -21,7 +21,7 @@ namespace UnikPedel.Application.RekvisitionImpimentation
 
         async Task IRekvisitionCommand.CreateAsync(RekvisitionCommandDto rekvisitionDto)
         {
-            var rekvisition = new Rekvisition(rekvisitionDto.Type, rekvisitionDto.Status, rekvisitionDto.Beskrivelse, rekvisitionDto.ViceværtId, rekvisitionDto.LejerId, rekvisitionDto.EjendomId);
+            var rekvisition = new Rekvisition(rekvisitionDto.Type, rekvisitionDto.Status, rekvisitionDto.Beskrivelse, rekvisitionDto.VicevaertId, rekvisitionDto.LejerId, rekvisitionDto.EjendomId);
             await _repository.AddAsync(rekvisition);
         }   
 
@@ -34,7 +34,7 @@ namespace UnikPedel.Application.RekvisitionImpimentation
         {
             var rekvisition = await _repository.GetAsync(rekvisitionDto.Id);
 
-            rekvisition.Update(rekvisitionDto.Type, rekvisitionDto.Status, rekvisitionDto.Beskrivelse, rekvisitionDto.ViceværtId, rekvisitionDto.LejerId, rekvisitionDto.EjendomId);
+            rekvisition.Update(rekvisitionDto.Type, rekvisitionDto.Status, rekvisitionDto.Beskrivelse, rekvisitionDto.VicevaertId, rekvisitionDto.LejerId, rekvisitionDto.EjendomId);
 
             await _repository.SaveAsync(rekvisition);
         }

@@ -26,10 +26,10 @@ namespace UnikPedel.Domain.Entities
 
         public IEnumerable<Rekvisition> Rekvisitioner { get; set; }
         public IEnumerable<Booking> Bookings { get; set; }
-        public int LejemålId { get; set; }
-        public Lejemål Lejemål { get; set; }
+        public int LejemaalId { get; set; }
+        public Lejemaal Lejemaal { get; set; }
 
-        public Lejer(string forNavn, string mellemNavn, string efterNavn, string email, int telefon, DateTime indDato, DateTime? udDato, int lejemålId)
+        public Lejer(string forNavn, string mellemNavn, string efterNavn, string email, int telefon, DateTime indDato, DateTime? udDato, int lejemaalId)
         {
             ForNavn = forNavn;
             MellemNavn = mellemNavn;
@@ -38,10 +38,10 @@ namespace UnikPedel.Domain.Entities
             Telefon = telefon;
             IndDato = indDato;
             UdDato = udDato;
-            LejemålId = lejemålId;
+            LejemaalId = lejemaalId;
         }
 
-        public void Update(string forNavn, string mellemNavn, string efterNavn, string email, int telefon, DateTime indDato, DateTime? udDato, int lejemålId)
+        public void Update(string forNavn, string mellemNavn, string efterNavn, string email, int telefon, DateTime indDato, DateTime? udDato, int lejemaalId)
         {
             ForNavn = forNavn;
             MellemNavn = mellemNavn;
@@ -50,7 +50,7 @@ namespace UnikPedel.Domain.Entities
             Telefon = telefon;
             indDato = IndDato;
             udDato = UdDato;
-            LejemålId = lejemålId;
+            LejemaalId = lejemaalId;
         }
     }
 }

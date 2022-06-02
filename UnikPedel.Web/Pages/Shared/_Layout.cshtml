@@ -30,15 +30,15 @@
                         </li>
 
                         @*hvis men er logget på kan man se følgende*@
-                        @if (signInManager.IsSignedIn(User) && User.HasClaim(UserClaimTypeEnum.IsVicevært, "")||User.HasClaim(UserClaimTypeEnum.IsAdmin, ""))
+                        @if (signInManager.IsSignedIn(User) && User.HasClaim(UserClaimTypeEnum.IsVicevaert, "")||User.HasClaim(UserClaimTypeEnum.IsAdmin, ""))
                         {
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle btn btn-outline-secondary me-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Vicevært
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" asp-page="/Vicevært/Index">Dashboard</a></li>
-                                    <li><a class="dropdown-item" asp-page="/Vicevært/KalenderVicevært">Kalender</a></li>
+                                    <li><a class="dropdown-item" asp-page="/Vicevaert/Index">Dashboard</a></li>
+                                    <li><a class="dropdown-item" asp-page="/Vicevaert/KalenderVicevaert">Kalender</a></li>
                                 </ul>
                             </li>
                         }

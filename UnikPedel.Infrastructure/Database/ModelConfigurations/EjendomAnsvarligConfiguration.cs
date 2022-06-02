@@ -16,9 +16,9 @@ namespace UnikPedel.Infrastructure.Database.ModelConfigurations
             entity.HasKey(x => x.Id);
             entity.Property(a => a.Id).HasColumnName("Id").ValueGeneratedOnAdd();
 
-            entity.HasOne(x => x.Vicevært)
+            entity.HasOne(x => x.Vicevaert)
                   .WithMany(x => x.EjendomsAnsvarlig)
-                  .HasForeignKey(x => x.ViceværtId)
+                  .HasForeignKey(x => x.VicevaertId)
                 .OnDelete(DeleteBehavior.NoAction);
 
             entity.HasOne(x => x.Ejendom)

@@ -14,8 +14,8 @@ namespace UnikPedel.Application.TidRegistreringContract.TidRegistreringDto
 
         public double AntalTimer { get; set; }
 
-        public int ViceværtId { get; set; }
-        public Vicevært Vicevært { get; set; }
+        public int VicevaertId { get; set; }
+        public Vicevaert Vicevaert { get; set; }
         public int RekvisitionId { get; set; }
         public Rekvisition Rekvisition { get; set; }
     }

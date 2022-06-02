@@ -31,7 +31,7 @@ namespace UnikPedel.Web.Pages.Kalender
             public string Type { get; set; }
             public string Beskrivelse { get; set; }
             public string Status  { get; set; }
-            public int ViceværtId { get; set; }
+            public int VicevaertId { get; set; }
             public int LejerId { get; set; }
             public int EjendomId { get; set; }
 
@@ -41,7 +41,7 @@ namespace UnikPedel.Web.Pages.Kalender
                 Type = rekvisition.Type;
                 Beskrivelse = rekvisition.Beskrivelse;
                 Status = rekvisition.Status;
-                ViceværtId = rekvisition.ViceværtId;
+                VicevaertId = rekvisition.VicevaertId;
                 LejerId = rekvisition.LejerId;
                 EjendomId = rekvisition.EjendomId;
 

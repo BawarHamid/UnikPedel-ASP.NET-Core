@@ -43,7 +43,7 @@ namespace UnikPedel.Web.Pages.Gæstelejligheder.Booking
 
         public int LejerId { get; set; }
 
-        public int LejemålId { get; set; }
+        public int LejemaalId { get; set; }
 
         public BookingDeletModel()
         {
@@ -55,7 +55,7 @@ namespace UnikPedel.Web.Pages.Gæstelejligheder.Booking
             StartTid = booking.StartTid;
             SlutTid = booking.SlutTid;
             LejerId = booking.LejerId;
-            LejemålId = booking.LejemålId;
+            LejemaalId = booking.LejemaalId;
         }
         public BookingDto GetBookingDto()
         {
@@ -64,7 +64,7 @@ namespace UnikPedel.Web.Pages.Gæstelejligheder.Booking
                 StartTid = StartTid,
                 SlutTid = SlutTid,
                 LejerId = LejerId,
-                LejemålId = LejemålId
+                LejemaalId = LejemaalId
             };
         }
 

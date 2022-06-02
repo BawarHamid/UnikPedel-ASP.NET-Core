@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel;
 using UnikPedel.Contract.IServiceTidRegistrering;
 using UnikPedel.Contract.IServiceTidRegistrering.TidRegistreringDtos;
-using UnikPedel.Contract.ViceværtDtos;
+using UnikPedel.Contract.VicevaertDtos;
 
 namespace UnikPedel.Web.Pages.TidRegsitrering
 {
@@ -32,12 +32,12 @@ namespace UnikPedel.Web.Pages.TidRegsitrering
        [DisplayName("Registrering Dato")] public DateTime RegistreringDato { get; set; } = DateTime.Now;
         [DisplayName("Antal Timer")]public double AntalTimer { get; set; }
 
-        [DisplayName("Vicevært Id")] public int  viceværtID { get; set; }
+        [DisplayName("Vicevært Id")] public int  vicevaertID { get; set; }
         [DisplayName("Rekvisition Id")] public int rekvisitionId { get; set; }
 
         public TidRegistreringCreateDto GetAsTidRegistreringCreateDto()
         {
-            return new TidRegistreringCreateDto {RegisterDato=RegistreringDato,AntalTimer=AntalTimer,ViceværtId=viceværtID,RekvisitionId=rekvisitionId };
+            return new TidRegistreringCreateDto {RegisterDato=RegistreringDato,AntalTimer=AntalTimer,VicevaertId=vicevaertID,RekvisitionId=rekvisitionId };
         }
 
     }

@@ -28,14 +28,14 @@ namespace UnikPedel.Web.Pages.TidRegistreringP
         [DisplayName("Registrering Dato")] public DateTime RegistreringDato { get; set; } = DateTime.Now;
         [DisplayName("Antal Timer")] public double AntalTimer { get; set; }
 
-        [DisplayName("Vicevært Id")] public int viceværtID { get; set; }
+        [DisplayName("Vicevært Id")] public int vicevaertID { get; set; }
         [DisplayName("Rekvisition Id")] public int rekvisitionId { get; set; }
       public TidRegistreringIndexModel(TidRegistreringDto registrering)
         {
             Id = registrering.Id;
             RegistreringDato = registrering.RegisterDato;
             AntalTimer = registrering.AntalTimer;
-            viceværtID = registrering.ViceværtId;
+            vicevaertID = registrering.VicevaertId;
             rekvisitionId = registrering.RekvisitionId;
         }
 

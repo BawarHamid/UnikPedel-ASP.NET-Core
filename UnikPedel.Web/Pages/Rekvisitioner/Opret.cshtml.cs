@@ -37,7 +37,7 @@ namespace UnikPedel.Web.Pages.Rekvisitioner
             public DateTime TimeCreated { get; set; }
             public string Status { get; set; }
             public string Beskrivelse { get; set; }
-            public int ViceværtId { get; set; }
+            public int VicevaertId { get; set; }
             public int LejerId { get; set; }
             public int EjendomId { get; set; }
 
@@ -49,7 +49,7 @@ namespace UnikPedel.Web.Pages.Rekvisitioner
                     TimeCreated = TimeCreated,
                     Status = Status,
                     Beskrivelse = Beskrivelse,
-                    ViceværtId = ViceværtId,
+                    VicevaertId = VicevaertId,
                     LejerId = LejerId,
                     EjendomId = EjendomId,
                 };

@@ -11,7 +11,7 @@ namespace UnikPedel.Application
         public string Status { get; set; }
         public string Beskrivelse { get; set; }
 
-        public int ViceværtId { get; set; }
+        public int VicevaertId { get; set; }
         public int LejerId { get; set; }
 
         public int EjendomId { get; set; }
@@ -31,7 +31,7 @@ namespace UnikPedel.Application
         public string Status { get; set; }
         public string Beskrivelse { get; set; }
 
-        public int ViceværtId { get; set; }
+        public int VicevaertId { get; set; }
         public int LejerId { get; set; }
 
         public int EjendomId { get; set; }

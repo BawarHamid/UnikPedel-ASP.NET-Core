@@ -43,7 +43,7 @@
                             <label asp-for="Bookinger.First().LejerId"></label>
                         </th>
                         <th>
-                            <label asp-for="Bookinger.First().LejemålId"></label>
+                            <label asp-for="Bookinger.First().LejemaalId"></label>
                         </th>
                         <th>
                             <label>Edit</label>
@@ -67,7 +67,7 @@
                                 @item.LejerId
                             </td>
                             <td>
-                                @item.LejemålId
+                                @item.LejemaalId
                             </td>
                             <td>
                                 <a asp-page="/Gæstelejligheder/Booking/Edit" class="btn btn-light" asp-route-id="@item.Id">Rediger</a> |
@@ -114,7 +114,7 @@
                                                 </li>
                                                 <li class="list-group-item d-flex justify-content-between align-items-start">
                                                     <div class="ms-2 me-auto">
-                                                        <div class="fw-bold">LejerID @item.LejemålId</div>
+                                                        <div class="fw-bold">LejerID @item.LejemaalId</div>
                                                     </div>
                                                 </li>
                                             </ul>

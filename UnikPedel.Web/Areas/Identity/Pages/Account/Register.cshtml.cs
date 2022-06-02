@@ -151,7 +151,7 @@ namespace WebApplication1.Areas.Identity.Pages.Account
                     //her man tjkeer hvis radio button value er vicevært så få useren Isvicevært claim
                     if (Role == "Vicevært")
                     {
-                        _userManager.AddClaimAsync(user, new Claim(UserClaimTypeEnum.IsVicevært, "")).Wait();
+                        _userManager.AddClaimAsync(user, new Claim(UserClaimTypeEnum.IsVicevaert, "")).Wait();
                     }
                     //her man tjkeer hvis radio button value er lejer så få useren Islejer claim
                     if (Role=="Lejer")
@@ -230,7 +230,7 @@ namespace WebApplication1.Areas.Identity.Pages.Account
                 Telefon = Telefon,
                 IndDato = IndDato,
                 UdDato = UdDato,
-                LejemålId=LejemålId
+                LejemaalId=LejemålId
 
             };
         }

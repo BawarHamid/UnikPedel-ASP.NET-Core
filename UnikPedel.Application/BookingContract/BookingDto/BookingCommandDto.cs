@@ -10,7 +10,7 @@ public class BookingCommandDto
 
     public int LejerId { get; set; }
 
-    public int LejemålId { get; set; }
+    public int LejemaalId { get; set; }
 
 
 }

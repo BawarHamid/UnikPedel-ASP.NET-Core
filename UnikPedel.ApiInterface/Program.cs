@@ -3,12 +3,12 @@ using System;
 using UnikPedel.ApiInterface.Mapper;
 using UnikPedel.Application;
 using UnikPedel.Application.BookingContract;
-using UnikPedel.Application.Contract.ViceværtInterface;
+using UnikPedel.Application.Contract.VicevaertInterface;
 using UnikPedel.Application.EjendomContract;
 using UnikPedel.Application.EjendomsAnsvarligContract;
 using UnikPedel.Application.Implementation;
 using UnikPedel.Application.Infrastructure;
-using UnikPedel.Application.LejemålContract;
+using UnikPedel.Application.LejemaalContract;
 using UnikPedel.Application.LejerContract;
 using UnikPedel.Application.RekvisitionIfrastructure;
 using UnikPedel.Application.RekvisitionImpimentation;
@@ -37,10 +37,10 @@ builder.Services.AddDbContext<UnikPedelContext>(options =>
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<IViceværtQuery, ViceværtQuery>();
-builder.Services.AddScoped<IViceværtCommand, ViceværtCommands>();
-builder.Services.AddScoped<IViceværtRepository, ViceværtRepository>();
-builder.Services.AddScoped<IViceværtDomainService,ViceværtDomainService>(); 
+builder.Services.AddScoped<IVicevaertQuery, VicevaertQuery>();
+builder.Services.AddScoped<IVicevaertCommand, VicevaertCommands>();
+builder.Services.AddScoped<IVicevaertRepository, VicevaertRepository>();
+builder.Services.AddScoped<IVicevaertDomainService,VicevaertDomainService>(); 
 
 builder.Services.AddScoped<IRekvisitionQuery, RekvisitionQuery>();
 builder.Services.AddScoped<IRekvisitionCommand, RekvisitionCommand>();
@@ -62,9 +62,9 @@ builder.Services.AddScoped<IBookingCommand, BookingCommand>();
 builder.Services.AddScoped<IBookingRepository, BookingRepository>();
 builder.Services.AddScoped<IBookingDomainService, BookingDomainService>();
 
-builder.Services.AddScoped<ILejemålQuery, LejemålQuery>();
-builder.Services.AddScoped<ILejemålCommand, LejemålCommand>();
-builder.Services.AddScoped<ILejemålRepository, LejemålRepository>();
+builder.Services.AddScoped<ILejemaalQuery, LejemaalQuery>();
+builder.Services.AddScoped<ILejemaalCommand, LejemaalCommand>();
+builder.Services.AddScoped<ILejemaalRepository, LejemaalRepository>();
 
 builder.Services.AddScoped<ILejerQuery, LejerQuery>();
 builder.Services.AddScoped<ILejerCommand, LejerCommands>();
@@ -77,7 +77,7 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 {
     app.UseSwagger();
     app.UseSwaggerUI();

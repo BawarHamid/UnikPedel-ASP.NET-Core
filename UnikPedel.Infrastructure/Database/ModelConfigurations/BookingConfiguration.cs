@@ -23,9 +23,9 @@ namespace UnikPedel.Infrastructure.Database.ModelConfigurations
                 .OnDelete(DeleteBehavior.NoAction);
             entity.Ignore(v => v._serviceProvider);
 
-            entity.HasOne(a => a.Lejemål)
+            entity.HasOne(a => a.Lejemaal)
                 .WithMany(d => d.Bookings)
-                .HasForeignKey(x => x.LejemålId)
+                .HasForeignKey(x => x.LejemaalId)
                 .OnDelete(DeleteBehavior.Cascade);
         }
     }

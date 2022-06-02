@@ -28,12 +28,12 @@ namespace UnikPedel.Web.Pages.Afdelinger
         public class EjendomAnsvarligGetAll
         {
             public int Id { get; set; }
-            public int ViceværtId { get; set; }
+            public int VicevaertId { get; set; }
             public int EjendomId { get; set; }
             public EjendomAnsvarligGetAll(EjendomAnsvarligDto ejendomAnsvarlig)
             {
                 Id = ejendomAnsvarlig.Id;
-                ViceværtId = ejendomAnsvarlig.ViceværtId;
+                VicevaertId = ejendomAnsvarlig.VicevaertId;
                 EjendomId = ejendomAnsvarlig.EjendomId;
 
             }

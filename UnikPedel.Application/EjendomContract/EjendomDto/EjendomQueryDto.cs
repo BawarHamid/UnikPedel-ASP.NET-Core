@@ -17,7 +17,7 @@ namespace UnikPedel.Application.EjendomContract.EjendomDto
         public string Region { get; set; }
         public int LandKode { get; set; }
 
-        public IEnumerable<Lejemål> Lejemål { get; set; }
+        public IEnumerable<Lejemaal> Lejemaal { get; set; }
         public IEnumerable<EjendomsAnsvarlig> EjendomsAnsvarlig { get; set; }
        
 

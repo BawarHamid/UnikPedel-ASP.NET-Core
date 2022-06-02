@@ -10,7 +10,7 @@ namespace UnikPedel.Application.EjendomsAnsvarligContract.EjendomsAnsvarligDto
     public class EjendomsAnsvarligQueryDto
     {
         public int Id { get; set; } 
-      public int ViceværtId { get; set; }
+      public int VicevaertId { get; set; }
       //public Vicevært Vicevært { get; set; }
 
       public int EjendomId { get; set; }

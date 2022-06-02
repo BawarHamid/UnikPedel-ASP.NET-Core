@@ -25,7 +25,7 @@ public class BookingQuery : IBookingQuery
             Id = a.Id,
             StartTid = a.StartTid,
             SlutTid = a.SlutTid,
-            LejemålId = a.LejemålId,
+            LejemaalId = a.LejemaalId,
             LejerId = a.LejerId
         }));
         return result;
@@ -41,7 +41,7 @@ public class BookingQuery : IBookingQuery
             Id = result.Id,
             StartTid = result.StartTid,
             SlutTid = result.SlutTid,
-            LejemålId = result.LejemålId,   
+            LejemaalId = result.LejemaalId,   
             LejerId = result.LejerId   
         };
     }
@@ -55,7 +55,7 @@ public class BookingQuery : IBookingQuery
             Id = a.Id,
             StartTid = a.StartTid,
             SlutTid = a.SlutTid,
-            LejemålId = a.LejemålId,
+            LejemaalId = a.LejemaalId,
             LejerId = a.LejerId
         }));
         return result;
